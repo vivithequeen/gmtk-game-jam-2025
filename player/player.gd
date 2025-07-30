@@ -9,8 +9,8 @@ const LOOK_SENSE = 0.0025;
 
 #headbob
 var headbob_timer = 0;
-var headbob_speed = 1;
-var headbob_distance = 1;
+var headbob_speed = 6;
+var headbob_distance = 0.4;
 
 var paused := false;
 
@@ -18,6 +18,7 @@ func _ready() -> void:
 	update_mouse_mode()
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	#headbob(delta);
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -44,15 +45,19 @@ func _input(event: InputEvent) -> void:
 		rotation.y +=(-event.relative.x * LOOK_SENSE);
 		camera.rotation.x+=(-event.relative.y*LOOK_SENSE)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2);
+		var tween = get_tree().create_tween()
+		tween.tween_property(camera,"position:y",sin(headbob_timer) * headbob_distance + 1,0.1)
 
 
-func headbob(delta : float):
-	var is_headbob = true;
+func headbob(delta):
+	if (velocity.x + velocity.z != 0):
+		headbob_timer += delta * headbob_speed
+	if (headbob_timer > PI):
+		headbob_timer = 0;
 
-	if(is_headbob):
-		headbob_timer+=delta;
 
-		
+
+
 
 func update_mouse_mode():
 	
