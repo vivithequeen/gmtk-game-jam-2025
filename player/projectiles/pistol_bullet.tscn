@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcoosj1vffihp"]
+[gd_scene load_steps=4 format=3 uid="uid://dcoosj1vffihp"]
 
 [ext_resource type="Script" uid="uid://b84dlavarffy" path="res://player/projectiles/bullet.gd" id="1_fwp4r"]
 [ext_resource type="Texture2D" uid="uid://l2ygleglbolx" path="res://player/projectiles/bullet.png" id="2_bqk4y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bqk4y"]
+size = Vector3(0.2, 0.2, 1)
 
 [node name="PistolBullet" type="Area3D"]
 script = ExtResource("1_fwp4r")
@@ -60,6 +63,10 @@ texture = ExtResource("2_bqk4y")
 wait_time = 15.0
 one_shot = true
 autostart = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, -2.98023e-08, 0.35)
+shape = SubResource("BoxShape3D_bqk4y")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

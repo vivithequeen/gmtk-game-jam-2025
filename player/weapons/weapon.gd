@@ -1,7 +1,7 @@
 extends Node3D
 
 
-@export var fire_rate : int = 0.5; #seconds between bullet
+@export var fire_rate : float = 0.2; #seconds between bullet
 @export var bullet_type : PackedScene;
 @export var mag_size : int = 3;
 #@export var mag_type

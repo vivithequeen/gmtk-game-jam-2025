@@ -35,3 +35,6 @@ cull_mask = 1047554
 
 [node name="bullet_spawn" type="Node3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.452672, -0.117475, -1.62088)
+
+[node name="crouchcast" type="RayCast3D" parent="."]
+target_position = Vector3(0, 1, 0)

@@ -1,3 +1,17 @@
 crouch
 dash
 explosive
+
+credit stuff
+Submachine Gun by Quaternius (https://poly.pizza/m/7ehatxr7FY)//all the weapons are this guys stuff so do that too
+
+rougelite more? each time you can chose what
+
+to do:
+double jump DONE    
+dash DONE
+controller support
+movement juice (fov?)
+enemys!
+map!!
+polish!!

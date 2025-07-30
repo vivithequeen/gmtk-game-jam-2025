@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
+const SPEED = 12.0
 const JUMP_VELOCITY = 4.5
 const LOOK_SENSE = 0.0025;
 
@@ -14,29 +14,43 @@ var headbob_distance = 0.4;
 
 var paused := false;
 
+var can_double_jump := false;
+
+#dash
+var dash_timer := 0.0;
+var dash_amount := 0.15;
+var dash_speed :=40.0;
+var dash_direction : Vector2
+
+var is_crouching = false
 func _ready() -> void:
 	update_mouse_mode()
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	#headbob(delta);
-	if not is_on_floor():
+	crouch();
+	if not is_on_floor() and !dash_direction:
 		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if(Input.is_action_just_pressed("jump") and can_double_jump):
+		can_double_jump = false;
 		velocity.y = JUMP_VELOCITY
+	# Handle jump.
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		can_double_jump = true;
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * SPEED * (0.5 if is_crouching else 1.0);
+		velocity.z = direction.z * SPEED * (0.5 if is_crouching else 1.0);
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+	dash(delta,input_dir)
 	move_and_slide()
 
 
@@ -45,9 +59,7 @@ func _input(event: InputEvent) -> void:
 		rotation.y +=(-event.relative.x * LOOK_SENSE);
 		camera.rotation.x+=(-event.relative.y*LOOK_SENSE)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2);
-		var tween = get_tree().create_tween()
-		tween.tween_property(camera,"position:y",sin(headbob_timer) * headbob_distance + 1,0.1)
-
+		
 
 func headbob(delta):
 	if (velocity.x + velocity.z != 0):
@@ -55,7 +67,35 @@ func headbob(delta):
 	if (headbob_timer > PI):
 		headbob_timer = 0;
 
+func vec3tovec2(vec3 : Vector3) ->Vector2:
+	return Vector2(vec3.x,vec3.z);
+	
+func dash(delta,input_dir):
+	if(Input.is_action_just_pressed("dash")):#start dash
+		dash_timer = dash_amount;
+		if(input_dir):
+			velocity.y = 0;
+			dash_direction = vec3tovec2((transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized());
+		else:
+			dash_direction = vec3tovec2((transform.basis * Vector3(0, 0, -1)).normalized());
+	if(dash_timer>=0):
+		dash_timer-=delta
+		velocity.x =dash_direction.x * dash_speed
+		velocity.z =dash_direction.y * dash_speed
+	else:
+		dash_direction = Vector2.ZERO
 
+
+
+func crouch():
+	is_crouching = Input.is_action_pressed("crouch");
+	if $crouchcast.is_colliding() and !is_crouching :
+		is_crouching = true
+	
+	$CollisionShape3D.shape.height = 1 if is_crouching else 2;
+	$CollisionShape3D.position.y = -0.5 if is_crouching else 0.0
+	var tween = get_tree().create_tween()
+	tween.tween_property(camera,"position:y",0 if is_crouching else 1,0.1)
 
 
 
