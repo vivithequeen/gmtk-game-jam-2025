@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://s6tjrbbsqg0s"]
+
+[ext_resource type="Script" uid="uid://c2g8cygb56sk1" path="res://enemies/enemy_1.gd" id="1_8yn4d"]
+[ext_resource type="Texture2D" uid="uid://cbtor5axdis58" path="res://enemies/1000001172.jpg" id="1_vihk0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8yn4d"]
+
+[node name="Enemy1" type="CharacterBody3D"]
+script = ExtResource("1_8yn4d")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+billboard = 2
+shaded = true
+alpha_cut = 2
+texture = ExtResource("1_vihk0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_8yn4d")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+debug_enabled = true

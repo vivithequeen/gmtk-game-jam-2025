@@ -30,6 +30,7 @@ var dashs = 3;
 func _ready() -> void:
 	update_mouse_mode()
 func _physics_process(delta: float) -> void:
+	
 	$Camera3D/SubViewportContainer/SubViewport/Camera3D.global_position = global_position
 	$Camera3D/SubViewportContainer/SubViewport/Camera3D.global_rotation = global_rotation
 	# Add the gravity.

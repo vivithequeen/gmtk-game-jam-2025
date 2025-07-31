@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr5fejhdhc20n"]
+
+[ext_resource type="Texture2D" uid="uid://bsq5ai6mk814j" path="res://player/normal_crosshair.png" id="1_cydly"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8j3n"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cydly"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_2q84c"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_e8j3n")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_cydly")
+
+[node name="ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 440.0
+offset_right = 224.0
+offset_bottom = 467.0
+theme = SubResource("Theme_2q84c")
+step = 1.0
+value = 32.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 440.0
+offset_right = 624.0
+offset_bottom = 479.0
+theme_override_font_sizes/font_size = 24
+text = "1 | 4"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_cydly")

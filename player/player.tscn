@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dolony2nssuwa"]
+[gd_scene load_steps=5 format=3 uid="uid://dolony2nssuwa"]
 
 [ext_resource type="Script" uid="uid://skwu0us3tq7d" path="res://player/player.gd" id="1_oul6g"]
-[ext_resource type="PackedScene" uid="uid://bgm8s1gu0qxpc" path="res://player/weapons/pistol.tscn" id="2_rkbax"]
+[ext_resource type="PackedScene" uid="uid://y65bmsmhruwj" path="res://player/weapons/shotgun.tscn" id="2_rkbax"]
+[ext_resource type="PackedScene" uid="uid://cr5fejhdhc20n" path="res://player/ui.tscn" id="3_g1dw6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 
@@ -31,10 +32,12 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 cull_mask = 1047554
 
-[node name="Pistol" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D" instance=ExtResource("2_rkbax")]
+[node name="shotgun" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D" instance=ExtResource("2_rkbax")]
 
 [node name="bullet_spawn" type="Node3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.452672, -0.117475, -1.62088)
+
+[node name="ui" parent="Camera3D" instance=ExtResource("3_g1dw6")]
 
 [node name="crouchcast" type="RayCast3D" parent="."]
 target_position = Vector3(0, 1, 0)

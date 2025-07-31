@@ -7,11 +7,15 @@ Submachine Gun by Quaternius (https://poly.pizza/m/7ehatxr7FY)//all the weapons 
 
 rougelite more? each time you can chose what
 
+https://deep-fold.itch.io/space-background-generator
+
 to do:
 double jump DONE    
 dash DONE
-controller support
-movement juice (fov?)
+controller support DONE!!
+movement juice (fov?) MOSTY DONE!!  
+add guns
 enemys!
 map!!
+sounds
 polish!!
