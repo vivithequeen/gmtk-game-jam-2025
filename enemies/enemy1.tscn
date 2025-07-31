@@ -25,4 +25,10 @@ autostart = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_8yn4d")
 
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_8yn4d")
+
 [connection signal="timeout" from="get_player_pos" to="." method="_on_get_player_pos_timeout"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

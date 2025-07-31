@@ -3,6 +3,7 @@ extends Area3D
 var spawn_rot;
 var spawn_pos;
 var accuracy;
+var is_bullet = true;
 func _ready():
 	print("i live...")
 	$direction.position.x+=randf_range(-accuracy,accuracy);

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wma0dvk5k566"
-path.s3tc="res://.godot/imported/orenge.png-2f79a69484a8e7050384091b3af6d15d.s3tc.ctex"
+uid="uid://bvxt6k3kopib2"
+path.s3tc="res://.godot/imported/Metal028_1K-JPG_Metalness.jpg-ab6eacded9c38c2d3c4574d6d181cdb6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/orenge.png"
-dest_files=["res://.godot/imported/orenge.png-2f79a69484a8e7050384091b3af6d15d.s3tc.ctex"]
+source_file="res://materials/black_metal/Metal028_1K-JPG_Metalness.jpg"
+dest_files=["res://.godot/imported/Metal028_1K-JPG_Metalness.jpg-ab6eacded9c38c2d3c4574d6d181cdb6.s3tc.ctex"]
 
 [params]
 

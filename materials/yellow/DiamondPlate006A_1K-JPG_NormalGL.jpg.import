@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wma0dvk5k566"
-path.s3tc="res://.godot/imported/orenge.png-2f79a69484a8e7050384091b3af6d15d.s3tc.ctex"
+uid="uid://bhm5qe4a4r74l"
+path.s3tc="res://.godot/imported/DiamondPlate006A_1K-JPG_NormalGL.jpg-3e2cf8058b44b4b90fbe32f3689b0b11.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/orenge.png"
-dest_files=["res://.godot/imported/orenge.png-2f79a69484a8e7050384091b3af6d15d.s3tc.ctex"]
+source_file="res://materials/yellow/DiamondPlate006A_1K-JPG_NormalGL.jpg"
+dest_files=["res://.godot/imported/DiamondPlate006A_1K-JPG_NormalGL.jpg-3e2cf8058b44b4b90fbe32f3689b0b11.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://materials/yellow/DiamondPlate006A_1K-JPG_NormalGL.jpg"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

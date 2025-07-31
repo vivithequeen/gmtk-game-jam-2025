@@ -5,7 +5,7 @@ extends Node3D
 @export var player : CharacterBody3D 
 @onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
 
-
+var health := 40;
 var physics_delta: float
 
 func _ready() -> void:
@@ -42,3 +42,8 @@ func _on_velocity_computed(safe_velocity: Vector3) -> void:
 
 func _on_get_player_pos_timeout() -> void:
 	set_movement_target(player.global_position);
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.get("is_bullet"):
+		health-=body.damage;

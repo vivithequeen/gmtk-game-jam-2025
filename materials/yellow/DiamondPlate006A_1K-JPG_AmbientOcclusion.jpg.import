@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wma0dvk5k566"
-path.s3tc="res://.godot/imported/orenge.png-2f79a69484a8e7050384091b3af6d15d.s3tc.ctex"
+uid="uid://bm1qxljemh55l"
+path.s3tc="res://.godot/imported/DiamondPlate006A_1K-JPG_AmbientOcclusion.jpg-19519edede298f330845c6499de81979.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/orenge.png"
-dest_files=["res://.godot/imported/orenge.png-2f79a69484a8e7050384091b3af6d15d.s3tc.ctex"]
+source_file="res://materials/yellow/DiamondPlate006A_1K-JPG_AmbientOcclusion.jpg"
+dest_files=["res://.godot/imported/DiamondPlate006A_1K-JPG_AmbientOcclusion.jpg-19519edede298f330845c6499de81979.s3tc.ctex"]
 
 [params]
 

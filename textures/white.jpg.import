@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wma0dvk5k566"
-path.s3tc="res://.godot/imported/orenge.png-2f79a69484a8e7050384091b3af6d15d.s3tc.ctex"
+uid="uid://n11si15fj17y"
+path.s3tc="res://.godot/imported/white.jpg-6d11d0403b7762334b47c2b158541573.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/orenge.png"
-dest_files=["res://.godot/imported/orenge.png-2f79a69484a8e7050384091b3af6d15d.s3tc.ctex"]
+source_file="res://textures/white.jpg"
+dest_files=["res://.godot/imported/white.jpg-6d11d0403b7762334b47c2b158541573.s3tc.ctex"]
 
 [params]
 
