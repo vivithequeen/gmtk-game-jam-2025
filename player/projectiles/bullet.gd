@@ -2,8 +2,12 @@ extends Area3D
 
 var spawn_rot;
 var spawn_pos;
-
+var accuracy;
 func _ready():
+
+	$direction.position.x+=randf_range(-accuracy,accuracy);
+	$direction.position.y+=randf_range(-accuracy,accuracy);
+
 	global_position = spawn_pos;
 	global_rotation = spawn_rot;
 func _physics_process(delta: float) -> void:

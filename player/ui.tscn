@@ -1,16 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr5fejhdhc20n"]
+[gd_scene load_steps=9 format=3 uid="uid://cr5fejhdhc20n"]
 
 [ext_resource type="Texture2D" uid="uid://bsq5ai6mk814j" path="res://player/normal_crosshair.png" id="1_cydly"]
+[ext_resource type="Texture2D" uid="uid://cmbry6vic4hy1" path="res://player/bullet_ui.png" id="2_2q84c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8j3n"]
-bg_color = Color(0, 1, 0, 1)
+bg_color = Color(1, 0.666667, 0.368627, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cydly"]
-bg_color = Color(1, 0, 0, 1)
+bg_color = Color(0.0509804, 0.168627, 0.270588, 1)
 
 [sub_resource type="Theme" id="Theme_2q84c"]
 ProgressBar/styles/background = SubResource("StyleBoxFlat_e8j3n")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_cydly")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2q84c"]
+bg_color = Color(0.12549, 0.235294, 0.337255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7hyj"]
+bg_color = Color(1, 0.92549, 0.839216, 1)
+
+[sub_resource type="Theme" id="Theme_upte5"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_2q84c")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_l7hyj")
 
 [node name="ui" type="Control"]
 layout_mode = 3
@@ -20,7 +31,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="health" type="ProgressBar" parent="."]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 440.0
@@ -28,17 +39,18 @@ offset_right = 224.0
 offset_bottom = 467.0
 theme = SubResource("Theme_2q84c")
 step = 1.0
-value = 32.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="."]
+[node name="dash" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 536.0
-offset_top = 440.0
-offset_right = 624.0
-offset_bottom = 479.0
-theme_override_font_sizes/font_size = 24
-text = "1 | 4"
+offset_left = 8.0
+offset_top = 416.0
+offset_right = 160.0
+offset_bottom = 435.0
+theme = SubResource("Theme_upte5")
+max_value = 3.0
+value = 1.0
+show_percentage = false
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
@@ -48,3 +60,125 @@ offset_bottom = 480.0
 [node name="TextureRect" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2
 texture = ExtResource("1_cydly")
+
+[node name="ammo1" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 408.0
+offset_right = 624.0
+offset_bottom = 429.0
+
+[node name="TextureRect1" type="TextureRect" parent="ammo1"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect2" type="TextureRect" parent="ammo1"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect3" type="TextureRect" parent="ammo1"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect4" type="TextureRect" parent="ammo1"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect5" type="TextureRect" parent="ammo1"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect6" type="TextureRect" parent="ammo1"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect7" type="TextureRect" parent="ammo1"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect8" type="TextureRect" parent="ammo1"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect9" type="TextureRect" parent="ammo1"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect10" type="TextureRect" parent="ammo1"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect11" type="TextureRect" parent="ammo1"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect12" type="TextureRect" parent="ammo1"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="ammo2" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 440.0
+offset_right = 650.0
+offset_bottom = 461.0
+
+[node name="TextureRect1" type="TextureRect" parent="ammo2"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect2" type="TextureRect" parent="ammo2"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect3" type="TextureRect" parent="ammo2"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect4" type="TextureRect" parent="ammo2"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect5" type="TextureRect" parent="ammo2"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect6" type="TextureRect" parent="ammo2"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect7" type="TextureRect" parent="ammo2"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect8" type="TextureRect" parent="ammo2"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect9" type="TextureRect" parent="ammo2"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect10" type="TextureRect" parent="ammo2"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect11" type="TextureRect" parent="ammo2"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="TextureRect12" type="TextureRect" parent="ammo2"]
+layout_mode = 2
+texture = ExtResource("2_2q84c")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(109, 435)
+points = PackedVector2Array(0, -19, 0, 0)
+width = 2.0
+default_color = Color(0.552941, 0.411765, 0.478431, 1)
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(59, 435)
+points = PackedVector2Array(0, -19, 0, 0)
+width = 2.0
+default_color = Color(0.552941, 0.411765, 0.478431, 1)

@@ -111,7 +111,7 @@ script = ExtResource("1_72bee")
 bullet_type = ExtResource("2_qj3l3")
 
 [node name="Pistol_6" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.18557e-06, -44.441, -5.96046e-06, 0, -5.29778e-06, 50, -50, 1.94258e-06, 2.6054e-13, 0.449, -0.389, -0.854)
+transform = Transform3D(-2.18557e-06, -44.441, -5.96046e-06, 0, -5.29778e-06, 50, -50, 1.94258e-06, 2.6054e-13, 0.449, -0.589, -0.854)
 layers = 2
 mesh = SubResource("ArrayMesh_s3h8g")
 skeleton = NodePath("")
