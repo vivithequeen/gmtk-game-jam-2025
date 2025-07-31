@@ -4,7 +4,7 @@ var spawn_rot;
 var spawn_pos;
 var accuracy;
 func _ready():
-
+	print("i live...")
 	$direction.position.x+=randf_range(-accuracy,accuracy);
 	$direction.position.y+=randf_range(-accuracy,accuracy);
 

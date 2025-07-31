@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dolony2nssuwa"]
+[gd_scene load_steps=8 format=3 uid="uid://dolony2nssuwa"]
 
 [ext_resource type="Script" uid="uid://skwu0us3tq7d" path="res://player/player.gd" id="1_oul6g"]
-[ext_resource type="PackedScene" uid="uid://cap5vd8phiupw" path="res://player/weapons/rifle.tscn" id="2_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://c0x4gsqvfwn3q" path="res://player/weapons/smg.tscn" id="2_g1dw6"]
 [ext_resource type="PackedScene" uid="uid://cr5fejhdhc20n" path="res://player/ui.tscn" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://y65bmsmhruwj" path="res://player/weapons/shotgun.tscn" id="3_g6k8r"]
+[ext_resource type="PackedScene" uid="uid://bgm8s1gu0qxpc" path="res://player/weapons/pistol.tscn" id="4_boad6"]
+[ext_resource type="PackedScene" uid="uid://cap5vd8phiupw" path="res://player/weapons/rifle.tscn" id="5_rgyib"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 
@@ -32,7 +35,13 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 cull_mask = 1047554
 
-[node name="rifle" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D" instance=ExtResource("2_g1dw6")]
+[node name="smg" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D" instance=ExtResource("2_g1dw6")]
+
+[node name="shotgun" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D" instance=ExtResource("3_g6k8r")]
+
+[node name="pistol" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D" instance=ExtResource("4_boad6")]
+
+[node name="rifle" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D" instance=ExtResource("5_rgyib")]
 
 [node name="bullet_spawn" type="Node3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45141, -0.318885, -1.66735)

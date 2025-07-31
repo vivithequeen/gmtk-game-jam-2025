@@ -12,7 +12,7 @@ var controller_look_sense = 0.07;
 
 #WEAPONS
 
-var current_bullets = 24
+
 #headbob
 var headbob_timer = 0;
 var headbob_speed = 6;
@@ -31,8 +31,12 @@ var is_dashing := false;
 var is_crouching = false
 var dashs = 3;
 
+
+var current_gun = "rifle"
+
 func _ready() -> void:
 	update_mouse_mode()
+	update_weapons();
 func _physics_process(delta: float) -> void:
 	ui_shit();
 	
@@ -50,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		camera.rotation.x -= look_dir.y * controller_look_sense
 		camera.rotation.x = clamp(camera.rotation.x, -PI / 2, PI / 2);
 
-
+	change_weapons()
 	crouch();
 	if not is_on_floor() and !dash_direction:
 		velocity += get_gravity() * delta
@@ -82,17 +86,63 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func gun_stuff():
-	if(Input.is_action_just_pressed("reload")):
+func change_weapons():
+	if (Input.is_action_just_pressed("weapon1")):
+		current_gun = "pistol"
+		update_weapons()
+		return
+	elif (Input.is_action_just_pressed("weapon2")):
+		current_gun = "smg"
+		update_weapons()
+		return
+	elif (Input.is_action_just_pressed("weapon3")):
+		current_gun = "shotgun"
+		update_weapons()
+		return
+	elif (Input.is_action_just_pressed("weapon4")):
+		current_gun = "rifle"
+		update_weapons()
+		return
 
-		$Camera3D/SubViewportContainer/SubViewport/Camera3D/rifle.reload()
+
+func update_weapons():
+	var ui_bullet = load("res://player/"+current_gun+"_bullet_ui.png")
+	for i in range(12):
+		get_node("Camera3D/ui/ammo1/TextureRect" + str(i + 1)).texture = ui_bullet
+	for i in range(12):
+		get_node("Camera3D/ui/ammo2/TextureRect" + str(i + 1)).texture = ui_bullet
+	for i in range(12):
+		get_node("Camera3D/ui/ammo3/TextureRect" + str(i + 1)).texture = ui_bullet
+	if(current_gun == "shotgun"):
+		$Camera3D/ui/CenterContainer/TextureRect.texture = load("res://player/shotgun_crosshair.png")
+	else:
+		$Camera3D/ui/CenterContainer/TextureRect.texture = load("res://player/normal_crosshair.png")
+
+	$Camera3D/SubViewportContainer/SubViewport/Camera3D/smg.visible = current_gun == "smg"
+	$Camera3D/SubViewportContainer/SubViewport/Camera3D/shotgun.visible = current_gun == "shotgun"
+	$Camera3D/SubViewportContainer/SubViewport/Camera3D/pistol.visible = current_gun == "pistol"
+	$Camera3D/SubViewportContainer/SubViewport/Camera3D/rifle.visible = current_gun == "rifle"
+
+	$Camera3D/SubViewportContainer/SubViewport/Camera3D/smg.is_current_weapon = current_gun == "smg"
+	$Camera3D/SubViewportContainer/SubViewport/Camera3D/shotgun.is_current_weapon = current_gun == "shotgun"
+	$Camera3D/SubViewportContainer/SubViewport/Camera3D/pistol.is_current_weapon = current_gun == "pistol"
+	$Camera3D/SubViewportContainer/SubViewport/Camera3D/rifle.is_current_weapon = current_gun == "rifle"
+
+	
+
+func gun_stuff():
+	if (Input.is_action_just_pressed("reload")):
+		get_node("Camera3D/SubViewportContainer/SubViewport/Camera3D/" + current_gun).reload()
 
 func ui_shit():
+
 	$Camera3D/ui/dash.value = dashs
 	for i in range(12):
-		get_node("Camera3D/ui/ammo1/TextureRect"+str(i+1)).visible = i+12 < current_bullets
+		get_node("Camera3D/ui/ammo1/TextureRect" + str(i + 1)).visible = i + 24 < get_node("Camera3D/SubViewportContainer/SubViewport/Camera3D/" + current_gun).ammo
 	for i in range(12):
-		get_node("Camera3D/ui/ammo2/TextureRect"+str(i+1)).visible = i < current_bullets
+		get_node("Camera3D/ui/ammo2/TextureRect" + str(i + 1)).visible = i + 12 < get_node("Camera3D/SubViewportContainer/SubViewport/Camera3D/" + current_gun).ammo
+	for i in range(12):
+		get_node("Camera3D/ui/ammo3/TextureRect" + str(i + 1)).visible = i < get_node("Camera3D/SubViewportContainer/SubViewport/Camera3D/" + current_gun).ammo
 
 
 func _input(event: InputEvent) -> void:

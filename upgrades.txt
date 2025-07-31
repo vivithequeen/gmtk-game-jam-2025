@@ -14,7 +14,7 @@ double jump DONE
 dash DONE
 controller support DONE!!
 movement juice (fov?) MOSTY DONE!!  
-add guns
+add guns DONE!!!
 enemys!
 map!!
 sounds

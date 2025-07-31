@@ -137,22 +137,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0hmsi")
 
-[sub_resource type="Animation" id="Animation_qsn2p"]
-resource_name = "new_animation"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(3.14159, 0, 0), Vector3(6.28319, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_k6g8t"]
 length = 0.001
 tracks/0/type = "value"
@@ -196,6 +180,22 @@ tracks/0/keys = {
 "values": [Vector3(0.445701, -0.41111, -1.01172), Vector3(0.445701, -0.41111, -0.791297), Vector3(0.445701, -0.41111, -1.01172)]
 }
 
+[sub_resource type="Animation" id="Animation_qsn2p"]
+resource_name = "new_animation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3.14159, 0, 0), Vector3(6.28319, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ncgw3"]
 _data = {
 &"RESET": SubResource("Animation_k6g8t"),
@@ -205,9 +205,10 @@ _data = {
 
 [node name="smg" type="Node3D"]
 script = ExtResource("1_qsn2p")
-fire_rate = 0.1
+fire_rate = 0.05
 bullet_type = ExtResource("2_k6g8t")
 accuracy = 0.013
+max_ammo = 36
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445701, -0.41111, -1.01172)
