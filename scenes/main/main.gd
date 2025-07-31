@@ -5,4 +5,4 @@ func _ready() -> void:
 func _process(delta):
 
 	
-	$WorldEnvironment.environment.sky_rotation.z+=delta /120.0
+	$WorldEnvironment.environment.sky_rotation.z+=delta /80.0

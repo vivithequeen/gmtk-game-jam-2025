@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://rslsddl51460"]
+
+[ext_resource type="Script" uid="uid://g6ih288afkt5" path="res://enemies/projectiles/enemy_bullet.gd" id="1_wtcpd"]
+[ext_resource type="Texture2D" uid="uid://dpwd2r7lpe2ly" path="res://enemies/projectiles/enemy_bullet.png" id="2_wr1qy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wtcpd"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="EnemyBullet" type="Area3D"]
+script = ExtResource("1_wtcpd")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+billboard = 1
+texture_filter = 2
+texture = ExtResource("2_wr1qy")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_wtcpd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
