@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 			if(Input.is_action_pressed("fire") and fire_timer <= 0):
 				$ani.play("fire")
 				ammo-=1;
+				$fire.play();
 				for i in range(amount_of_bullets):
 					
 					fire_timer = fire_rate;
@@ -40,7 +41,7 @@ func _physics_process(delta: float) -> void:
 				reload()
 
 func reload():
-	
+	$reload2.play()
 	$ani.play("new_animation")
 	$reload.start()
 	is_reloading = true;

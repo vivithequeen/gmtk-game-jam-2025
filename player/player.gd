@@ -9,7 +9,8 @@ var controller_look_sense = 0.07;
 
 @onready var camera = $Camera3D
 
-
+var health = 100;
+var id = "player"
 #WEAPONS
 
 
@@ -32,12 +33,13 @@ var is_crouching = false
 var dashs = 3;
 
 
-var current_gun = "rifle"
+var current_gun = "pistol"
 
 func _ready() -> void:
 	update_mouse_mode()
 	update_weapons();
 func _physics_process(delta: float) -> void:
+	
 	ui_shit();
 	
 	$Camera3D/SubViewportContainer/SubViewport/Camera3D.global_position = global_position
@@ -60,10 +62,10 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	if (Input.is_action_just_pressed("jump") and can_double_jump):
 		can_double_jump = false;
-		velocity.y = JUMP_VELOCITY
+		jump()
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		jump()
 		can_double_jump = true;
 
 
@@ -85,7 +87,9 @@ func _physics_process(delta: float) -> void:
 	gun_stuff()
 	move_and_slide()
 
-
+func jump():
+	velocity.y = JUMP_VELOCITY
+	$jump.play()
 func change_weapons():
 	if (Input.is_action_just_pressed("weapon1")):
 		current_gun = "pistol"
@@ -135,8 +139,12 @@ func gun_stuff():
 		get_node("Camera3D/SubViewportContainer/SubViewport/Camera3D/" + current_gun).reload()
 
 func ui_shit():
-
-	$Camera3D/ui/dash.value = dashs
+	var tween = get_tree().create_tween()
+	tween.tween_property($Camera3D/ui/health,"value",health,0.1)
+	tween.set_parallel()
+	tween.tween_property($Camera3D/ui/dash,"value",dashs,0.1)
+	
+	
 	for i in range(12):
 		get_node("Camera3D/ui/ammo1/TextureRect" + str(i + 1)).visible = i + 24 < get_node("Camera3D/SubViewportContainer/SubViewport/Camera3D/" + current_gun).ammo
 	for i in range(12):
@@ -173,6 +181,7 @@ func dash(delta, input_dir):
 	if (is_on_floor()):
 		dashs = 3;
 	if (Input.is_action_just_pressed("dash") and !is_dashing and dashs > 0): # start dash
+		$dash.play()
 		dash_timer = dash_amount;
 		dashs -= 1;
 		is_dashing = true;

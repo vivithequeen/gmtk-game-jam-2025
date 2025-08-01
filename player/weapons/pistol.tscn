@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://bgm8s1gu0qxpc"]
+[gd_scene load_steps=14 format=4 uid="uid://bgm8s1gu0qxpc"]
 
 [ext_resource type="Script" uid="uid://gj5tfua8vyna" path="res://player/weapons/weapon.gd" id="1_72bee"]
 [ext_resource type="PackedScene" uid="uid://dcoosj1vffihp" path="res://player/projectiles/pistol_bullet.tscn" id="2_qj3l3"]
+[ext_resource type="AudioStream" uid="uid://ddmehi2tirai" path="res://audio/pistol.wav" id="3_qj3l3"]
+[ext_resource type="AudioStream" uid="uid://bwnnw2v2pflse" path="res://audio/reload.wav" id="4_stdf3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j11eo"]
 resource_name = "Metal"
@@ -194,5 +196,13 @@ libraries = {
 [node name="reload" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="fire" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qj3l3")
+volume_db = -16.0
+
+[node name="reload2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_stdf3")
+volume_db = -16.0
 
 [connection signal="timeout" from="reload" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dolony2nssuwa"]
+[gd_scene load_steps=10 format=3 uid="uid://dolony2nssuwa"]
 
 [ext_resource type="Script" uid="uid://skwu0us3tq7d" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="PackedScene" uid="uid://c0x4gsqvfwn3q" path="res://player/weapons/smg.tscn" id="2_g1dw6"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://y65bmsmhruwj" path="res://player/weapons/shotgun.tscn" id="3_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://bgm8s1gu0qxpc" path="res://player/weapons/pistol.tscn" id="4_boad6"]
 [ext_resource type="PackedScene" uid="uid://cap5vd8phiupw" path="res://player/weapons/rifle.tscn" id="5_rgyib"]
+[ext_resource type="AudioStream" uid="uid://dtanrm601gw1" path="res://audio/jump.wav" id="7_boad6"]
+[ext_resource type="AudioStream" uid="uid://b4uaarosw53li" path="res://audio/dash.wav" id="8_rgyib"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 
@@ -50,3 +52,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45141, -0.318885, -1.66735)
 
 [node name="crouchcast" type="RayCast3D" parent="."]
 target_position = Vector3(0, 1, 0)
+
+[node name="jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_boad6")
+volume_db = -16.0
+
+[node name="dash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_rgyib")
+volume_db = -16.0

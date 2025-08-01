@@ -9,6 +9,7 @@ rougelite more? each time you can chose what
 
 https://deep-fold.itch.io/space-background-generator
 ambiant sg
+https://kenney.nl/assets/input-prompts-pixel-16
 
 to do:
 double jump DONE    
@@ -24,6 +25,6 @@ polish!!
 
 goals for tmr!!
 
-all weapons work!
+all weapons work! DONE!!!
 SOUND!!!
 SOUND VERY IMPORTANT!!

@@ -15,6 +15,7 @@ func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 var attack_timer = 0;
 func _physics_process(delta):
+	
 	# Save the delta for use in _on_velocity_computed.
 	physics_delta = delta
 	var distance_from_player = (global_position - player.global_position).length()

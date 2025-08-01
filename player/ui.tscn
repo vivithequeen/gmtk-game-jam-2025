@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cmbry6vic4hy1" path="res://player/pistol_bullet_ui.png" id="2_2q84c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8j3n"]
-bg_color = Color(1, 0.666667, 0.368627, 1)
+bg_color = Color(0.0509804, 0.168627, 0.270588, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cydly"]
-bg_color = Color(0.0509804, 0.168627, 0.270588, 1)
+bg_color = Color(1, 0.666667, 0.368627, 1)
 
 [sub_resource type="Theme" id="Theme_2q84c"]
 ProgressBar/styles/background = SubResource("StyleBoxFlat_e8j3n")
