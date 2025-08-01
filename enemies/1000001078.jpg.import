@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwwr47vyepqsr"
-path.s3tc="res://.godot/imported/background.png-d201997fe82dd443c9b8318e3f2fc828.s3tc.ctex"
+uid="uid://71e8b1xdy018"
+path.s3tc="res://.godot/imported/1000001078.jpg-157f12b32d7dd5540a6c365c632903f5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/background.png"
-dest_files=["res://.godot/imported/background.png-d201997fe82dd443c9b8318e3f2fc828.s3tc.ctex"]
+source_file="res://enemies/1000001078.jpg"
+dest_files=["res://.godot/imported/1000001078.jpg-157f12b32d7dd5540a6c365c632903f5.s3tc.ctex"]
 
 [params]
 

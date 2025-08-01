@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://cap5vd8phiupw"]
+[gd_scene load_steps=14 format=4 uid="uid://cap5vd8phiupw"]
 
 [ext_resource type="Script" uid="uid://gj5tfua8vyna" path="res://player/weapons/weapon.gd" id="1_63u1f"]
 [ext_resource type="PackedScene" uid="uid://dcoosj1vffihp" path="res://player/projectiles/pistol_bullet.tscn" id="2_4b1eh"]
 [ext_resource type="AudioStream" uid="uid://dvcfmli43o7ug" path="res://audio/rifle.wav" id="3_4b1eh"]
+[ext_resource type="AudioStream" uid="uid://bwnnw2v2pflse" path="res://audio/reload.wav" id="4_lommp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3tit3"]
 resource_name = "Main"
@@ -181,6 +182,7 @@ script = ExtResource("1_63u1f")
 fire_rate = 0.1
 bullet_type = ExtResource("2_4b1eh")
 accuracy = 0.013
+damage = 7.0
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445701, -0.41111, -1.01172)
@@ -205,5 +207,7 @@ stream = ExtResource("3_4b1eh")
 volume_db = -16.0
 
 [node name="reload2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lommp")
+volume_db = -16.0
 
 [connection signal="timeout" from="reload" to="." method="_on_timer_timeout"]

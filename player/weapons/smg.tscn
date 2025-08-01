@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://c0x4gsqvfwn3q"]
+[gd_scene load_steps=15 format=4 uid="uid://c0x4gsqvfwn3q"]
 
 [ext_resource type="Script" uid="uid://gj5tfua8vyna" path="res://player/weapons/weapon.gd" id="1_qsn2p"]
 [ext_resource type="PackedScene" uid="uid://dcoosj1vffihp" path="res://player/projectiles/pistol_bullet.tscn" id="2_k6g8t"]
 [ext_resource type="AudioStream" uid="uid://bqfacgwquhvnt" path="res://audio/smg.wav" id="3_k6g8t"]
+[ext_resource type="AudioStream" uid="uid://bwnnw2v2pflse" path="res://audio/reload.wav" id="4_ncgw3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjncg"]
 resource_name = "DarkMetal"
@@ -209,6 +210,7 @@ script = ExtResource("1_qsn2p")
 fire_rate = 0.05
 bullet_type = ExtResource("2_k6g8t")
 accuracy = 0.013
+damage = 3.0
 max_ammo = 36
 
 [node name="Node3D" type="Node3D" parent="."]
@@ -234,5 +236,7 @@ stream = ExtResource("3_k6g8t")
 volume_db = -16.0
 
 [node name="reload2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ncgw3")
+volume_db = -16.0
 
 [connection signal="timeout" from="reload" to="." method="_on_timer_timeout"]

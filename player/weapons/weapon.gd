@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 					fire_timer = fire_rate;
 					var b := bullet_type.instantiate();
 					b.accuracy = accuracy;
+					b.damage = damage;
 					b.spawn_rot = get_node("../../../../").global_rotation;
 					b.spawn_pos = get_node("../../../../bullet_spawn").global_position;
 					get_node("../../../../../../").add_child(b)

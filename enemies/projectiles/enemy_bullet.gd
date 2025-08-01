@@ -26,6 +26,7 @@ func _on_body_entered(body:Node3D) -> void:
 	if body.get("id"):
 		if body.id == "player":
 			body.health-=5;
+			die()
 	if body is StaticBody3D || body is CSGBox3D:
 		die()
 

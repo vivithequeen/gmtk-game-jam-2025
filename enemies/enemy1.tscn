@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://s6tjrbbsqg0s"]
+[gd_scene load_steps=6 format=3 uid="uid://s6tjrbbsqg0s"]
 
 [ext_resource type="Script" uid="uid://c2g8cygb56sk1" path="res://enemies/enemy_1.gd" id="1_8yn4d"]
 [ext_resource type="Texture2D" uid="uid://cbtor5axdis58" path="res://enemies/1000001172.jpg" id="1_vihk0"]
+[ext_resource type="AudioStream" uid="uid://cr82jjvibwukd" path="res://audio/enemy_attack.wav" id="3_wkle1"]
+[ext_resource type="AudioStream" uid="uid://0artd4l5sy14" path="res://audio/enemy_hit.wav" id="4_k5ieq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8yn4d"]
+radius = 0.7
+height = 2.2
 
 [node name="Enemy1" type="CharacterBody3D"]
 script = ExtResource("1_8yn4d")
@@ -31,5 +35,19 @@ shape = SubResource("CapsuleShape3D_8yn4d")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CapsuleShape3D_8yn4d")
 
+[node name="attack" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_wkle1")
+volume_db = -16.0
+
+[node name="attack_offset" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="hit" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_k5ieq")
+volume_db = -16.0
+
 [connection signal="timeout" from="get_player_pos" to="." method="_on_get_player_pos_timeout"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="attack_offset" to="." method="_on_attack_offset_timeout"]

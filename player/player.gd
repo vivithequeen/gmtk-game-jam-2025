@@ -96,11 +96,12 @@ func change_weapons():
 		update_weapons()
 		return
 	elif (Input.is_action_just_pressed("weapon2")):
-		current_gun = "smg"
+		current_gun = "shotgun"
+		
 		update_weapons()
 		return
 	elif (Input.is_action_just_pressed("weapon3")):
-		current_gun = "shotgun"
+		current_gun = "smg"
 		update_weapons()
 		return
 	elif (Input.is_action_just_pressed("weapon4")):
