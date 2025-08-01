@@ -5,6 +5,7 @@ var e2 = preload("res://enemies/enemy2.tscn")
 @export var room_1_enemy_count: int = 3;
 @export var room_2_enemy_count: int = 3;
 func _ready() -> void:
+	randomize()
 	$WorldEnvironment.environment.sky_rotation.z = deg_to_rad(randf_range(0, 360))
 	
 func _process(delta):
@@ -71,3 +72,33 @@ func start_battle_2():
 	add_child(enemy3)
 
 	$battles.play("start_battle_2")
+
+var area_switch_1_activated = false;
+var area_switch_2_activated = false;
+
+
+func _on_area_switch_2_body_entered(body: Node3D) -> void:
+	if !area_switch_1_activated and body.get("id"):
+		if body.get("id") == "player":
+			area_switch_1_activated = true;
+
+			MapLoop.local_switch_pos = $Player.global_position - ($end_ancor.global_position - $start_ancor.global_position)
+			MapLoop.local_switch_rotation = $Player.rotation + $Player/Camera3D.rotation
+			get_tree().reload_current_scene()
+
+
+func _on_area_switch_1_body_entered(body: Node3D) -> void:
+	if !area_switch_2_activated and body.get("id"):
+		if body.get("id") == "player":
+			area_switch_2_activated = true;
+			$battles.play("close_end_door")
+
+var init_door_open_activated = false;
+
+
+func _on_open_init_door_body_entered(body: Node3D) -> void:
+	if !init_door_open_activated and body.get("id"):
+		if body.get("id") == "player":
+			init_door_open_activated = true;
+
+			$battles.play("open_init_door")

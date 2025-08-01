@@ -5,7 +5,7 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 @export var player: CharacterBody3D
 var rot_num = 0;
-@export var health := 40;
+@export var health := 80;
 
 var bullet_type := preload("res://enemies/projectiles/enemy_bullet.tscn");
 var attack_timer = 0;
@@ -13,6 +13,7 @@ var attack_timer = 0;
 var start_pos;
 func _ready():
 	global_position = start_pos
+	rot_num = deg_to_rad(randf_range(0, 360))
 
 
 func _physics_process(delta: float) -> void:

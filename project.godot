@@ -15,6 +15,10 @@ run/main_scene="uid://qs28ooi0d2lm"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MapLoop="*res://scenes/main/MapLoop.gd"
+
 [display]
 
 window/size/viewport_width=640

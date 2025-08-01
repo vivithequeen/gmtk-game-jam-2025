@@ -38,6 +38,15 @@ var current_gun = "pistol"
 func _ready() -> void:
 	update_mouse_mode()
 	update_weapons();
+	
+	if(!MapLoop.init_run):
+		global_position = MapLoop.local_switch_pos 
+		rotation.y = MapLoop.local_switch_rotation.y 
+		rotation.z = MapLoop.local_switch_rotation.z
+		camera.rotation.x = MapLoop.local_switch_rotation.x
+		
+	else:
+		MapLoop.init_run = false;
 func _physics_process(delta: float) -> void:
 	
 	ui_shit();

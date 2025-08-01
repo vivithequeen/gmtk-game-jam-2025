@@ -5,7 +5,7 @@ extends Node3D
 @export var player: CharacterBody3D
 @onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
 var bullet_type := preload("res://enemies/projectiles/enemy_bullet.tscn");
-@export var health := 40;
+@export var health := 80;
 var physics_delta: float
 
 var attack_amounts = 0;
