@@ -6,6 +6,7 @@ var e2 = preload("res://enemies/enemy2.tscn")
 @export var room_2_enemy_count: int = 3;
 func _ready() -> void:
 	randomize()
+	$double_jump_upgrade/Sprite3D.visible = !MapLoop.player_data["double_jump"]
 	$WorldEnvironment.environment.sky_rotation.z = deg_to_rad(randf_range(0, 360))
 	
 func _process(delta):
@@ -82,6 +83,12 @@ func _on_area_switch_2_body_entered(body: Node3D) -> void:
 		if body.get("id") == "player":
 			area_switch_1_activated = true;
 
+
+			MapLoop.player_data["current_gun"] = $Player.current_gun
+			MapLoop.player_data["weapon1_bullets"] = $Player/Camera3D/SubViewportContainer/SubViewport/Camera3D/pistol.ammo
+			MapLoop.player_data["weapon2_bullets"] = $Player/Camera3D/SubViewportContainer/SubViewport/Camera3D/shotgun.ammo
+			MapLoop.player_data["weapon3_bullets"] = $Player/Camera3D/SubViewportContainer/SubViewport/Camera3D/smg.ammo
+			MapLoop.player_data["weapon4_bullets"] = $Player/Camera3D/SubViewportContainer/SubViewport/Camera3D/rifle.ammo
 			MapLoop.local_switch_pos = $Player.global_position - ($end_ancor.global_position - $start_ancor.global_position)
 			MapLoop.local_switch_rotation = $Player.rotation + $Player/Camera3D.rotation
 			get_tree().reload_current_scene()
@@ -102,3 +109,30 @@ func _on_open_init_door_body_entered(body: Node3D) -> void:
 			init_door_open_activated = true;
 
 			$battles.play("open_init_door")
+
+
+
+var double_jump_door_activated = false;
+func _on_double_jump_upgrade_body_entered(body: Node3D) -> void:
+	if !double_jump_door_activated and body.get("id"):
+		if body.get("id") == "player":
+			double_jump_door_activated = true
+			$battles.play("boot_pick_up")
+			MapLoop.player_data["double_jump"] = true;
+			$double_jump_upgrade/Sprite3D.visible = !MapLoop.player_data["double_jump"]
+
+var double_jump_start_activated = false;
+func _on_start_double_jump_path_body_entered(body: Node3D) -> void:
+	if !double_jump_start_activated and body.get("id"):
+		if body.get("id") == "player":
+			double_jump_start_activated = true
+			$battles.play("double_jump_start")
+			
+
+var get_dash_activated = false;
+func _on_get_dash_body_entered(body: Node3D) -> void:
+	if !get_dash_activated and body.get("id"):
+		if body.get("id") == "player":
+			get_dash_activated = true;
+			$battles.play("dash_pick_up")
+			MapLoop.player_data["dash"] = true

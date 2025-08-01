@@ -18,7 +18,8 @@ var fire_timer = 0;
 
 var is_current_weapon;
 func _ready() -> void:
-	ammo = max_ammo
+	if(MapLoop.init_run):
+		ammo = max_ammo
 func _physics_process(delta: float) -> void:
 	if(is_current_weapon):
 		if(fire_timer>=0):

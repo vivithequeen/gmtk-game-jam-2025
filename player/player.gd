@@ -37,16 +37,23 @@ var current_gun = "pistol"
 
 func _ready() -> void:
 	update_mouse_mode()
-	update_weapons();
+	
 	
 	if(!MapLoop.init_run):
+		current_gun = MapLoop.player_data["current_gun"]
+		$Camera3D/SubViewportContainer/SubViewport/Camera3D/pistol.ammo = MapLoop.player_data["weapon1_bullets"]
+		$Camera3D/SubViewportContainer/SubViewport/Camera3D/shotgun.ammo = MapLoop.player_data["weapon2_bullets"]
+		$Camera3D/SubViewportContainer/SubViewport/Camera3D/smg.ammo = MapLoop.player_data["weapon3_bullets"]
+		$Camera3D/SubViewportContainer/SubViewport/Camera3D/rifle.ammo = MapLoop.player_data["weapon4_bullets"]
+		
 		global_position = MapLoop.local_switch_pos 
 		rotation.y = MapLoop.local_switch_rotation.y 
 		rotation.z = MapLoop.local_switch_rotation.z
 		camera.rotation.x = MapLoop.local_switch_rotation.x
-		
+	
 	else:
 		MapLoop.init_run = false;
+	update_weapons();
 func _physics_process(delta: float) -> void:
 	
 	ui_shit();
@@ -69,11 +76,11 @@ func _physics_process(delta: float) -> void:
 	crouch();
 	if not is_on_floor() and !dash_direction:
 		velocity += get_gravity() * delta
-	if (Input.is_action_just_pressed("jump") and can_double_jump):
+	if (Input.is_action_just_pressed("jump") and can_double_jump and MapLoop.player_data["double_jump"]):
 		can_double_jump = false;
 		jump()
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() :
 		jump()
 		can_double_jump = true;
 
@@ -90,7 +97,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	current_fov += (5 if is_dashing else 0)
 	current_fov += (5 if velocity != Vector3.ZERO else 0)
-	dash(delta, input_dir);
+	if(MapLoop.player_data["dash"]):
+		dash(delta, input_dir);
 	juice(delta, input_dir, current_fov);
 
 	gun_stuff()
@@ -100,20 +108,20 @@ func jump():
 	velocity.y = JUMP_VELOCITY
 	$jump.play()
 func change_weapons():
-	if (Input.is_action_just_pressed("weapon1")):
+	if (Input.is_action_just_pressed("weapon1") and MapLoop.player_data["weapon1"]):
 		current_gun = "pistol"
 		update_weapons()
 		return
-	elif (Input.is_action_just_pressed("weapon2")):
+	elif (Input.is_action_just_pressed("weapon2") and MapLoop.player_data["weapon2"]):
 		current_gun = "shotgun"
 		
 		update_weapons()
 		return
-	elif (Input.is_action_just_pressed("weapon3")):
+	elif (Input.is_action_just_pressed("weapon3") and MapLoop.player_data["weapon3"]):
 		current_gun = "smg"
 		update_weapons()
 		return
-	elif (Input.is_action_just_pressed("weapon4")):
+	elif (Input.is_action_just_pressed("weapon4") and MapLoop.player_data["weapon4"]):
 		current_gun = "rifle"
 		update_weapons()
 		return

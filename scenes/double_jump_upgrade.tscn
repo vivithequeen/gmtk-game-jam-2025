@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj128vaigou2j"]
+
+[ext_resource type="Texture2D" uid="uid://b0jcgt0ir6u2m" path="res://scenes/boot_upgrade.png" id="1_7dayy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s08xj"]
+size = Vector3(1, 8.75, 6)
+
+[node name="double_jump_upgrade" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.875, 0)
+shape = SubResource("BoxShape3D_s08xj")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0.5, 0)
+billboard = 2
+texture_filter = 2
+texture = ExtResource("1_7dayy")

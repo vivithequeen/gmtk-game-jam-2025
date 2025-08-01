@@ -10,5 +10,12 @@ var player_data = {
 	"weapon4" : false,
 	"double_jump" : false,
 	"dash" : false,
+	"current_gun" : "pistol",
+	"weapon1_bullets" : 0,
+	"weapon2_bullets" : 0,
+	"weapon3_bullets" : 0,
+	"weapon4_bullets" : 0,
 }
 var init_run = true;
+
+
