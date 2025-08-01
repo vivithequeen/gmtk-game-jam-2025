@@ -1,15 +1,15 @@
 extends Node3D
 
 @export var movement_speed: float = 12.0
-@export var room: int = 1;
+@export var battle: int = 1;
 @export var player: CharacterBody3D
 @onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
-var bullet_type := load("res://enemies/projectiles/enemy_bullet.tscn");
+var bullet_type := preload("res://enemies/projectiles/enemy_bullet.tscn");
 @export var health := 40;
 var physics_delta: float
 
 var attack_amounts = 0;
-
+var attack_timer = 0;
 var start_pos;
 
 func _ready() -> void:
@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
-var attack_timer = 0;
+
 func _physics_process(delta):
 	if (health <= 0):
 		die()
@@ -77,7 +77,8 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		health -= area.damage;
 		print(health)
 		$hit.play();
+
 func die():
-	get_parent().call("room_"+str(room)+"_enemy_died");
-	get_parent().call("check_room_"+str(room));
+	get_parent().call("room_"+str(battle)+"_enemy_died");
+	get_parent().call("check_room_"+str(battle));
 	queue_free()
