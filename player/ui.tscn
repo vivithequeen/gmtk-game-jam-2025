@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cr5fejhdhc20n"]
+[gd_scene load_steps=11 format=3 uid="uid://cr5fejhdhc20n"]
 
 [ext_resource type="Texture2D" uid="uid://bsq5ai6mk814j" path="res://player/normal_crosshair.png" id="1_cydly"]
 [ext_resource type="Texture2D" uid="uid://cmbry6vic4hy1" path="res://player/pistol_bullet_ui.png" id="2_2q84c"]
+[ext_resource type="FontFile" uid="uid://clh7ajxgofo1y" path="res://Tiny5-Regular.ttf" id="3_l7hyj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8j3n"]
 bg_color = Color(0.0509804, 0.168627, 0.270588, 1)
@@ -22,6 +23,9 @@ bg_color = Color(1, 0.92549, 0.839216, 1)
 [sub_resource type="Theme" id="Theme_upte5"]
 ProgressBar/styles/background = SubResource("StyleBoxFlat_2q84c")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_l7hyj")
+
+[sub_resource type="Theme" id="Theme_tuatv"]
+Label/fonts/font = ExtResource("3_l7hyj")
 
 [node name="ui" type="Control"]
 layout_mode = 3
@@ -237,3 +241,48 @@ position = Vector2(59, 435)
 points = PackedVector2Array(0, -19, 0, 0)
 width = 2.0
 default_color = Color(0.552941, 0.411765, 0.478431, 1)
+
+[node name="minutes" type="Label" parent="."]
+offset_left = -7.0
+offset_right = 17.0
+offset_bottom = 23.0
+theme = SubResource("Theme_tuatv")
+text = "14"
+horizontal_alignment = 2
+
+[node name="seconds" type="Label" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_right = 45.0
+offset_bottom = 23.0
+theme = SubResource("Theme_tuatv")
+text = "01"
+
+[node name="miliseconds" type="Label" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 6.0
+offset_right = 60.0
+offset_bottom = 29.0
+scale = Vector2(0.6, 0.6)
+theme = SubResource("Theme_tuatv")
+theme_override_font_sizes/font_size = 16
+text = "01"
+
+[node name="period" type="Label" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 6.0
+offset_right = 58.0
+offset_bottom = 29.0
+scale = Vector2(0.6, 0.6)
+theme = SubResource("Theme_tuatv")
+theme_override_font_sizes/font_size = 16
+text = "."
+
+[node name="colen" type="Label" parent="."]
+offset_left = 17.0
+offset_right = 21.0
+offset_bottom = 23.0
+theme = SubResource("Theme_tuatv")
+text = ":"

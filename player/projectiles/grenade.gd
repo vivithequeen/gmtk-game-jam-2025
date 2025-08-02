@@ -27,10 +27,18 @@ func _on_hit_body_entered(body:Node3D) -> void:
 					i.health-=40
 				elif(i.name == "breakable"):
 					i.get_parent().queue_free()
+				elif(i.name == "end"):
+					i.get_parent().queue_free()
+					MapLoop.end = true;
+					MapLoop.end_pull = get_node("../end2").global_position
 				
 		$Sprite3D.visible = false;
 		
 
 
 func _on_audio_stream_player_3d_finished() -> void:
+	queue_free()
+
+
+func _on_timer_timeout() -> void:
 	queue_free()

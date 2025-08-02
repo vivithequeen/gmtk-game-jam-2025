@@ -9,10 +9,10 @@ var e2 = preload("res://enemies/enemy2.tscn")
 @export var room_5_enemy_count: int = 8;
 func _ready() -> void:
 	randomize()
-	$double_jump_upgrade/Sprite3D.visible = !MapLoop.player_data["dash"]
 	$double_jump_upgrade/Sprite3D.visible = !MapLoop.player_data["double_jump"]
+	$get_dash/Sprite3D.visible = !MapLoop.player_data["dash"]
 	$WorldEnvironment.environment.sky_rotation.z = deg_to_rad(randf_range(0, 360))
-
+	$bomb_pickup/Sprite3D.visible = !MapLoop.player_data["grenade"]
 func _process(delta):
 	$WorldEnvironment.environment.sky_rotation.z += delta / 80.0
 
@@ -262,10 +262,11 @@ func _on_start_double_jump_path_body_entered(body: Node3D) -> void:
 var get_dash_activated = false;
 func _on_get_dash_body_entered(body: Node3D) -> void:
 	if !get_dash_activated and body.get("id"):
+		$battles.play("dash_pick_up")
 		if body.get("id") == "player" and !MapLoop.player_data["dash"]:
 
 			get_dash_activated = true;
-			$battles.play("dash_pick_up")
+			
 			$get_dash/AudioStreamPlayer3D.play()
 			MapLoop.player_data["dash"] = true
 			$get_dash/Sprite3D.visible = !MapLoop.player_data["dash"]
@@ -278,3 +279,27 @@ func _on_start_dash_path_body_entered(body:Node3D) -> void:
 			dash_area_activated = true;
 
 			$battles.play("dash_start")
+
+
+func _on_end_check_body_entered(body:Node3D) -> void:
+	if body.get("id"):
+		if body.get("id") == "player" and MapLoop.end:
+			MapLoop.end_pull = $end.global_position
+
+
+
+func _on_end_final_body_entered(body:Node3D) -> void:
+	if body.get("id"):
+		if body.get("id") == "player":
+			MapLoop.end = false
+			print("hay")
+			get_tree().change_scene_to_file("res://scenes/end/end_screen.tscn")
+
+
+func _on_bomb_pickup_body_entered(body:Node3D) -> void:
+	if body.get("id"):
+		if body.get("id") == "player":
+			
+			MapLoop.player_data["grenade"] = true;
+			$bomb_pickup/Sprite3D.visible = !MapLoop.player_data["grenade"]
+

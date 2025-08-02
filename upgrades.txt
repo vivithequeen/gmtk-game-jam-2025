@@ -29,8 +29,8 @@ SOUND VERY IMPORTANT!!
 
 goals for tmr(saturday)
 FINISH MAP + PROGRESSION
-   dash map
-   2 more fights
+   dash map DONE
+   2 more fights DONE
 UI
 	input stuff
 SOUND?
@@ -38,4 +38,8 @@ SOUND?
 	sound when enemys spawn? 
 	music?
 
-item pickups
+item pickups<-- do this
+speedrun timer
+
+MENUS
+death screen

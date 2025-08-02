@@ -39,17 +39,17 @@ func _ready() -> void:
 	update_mouse_mode()
 	
 	
-	if(!MapLoop.init_run):
+	if (!MapLoop.init_run):
 		velocity = MapLoop.player_velocity
 		current_gun = MapLoop.player_data["current_gun"]
 		$Camera3D/SubViewportContainer/SubViewport/Camera3D/pistol.ammo = MapLoop.player_data["weapon1_bullets"]
 		$Camera3D/SubViewportContainer/SubViewport/Camera3D/shotgun.ammo = MapLoop.player_data["weapon2_bullets"]
 		$Camera3D/SubViewportContainer/SubViewport/Camera3D/smg.ammo = MapLoop.player_data["weapon3_bullets"]
 		$Camera3D/SubViewportContainer/SubViewport/Camera3D/rifle.ammo = MapLoop.player_data["weapon4_bullets"]
-		health = MapLoop.player_data["heatlh"] 
-		dash_amount = MapLoop.player_data["dash_amount"] 
-		global_position = MapLoop.local_switch_pos 
-		rotation.y = MapLoop.local_switch_rotation.y 
+		health = MapLoop.player_data["heatlh"]
+		dash_amount = MapLoop.player_data["dash_amount"]
+		global_position = MapLoop.local_switch_pos
+		rotation.y = MapLoop.local_switch_rotation.y
 		rotation.z = MapLoop.local_switch_rotation.z
 		camera.rotation.x = MapLoop.local_switch_rotation.x
 	
@@ -57,7 +57,11 @@ func _ready() -> void:
 		MapLoop.init_run = false;
 	update_weapons();
 func _physics_process(delta: float) -> void:
-	
+	if (Input.is_action_just_pressed("esc")):
+		paused = !paused
+		update_mouse_mode()
+
+	MapLoop.timer += delta
 	ui_shit();
 	
 	$Camera3D/SubViewportContainer/SubViewport/Camera3D.global_position = global_position
@@ -82,7 +86,7 @@ func _physics_process(delta: float) -> void:
 		can_double_jump = false;
 		jump()
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor() :
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		jump()
 		can_double_jump = true;
 
@@ -99,11 +103,13 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	current_fov += (5 if is_dashing else 0)
 	current_fov += (5 if velocity != Vector3.ZERO else 0)
-	if(MapLoop.player_data["dash"]):
+	if (MapLoop.player_data["dash"]):
 		dash(delta, input_dir);
 	juice(delta, input_dir, current_fov);
 
 	gun_stuff()
+	if (MapLoop.end):
+		end()
 	move_and_slide()
 
 func jump():
@@ -130,14 +136,14 @@ func change_weapons():
 
 
 func update_weapons():
-	var ui_bullet = load("res://player/"+current_gun+"_bullet_ui.png")
+	var ui_bullet = load("res://player/" + current_gun + "_bullet_ui.png")
 	for i in range(12):
 		get_node("Camera3D/ui/ammo1/TextureRect" + str(i + 1)).texture = ui_bullet
 	for i in range(12):
 		get_node("Camera3D/ui/ammo2/TextureRect" + str(i + 1)).texture = ui_bullet
 	for i in range(12):
 		get_node("Camera3D/ui/ammo3/TextureRect" + str(i + 1)).texture = ui_bullet
-	if(current_gun == "shotgun"):
+	if (current_gun == "shotgun"):
 		$Camera3D/ui/CenterContainer/TextureRect.texture = load("res://player/shotgun_crosshair.png")
 	else:
 		$Camera3D/ui/CenterContainer/TextureRect.texture = load("res://player/normal_crosshair.png")
@@ -153,16 +159,19 @@ func update_weapons():
 	$Camera3D/SubViewportContainer/SubViewport/Camera3D/rifle.is_current_weapon = current_gun == "rifle"
 
 	
-
 func gun_stuff():
 	if (Input.is_action_just_pressed("reload")):
 		get_node("Camera3D/SubViewportContainer/SubViewport/Camera3D/" + current_gun).reload()
 
 func ui_shit():
+	$Camera3D/ui/minutes.text = ("0" if int(MapLoop.timer / 60) < 10 else "") + str(int(MapLoop.timer / 60))
+	$Camera3D/ui/seconds.text = ("0" if int(int(MapLoop.timer) % 60) < 10 else "") + str(int(int(MapLoop.timer) % 60))
+	$Camera3D/ui/miliseconds.text = ("0" if (int(int(MapLoop.timer * 60) % 60)) < 10 else "") + str(int(int(MapLoop.timer * 60) % 60))
+
 	var tween = get_tree().create_tween()
-	tween.tween_property($Camera3D/ui/health,"value",health,0.1)
+	tween.tween_property($Camera3D/ui/health, "value", health, 0.1)
 	tween.set_parallel()
-	tween.tween_property($Camera3D/ui/dash,"value",dashs,0.1)
+	tween.tween_property($Camera3D/ui/dash, "value", dashs, 0.1)
 	
 	
 	for i in range(12):
@@ -234,6 +243,13 @@ func crouch():
 
 func update_mouse_mode():
 	if paused:
+		$Camera3D/pause.visible = true;
+		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
+		$Camera3D/pause.visible = false;
+		get_tree().paused = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func end():
+	velocity = (MapLoop.end_pull - global_position).normalized() * 40

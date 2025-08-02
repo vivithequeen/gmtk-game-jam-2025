@@ -8,8 +8,8 @@ var player_data = {
 	"weapon2" : false,
 	"weapon3" : false,
 	"weapon4" : false,
-	"double_jump" : true,
-	"dash" : true,
+	"double_jump" : false,
+	"dash" : false,
 	"current_gun" : "pistol",
 	"weapon1_bullets" : 0,
 	"weapon2_bullets" : 0,
@@ -17,8 +17,11 @@ var player_data = {
 	"weapon4_bullets" : 0,
 	"health" : 0,
 	"dash_amount" : 0,
-	"grenade" :true,
+	"grenade" :false,
 }
 var init_run = true;
 
 
+var end = false
+var end_pull;
+var timer = 0;
