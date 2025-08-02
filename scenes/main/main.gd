@@ -21,6 +21,7 @@ func check_room_1():
 	if (room_1_enemy_count > 0):
 		return ;
 	$battles.play("end_battle_1")
+	MapLoop.battle_active = false
 
 func room_1_enemy_died():
 	room_1_enemy_count -= 1;
@@ -44,6 +45,7 @@ func start_battle_1():
 	enemy3.player = $Player
 	enemy3.battle = 1;
 	add_child(enemy3)
+	MapLoop.battle_active = true
 
 	$battles.play("start_battle_1")
 
@@ -52,6 +54,7 @@ func check_room_2():
 	if (room_2_enemy_count > 0):
 		return ;
 	$battles.play("end_battle_2")
+	MapLoop.battle_active = false
 
 func room_2_enemy_died():
 	room_2_enemy_count -= 1;
@@ -75,6 +78,7 @@ func start_battle_2():
 	enemy3.player = $Player
 	enemy3.battle =2;
 	add_child(enemy3)
+	MapLoop.battle_active = true
 
 	$battles.play("start_battle_2")
 
@@ -82,6 +86,7 @@ func check_room_3():
 	if (room_3_enemy_count > 0):
 		return ;
 	$battles.play("end_battle_3")
+	MapLoop.battle_active = false
 
 func room_3_enemy_died():
 	room_3_enemy_count -= 1;
@@ -107,11 +112,13 @@ func start_battle_3():
 	add_child(enemy3)
 
 	$battles.play("start_battle_3")
+	MapLoop.battle_active = true
 
 func check_room_4():
 	if (room_4_enemy_count > 0):
 		return ;
 	$battles.play("end_battle_4")
+	MapLoop.battle_active = false
 
 func room_4_enemy_died():
 	room_4_enemy_count -= 1;
@@ -142,11 +149,14 @@ func start_battle_4():
 	enemy4.battle = 4;
 	add_child(enemy4)
 	$battles.play("start_battle_4")
+	
+	MapLoop.battle_active = true
 
 func check_room_5():
 	if (room_5_enemy_count > 0):
 		return ;
 	$battles.play("end_battle_5")
+	MapLoop.battle_active = false
 
 func room_5_enemy_died():
 	room_5_enemy_count -= 1;
@@ -202,6 +212,7 @@ func start_battle_5():
 	enemy8.battle = 5;
 	add_child(enemy8)
 	$battles.play("start_battle_5")
+	MapLoop.battle_active = true
 	
 var area_switch_1_activated = false;
 var area_switch_2_activated = false;

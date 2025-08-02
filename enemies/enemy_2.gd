@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 		die()
 	velocity = ((player.global_position + Vector3(0, 0, 4).rotated(Vector3(0, 1, 0), rot_num)) - global_position) * SPEED
 
-	velocity.y = ((player.global_position.y + 6) - global_position.y) * SPEED
+	velocity.y = ((player.global_position.y + 4) - global_position.y) * SPEED
 	attack_timer += delta;
 	if (attack_timer >= 2):
 		attack()

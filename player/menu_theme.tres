@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://b8qwb4sosxgg7"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://b8qwb4sosxgg7"]
 
 [ext_resource type="FontFile" uid="uid://clh7ajxgofo1y" path="res://Tiny5-Regular.ttf" id="1_ag1jg"]
 
@@ -15,6 +15,14 @@ border_color = Color(0.815686, 0.505882, 0.34902, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elhvv"]
 bg_color = Color(0.0509804, 0.168627, 0.270588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h816b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_674fu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3smw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gfgd7"]
 bg_color = Color(0.0509804, 0.168627, 0.270588, 1)
@@ -45,6 +53,11 @@ Button/styles/focus = SubResource("StyleBoxFlat_ag1jg")
 Button/styles/hover = SubResource("StyleBoxFlat_5i6jn")
 Button/styles/normal = SubResource("StyleBoxFlat_elhvv")
 Button/styles/pressed = SubResource("StyleBoxFlat_5i6jn")
+CheckBox/styles/focus = SubResource("StyleBoxFlat_h816b")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_674fu")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_674fu")
+CheckButton/styles/normal = SubResource("StyleBoxFlat_m3smw")
+CheckButton/styles/pressed = SubResource("StyleBoxFlat_m3smw")
 Label/colors/font_color = Color(1, 0.92549, 0.839216, 1)
 Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("1_ag1jg")

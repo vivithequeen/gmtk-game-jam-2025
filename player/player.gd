@@ -57,10 +57,14 @@ func _ready() -> void:
 	
 	else:
 		MapLoop.init_run = false;
+
 	update_weapons();
 func _physics_process(delta: float) -> void:
 
-
+	if(health <=0):
+		$Camera3D/dead.visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true;
 	MapLoop.timer += delta
 	ui_shit();
 	
@@ -165,10 +169,10 @@ func gun_stuff():
 		get_node("Camera3D/SubViewportContainer/SubViewport/Camera3D/" + current_gun).reload()
 
 func ui_shit():
-	$Camera3D/ui/minutes.text = ("0" if int(MapLoop.timer / 60) < 10 else "") + str(int(MapLoop.timer / 60))
-	$Camera3D/ui/seconds.text = ("0" if int(int(MapLoop.timer) % 60) < 10 else "") + str(int(int(MapLoop.timer) % 60))
-	$Camera3D/ui/miliseconds.text = ("0" if (int(int(MapLoop.timer * 60) % 60)) < 10 else "") + str(int(int(MapLoop.timer * 60) % 60))
-
+	$Camera3D/ui/timer/minutes.text = ("0" if int(MapLoop.timer / 60) < 10 else "") + str(int(MapLoop.timer / 60))
+	$Camera3D/ui/timer/seconds.text = ("0" if int(int(MapLoop.timer) % 60) < 10 else "") + str(int(int(MapLoop.timer) % 60))
+	$Camera3D/ui/timer/miliseconds.text = ("0" if (int(int(MapLoop.timer * 60) % 60)) < 10 else "") + str(int(int(MapLoop.timer * 60) % 60))
+	$Camera3D/ui/timer.visible = Settings.timer_active
 	var tween = get_tree().create_tween()
 	tween.tween_property($Camera3D/ui/health, "value", health, 0.1)
 	tween.set_parallel()

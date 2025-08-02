@@ -242,7 +242,12 @@ points = PackedVector2Array(0, -19, 0, 0)
 width = 2.0
 default_color = Color(0.552941, 0.411765, 0.478431, 1)
 
-[node name="minutes" type="Label" parent="."]
+[node name="timer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="minutes" type="Label" parent="timer"]
 offset_left = -7.0
 offset_right = 17.0
 offset_bottom = 23.0
@@ -250,7 +255,7 @@ theme = SubResource("Theme_tuatv")
 text = "14"
 horizontal_alignment = 2
 
-[node name="seconds" type="Label" parent="."]
+[node name="seconds" type="Label" parent="timer"]
 layout_mode = 0
 offset_left = 21.0
 offset_right = 45.0
@@ -258,7 +263,7 @@ offset_bottom = 23.0
 theme = SubResource("Theme_tuatv")
 text = "01"
 
-[node name="miliseconds" type="Label" parent="."]
+[node name="miliseconds" type="Label" parent="timer"]
 layout_mode = 0
 offset_left = 36.0
 offset_top = 6.0
@@ -269,7 +274,7 @@ theme = SubResource("Theme_tuatv")
 theme_override_font_sizes/font_size = 16
 text = "01"
 
-[node name="period" type="Label" parent="."]
+[node name="period" type="Label" parent="timer"]
 layout_mode = 0
 offset_left = 34.0
 offset_top = 6.0
@@ -280,7 +285,7 @@ theme = SubResource("Theme_tuatv")
 theme_override_font_sizes/font_size = 16
 text = "."
 
-[node name="colen" type="Label" parent="."]
+[node name="colen" type="Label" parent="timer"]
 offset_left = 17.0
 offset_right = 21.0
 offset_bottom = 23.0

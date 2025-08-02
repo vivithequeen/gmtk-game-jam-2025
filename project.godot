@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="GMTK Game Jam 2025"
-run/main_scene="uid://qs28ooi0d2lm"
+run/main_scene="uid://bi2o4wsvke7ou"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 MapLoop="*res://scenes/main/MapLoop.gd"
+Settings="*res://scenes/menu/Settings.gd"
 
 [display]
 

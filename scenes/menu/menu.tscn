@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://di2dijgny2w4g"]
+[gd_scene load_steps=27 format=3 uid="uid://di2dijgny2w4g"]
 
 [ext_resource type="Script" uid="uid://bak7fkta7kmw8" path="res://scenes/menu/menu.gd" id="1_a0fu0"]
 [ext_resource type="Texture2D" uid="uid://iebxnw1mbrlk" path="res://textures/title.png" id="1_pafgo"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bocr4y1mhlrf5" path="res://player/ui_icons/tile_0289.png" id="24_tatpe"]
 [ext_resource type="Texture2D" uid="uid://bohwwupp5gwes" path="res://player/ui_icons/tile_0650.png" id="25_dsh75"]
 [ext_resource type="Texture2D" uid="uid://rrg8fquaive6" path="res://player/ui_icons/tile_0425.png" id="26_874ao"]
+[ext_resource type="AudioStream" uid="uid://dbpud8a4tivxf" path="res://audio/select.wav" id="26_pafgo"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -367,217 +368,45 @@ offset_right = 465.0
 offset_bottom = 152.0
 color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 
-[node name="VScrollBar" type="ScrollContainer" parent="settings2"]
-layout_mode = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="settings2"]
+layout_mode = 2
 offset_left = 179.0
 offset_top = 160.0
-offset_right = 322.0
-offset_bottom = 272.0
+offset_right = 327.0
+offset_bottom = 206.0
 scale = Vector2(2, 2)
-theme = ExtResource("2_uryge")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="settings2/VScrollBar"]
+[node name="HBoxContainer" type="HBoxContainer" parent="settings2/VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("24_tatpe")
-expand_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("25_dsh75")
-expand_mode = 2
-
-[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="settings2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_uryge")
-text = "        pause"
+text = "fullscreen             "
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="settings2/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("26_874ao")
-expand_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("3_b18gb")
-expand_mode = 2
-
-[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer2"]
+[node name="Label2" type="Label" parent="settings2/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme = ExtResource("2_uryge")
-text = "        jump"
+text = "speedrun timer    "
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="settings2/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-texture = ExtResource("5_qp2xe")
-expand_mode = 3
-stretch_mode = 6
-
-[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-texture = ExtResource("7_t7gsn")
-expand_mode = 2
-
-[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer3"]
+[node name="Label2" type="Label" parent="settings2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("2_uryge")
-text = "     crouch"
+text = "volume "
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="settings2/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer4"]
-layout_mode = 2
-texture = ExtResource("16_wy1p8")
-expand_mode = 3
-stretch_mode = 6
-
-[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer4"]
-layout_mode = 2
-texture = ExtResource("4_50dkp")
-expand_mode = 2
-
-[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer4"]
+[node name="Label2" type="Label" parent="settings2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("2_uryge")
-text = "    dash"
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer5"]
-layout_mode = 2
-texture = ExtResource("18_rhal1")
-expand_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer5"]
-layout_mode = 2
-texture = ExtResource("19_pjaa3")
-expand_mode = 2
-
-[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer5"]
-layout_mode = 2
-theme = ExtResource("2_uryge")
-text = "        shoot"
-
-[node name="HBoxContainer6" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer6"]
-layout_mode = 2
-texture = ExtResource("21_7e7pp")
-expand_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer6"]
-layout_mode = 2
-texture = ExtResource("22_vu0bd")
-expand_mode = 2
-
-[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer6"]
-layout_mode = 2
-theme = ExtResource("2_uryge")
-text = "        reload"
-
-[node name="HBoxContainer7" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer7"]
-layout_mode = 2
-texture = ExtResource("23_2j2ur")
-expand_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer7"]
-layout_mode = 2
-texture = ExtResource("20_n7cc5")
-expand_mode = 2
-
-[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer7"]
-layout_mode = 2
-theme = ExtResource("2_uryge")
-text = "        grenade"
-
-[node name="HBoxContainer8" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer8"]
-layout_mode = 2
-texture = ExtResource("12_fstgh")
-expand_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer8"]
-layout_mode = 2
-texture = ExtResource("8_4xbh2")
-expand_mode = 2
-
-[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer8"]
-layout_mode = 2
-theme = ExtResource("2_uryge")
-text = "        pistol"
-
-[node name="HBoxContainer9" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer9"]
-layout_mode = 2
-texture = ExtResource("13_wshxo")
-expand_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer9"]
-layout_mode = 2
-texture = ExtResource("10_2rjk0")
-expand_mode = 2
-
-[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer9"]
-layout_mode = 2
-theme = ExtResource("2_uryge")
-text = "        shotgun"
-
-[node name="HBoxContainer10" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer10"]
-layout_mode = 2
-texture = ExtResource("14_ojs8s")
-expand_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer10"]
-layout_mode = 2
-texture = ExtResource("11_fqr1d")
-expand_mode = 2
-
-[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer10"]
-layout_mode = 2
-theme = ExtResource("2_uryge")
-text = "        smg"
-
-[node name="HBoxContainer11" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer11"]
-layout_mode = 2
-texture = ExtResource("15_l53yv")
-expand_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer11"]
-layout_mode = 2
-texture = ExtResource("9_gxxro")
-expand_mode = 2
-
-[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer11"]
-layout_mode = 2
-theme = ExtResource("2_uryge")
-text = "        rifle"
+text = "look sense"
 
 [node name="back" type="Button" parent="settings2"]
 layout_mode = 1
@@ -591,8 +420,70 @@ offset_bottom = 430.0
 theme = ExtResource("2_uryge")
 text = "back"
 
+[node name="volumn_slider" type="HSlider" parent="settings2"]
+layout_mode = 2
+offset_left = 320.0
+offset_top = 252.0
+offset_right = 370.0
+offset_bottom = 268.0
+scale = Vector2(2, 2)
+
+[node name="look_sense_slider" type="HSlider" parent="settings2"]
+layout_mode = 2
+offset_left = 320.0
+offset_top = 294.0
+offset_right = 370.0
+offset_bottom = 310.0
+scale = Vector2(2, 2)
+
+[node name="fullscreen" type="CheckBox" parent="settings2"]
+layout_mode = 2
+offset_left = 427.0
+offset_top = 160.0
+offset_right = 451.0
+offset_bottom = 184.0
+scale = Vector2(2, 2)
+
+[node name="timer" type="CheckBox" parent="settings2"]
+layout_mode = 2
+offset_left = 427.0
+offset_top = 204.0
+offset_right = 451.0
+offset_bottom = 228.0
+scale = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="settings2"]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 252.0
+offset_right = 464.0
+offset_bottom = 301.0
+scale = Vector2(2, 2)
+theme = ExtResource("2_uryge")
+text = "100
+"
+
+[node name="Label2" type="Label" parent="settings2"]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 290.0
+offset_right = 464.0
+offset_bottom = 339.0
+scale = Vector2(2, 2)
+theme = ExtResource("2_uryge")
+text = "100
+"
+
+[node name="select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_pafgo")
+volume_db = -12.0
+
 [connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="controls2" to="." method="_on_controls_2_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="controls/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="settings2/back" to="." method="_on_back_pressed"]
+[connection signal="drag_ended" from="settings2/volumn_slider" to="." method="_on_volumn_slider_drag_ended"]
+[connection signal="drag_ended" from="settings2/look_sense_slider" to="." method="_on_look_sense_slider_drag_ended"]
+[connection signal="pressed" from="settings2/fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="settings2/timer" to="." method="_on_timer_pressed"]

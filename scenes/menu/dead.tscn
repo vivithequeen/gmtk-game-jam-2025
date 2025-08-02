@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvucw0ww607me"]
+
+[ext_resource type="Theme" uid="uid://b8qwb4sosxgg7" path="res://player/menu_theme.tres" id="1_6jq2r"]
+[ext_resource type="Script" uid="uid://6rj8cgt7srgs" path="res://scenes/menu/dead.gd" id="1_jyhkq"]
+
+[node name="dead" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jyhkq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(1, 0, 0, 0.380392)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 136.0
+offset_right = 256.0
+offset_bottom = 159.0
+scale = Vector2(4, 4)
+theme = ExtResource("1_6jq2r")
+text = "YOU DED"
+
+[node name="again" type="Button" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 232.0
+offset_right = 416.0
+offset_bottom = 288.0
+theme = ExtResource("1_6jq2r")
+text = "try again"
+
+[node name="quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 304.0
+offset_right = 416.0
+offset_bottom = 360.0
+theme = ExtResource("1_6jq2r")
+text = "give up"
+
+[connection signal="pressed" from="again" to="." method="_on_again_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

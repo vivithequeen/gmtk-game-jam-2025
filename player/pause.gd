@@ -16,11 +16,13 @@ func _process(delta: float) -> void:
 
 func _on_contiue_pressed() -> void:
 	unpause()
+	$select.play()
 
 func unpause():
 	player.paused = false;
 	player.get_node("can_pause").start()
 	player.update_mouse_mode()
+	$select.play()
 
 
 func _on_can_un_pause_timeout() -> void:

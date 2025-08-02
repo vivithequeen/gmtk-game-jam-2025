@@ -21,6 +21,9 @@ func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
 func _physics_process(delta):
+	look_at(player.global_position)
+	rotation.x = 0
+	rotation.z = 0
 	if (health <= 0):
 		die()
 	# Save the delta for use in _on_velocity_computed.

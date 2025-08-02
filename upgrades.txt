@@ -38,8 +38,10 @@ SOUND?
 	sound when enemys spawn? 
 	music?
 
-item pickups<-- do this
+item pickups<-- do this // prob not
 speedrun timer
 
 MENUS
-death screen
+death screen DONE
+sound effect when hit ground
+PAINT ENEMY <-- PRIORITY

@@ -1,39 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://s6tjrbbsqg0s"]
+[gd_scene load_steps=8 format=3 uid="uid://s6tjrbbsqg0s"]
 
 [ext_resource type="Script" uid="uid://c2g8cygb56sk1" path="res://enemies/enemy_1.gd" id="1_8yn4d"]
 [ext_resource type="Texture2D" uid="uid://cbtor5axdis58" path="res://enemies/1000001172.jpg" id="1_vihk0"]
 [ext_resource type="AudioStream" uid="uid://cr82jjvibwukd" path="res://audio/enemy_attack.wav" id="3_wkle1"]
 [ext_resource type="AudioStream" uid="uid://0artd4l5sy14" path="res://audio/enemy_hit.wav" id="4_k5ieq"]
+[ext_resource type="ArrayMesh" uid="uid://d37eo17gqvhte" path="res://models/Robot_enemy1.obj" id="5_fa6hd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8yn4d"]
 radius = 0.7
 height = 2.2
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fa6hd"]
+points = PackedVector3Array(0.68396, -0.141089, -0.410617, -0.601681, 0.00438069, 3.6113, 4.31112, 4.75872, 1.74602, -1.86225, 3.08898, -0.344489, 0.782224, 5.05286, -0.410617, -1.86225, 3.08898, 3.54547, 0.782224, 5.05286, 3.60844, 0.68396, -0.141089, 3.70678, -0.635, -0.0517405, -0.35197, 4.31112, 4.75872, 1.55055, -0.327979, 5.81007, 1.74187, -1.85429, 2.71171, 3.5405, 0.329682, 5.15282, -0.322967, 4.31112, 4.95461, 1.74602, 0.329682, 5.15282, 3.52498, -1.85429, 2.71171, -0.339268, 0.519041, 5.89571, 1.08701, -0.31285, 5.59602, 1.09104, 0.235009, 5.90546, 2.1176, -0.227441, 5.70412, 2.11525, 0.796479, 6.01771, 1.5541, 0.707902, 5.88456, 2.11423, 0.142018, 5.90554, 1.17894, -0.603867, 5.52097, 1.64808, 0.802455, 5.87611, 1.18368, 0.68396, 0.152445, 3.70678, 0.1531, 5.03794, 3.50605, 0.1531, 5.03794, -0.303087, 0.143591, 5.99568, 1.55478, 0.782224, 4.56282, -0.410617, -0.318798, 5.69994, 1.27562, -0.130785, 5.79079, 1.18237)
 
 [node name="Enemy1" type="CharacterBody3D"]
 script = ExtResource("1_8yn4d")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+visible = false
 billboard = 2
 shaded = true
 alpha_cut = 2
 texture = ExtResource("1_vihk0")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-avoidance_enabled = true
-debug_enabled = true
 
 [node name="get_player_pos" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0546, 0)
 shape = SubResource("CapsuleShape3D_8yn4d")
+disabled = true
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("CapsuleShape3D_8yn4d")
+transform = Transform3D(-1.87959e-08, 0, 0.43, 0, 0.43, 0, -0.43, 0, -1.87959e-08, -0.680367, -0.00708723, 0.0782641)
+shape = SubResource("ConvexPolygonShape3D_fa6hd")
 
 [node name="attack" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_wkle1")
@@ -46,6 +52,10 @@ one_shot = true
 [node name="hit" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_k5ieq")
 volume_db = -16.0
+
+[node name="RobotEnemy1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.87959e-08, 0, 0.43, 0, 0.43, 0, -0.43, 0, -1.87959e-08, -0.680367, 0.0475134, 0.0782641)
+mesh = ExtResource("5_fa6hd")
 
 [connection signal="timeout" from="get_player_pos" to="." method="_on_get_player_pos_timeout"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

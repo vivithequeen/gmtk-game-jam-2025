@@ -18,16 +18,16 @@ func _on_body_entered(body:Node3D) -> void:
 
 var dead = false;
 func _on_hit_body_entered(body:Node3D) -> void:
-	if (body is StaticBody3D || body is CSGBox3D )and !dead:
+	if (body is StaticBody3D || body is CSGBox3D )and !dead :
 		dead = true
 		$AudioStreamPlayer3D.play()
 		for i in items:
 			if(is_instance_valid(i)):
 				if(i.get("is_enemy")):
 					i.health-=40
-				elif(i.name == "breakable"):
+				elif(i.name == "breakable") and !MapLoop.battle_active:
 					i.get_parent().queue_free()
-				elif(i.name == "end"):
+				elif(i.name == "end") and !MapLoop.battle_active:
 					i.get_parent().queue_free()
 					MapLoop.end = true;
 					MapLoop.end_pull = get_node("../end2").global_position

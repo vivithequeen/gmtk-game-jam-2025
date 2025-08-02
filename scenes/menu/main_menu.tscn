@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi2o4wsvke7ou"]
+
+[ext_resource type="PackedScene" uid="uid://wklv2i5cr3ut" path="res://scenes/menu/main_menu_background.tscn" id="1_3rkf3"]
+[ext_resource type="Script" uid="uid://c23ftumkhjyx0" path="res://scenes/menu/main_menu.gd" id="1_kiqgm"]
+[ext_resource type="PackedScene" uid="uid://di2dijgny2w4g" path="res://scenes/menu/menu.tscn" id="1_nl8w3"]
+[ext_resource type="Theme" uid="uid://b8qwb4sosxgg7" path="res://player/menu_theme.tres" id="2_hj162"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kiqgm")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(640, 480)
+render_target_update_mode = 4
+
+[node name="main_menu_background" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_3rkf3")]
+
+[node name="menu" parent="." node_paths=PackedStringArray("other_button") instance=ExtResource("1_nl8w3")]
+layout_mode = 1
+other_button = NodePath("../play")
+
+[node name="play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.137
+anchor_bottom = 0.15
+offset_left = 208.0
+offset_top = 168.0
+offset_right = 344.32
+offset_bottom = 144.0
+theme = ExtResource("2_hj162")
+text = "play"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 448.0
+offset_right = 318.0
+offset_bottom = 471.0
+scale = Vector2(2, 2)
+theme = ExtResource("2_hj162")
+text = "VIVITHEQUEEN"
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]

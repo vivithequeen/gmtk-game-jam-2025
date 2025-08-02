@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://wv48gaq3vw2x"]
+[gd_scene load_steps=5 format=3 uid="uid://wv48gaq3vw2x"]
 
 [ext_resource type="Script" uid="uid://uugri0l5qcb4" path="res://player/pause.gd" id="1_183yv"]
+[ext_resource type="AudioStream" uid="uid://dbpud8a4tivxf" path="res://audio/select.wav" id="4_vrv3g"]
 [ext_resource type="PackedScene" uid="uid://di2dijgny2w4g" path="res://scenes/menu/menu.tscn" id="26_183yv"]
 [ext_resource type="Theme" uid="uid://b8qwb4sosxgg7" path="res://player/menu_theme.tres" id="26_ewoon"]
 
@@ -39,6 +40,10 @@ text = "continue"
 [node name="can_un_pause_timer" type="Timer" parent="."]
 wait_time = 0.169
 one_shot = true
+
+[node name="select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vrv3g")
+volume_db = -12.0
 
 [connection signal="pressed" from="contiue" to="." method="_on_contiue_pressed"]
 [connection signal="timeout" from="can_un_pause_timer" to="." method="_on_can_un_pause_timeout"]

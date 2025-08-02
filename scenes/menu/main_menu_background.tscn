@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://wklv2i5cr3ut"]
+
+[ext_resource type="Texture2D" uid="uid://uscecvltbgja" path="res://scenes/Space Background(10).png" id="1_mb5hd"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_o7ql6"]
+panorama = ExtResource("1_mb5hd")
+
+[sub_resource type="Sky" id="Sky_k2fmo"]
+sky_material = SubResource("PanoramaSkyMaterial_o7ql6")
+
+[sub_resource type="Environment" id="Environment_r6xgt"]
+background_mode = 2
+sky = SubResource("Sky_k2fmo")
+ambient_light_color = Color(0.00351917, 0.00351917, 0.00351917, 1)
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.0784794, 0.0894677, 0.106743, 1)
+fog_light_energy = 3.32
+fog_sun_scatter = 0.21
+fog_density = 0.0033
+fog_sky_affect = 0.779
+
+[node name="main_menu_background" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r6xgt")
+
+[node name="Camera3D" type="Camera3D" parent="."]

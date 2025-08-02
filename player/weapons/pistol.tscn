@@ -177,7 +177,7 @@ _data = {
 [node name="Pistol" type="Node3D"]
 script = ExtResource("1_72bee")
 bullet_type = ExtResource("2_qj3l3")
-damage = 5.0
+damage = 6.0
 max_ammo = 16
 
 [node name="Node3D" type="Node3D" parent="."]
