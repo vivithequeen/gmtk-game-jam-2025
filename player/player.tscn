@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgm8s1gu0qxpc" path="res://player/weapons/pistol.tscn" id="4_boad6"]
 [ext_resource type="PackedScene" uid="uid://cap5vd8phiupw" path="res://player/weapons/rifle.tscn" id="5_rgyib"]
 [ext_resource type="AudioStream" uid="uid://dtanrm601gw1" path="res://audio/jump.wav" id="7_boad6"]
-[ext_resource type="PackedScene" uid="uid://wv48gaq3vw2x" path="res://scenes/end/pause.tscn" id="7_hg6s5"]
+[ext_resource type="PackedScene" uid="uid://wv48gaq3vw2x" path="res://player/pause.tscn" id="7_hg6s5"]
 [ext_resource type="AudioStream" uid="uid://b4uaarosw53li" path="res://audio/dash.wav" id="8_rgyib"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
@@ -51,7 +51,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45141, -0.318885, -1.66735)
 
 [node name="ui" parent="Camera3D" instance=ExtResource("3_g1dw6")]
 
-[node name="pause" parent="Camera3D" instance=ExtResource("7_hg6s5")]
+[node name="pause" parent="Camera3D" node_paths=PackedStringArray("player") instance=ExtResource("7_hg6s5")]
+player = NodePath("../..")
 
 [node name="crouchcast" type="RayCast3D" parent="."]
 target_position = Vector3(0, 1, 0)
@@ -63,3 +64,9 @@ volume_db = -80.0
 [node name="dash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_rgyib")
 volume_db = -16.0
+
+[node name="can_pause" type="Timer" parent="."]
+wait_time = 0.169
+one_shot = true
+
+[connection signal="timeout" from="can_pause" to="." method="_on_can_pause_timeout"]

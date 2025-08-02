@@ -32,7 +32,9 @@ var is_dashing := false;
 var is_crouching = false
 var dashs = 3;
 
+@onready var pause_timer : Timer = $can_pause
 
+var can_pause = true
 var current_gun = "pistol"
 
 func _ready() -> void:
@@ -57,9 +59,7 @@ func _ready() -> void:
 		MapLoop.init_run = false;
 	update_weapons();
 func _physics_process(delta: float) -> void:
-	if (Input.is_action_just_pressed("esc")):
-		paused = !paused
-		update_mouse_mode()
+
 
 	MapLoop.timer += delta
 	ui_shit();
@@ -110,6 +110,7 @@ func _physics_process(delta: float) -> void:
 	gun_stuff()
 	if (MapLoop.end):
 		end()
+
 	move_and_slide()
 
 func jump():
@@ -183,6 +184,15 @@ func ui_shit():
 
 
 func _input(event: InputEvent) -> void:
+	if (event.is_action("esc") and can_pause):
+		print("PAUSED")
+		$Camera3D/pause.can_un_pause = false
+		$Camera3D/pause/can_un_pause_timer.start()
+		paused = true
+		update_mouse_mode()
+		can_pause = false;
+
+
 	if event is InputEventMouseMotion:
 		rotation.y += (-event.relative.x * LOOK_SENSE);
 		camera.rotation.x += (-event.relative.y * LOOK_SENSE)
@@ -253,3 +263,7 @@ func update_mouse_mode():
 
 func end():
 	velocity = (MapLoop.end_pull - global_position).normalized() * 40
+
+
+func _on_can_pause_timeout() -> void:
+	can_pause = true

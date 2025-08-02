@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://wv48gaq3vw2x"]
+
+[ext_resource type="Script" uid="uid://uugri0l5qcb4" path="res://player/pause.gd" id="1_183yv"]
+[ext_resource type="PackedScene" uid="uid://di2dijgny2w4g" path="res://scenes/menu/menu.tscn" id="26_183yv"]
+[ext_resource type="Theme" uid="uid://b8qwb4sosxgg7" path="res://player/menu_theme.tres" id="26_ewoon"]
+
+[node name="pause" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_183yv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0, 0, 0, 0.815686)
+
+[node name="menu" parent="." node_paths=PackedStringArray("other_button") instance=ExtResource("26_183yv")]
+layout_mode = 1
+other_button = NodePath("../contiue")
+
+[node name="contiue" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.137
+anchor_bottom = 0.15
+offset_left = 208.0
+offset_top = 168.0
+offset_right = 344.32
+offset_bottom = 144.0
+theme = ExtResource("26_ewoon")
+text = "continue"
+
+[node name="can_un_pause_timer" type="Timer" parent="."]
+wait_time = 0.169
+one_shot = true
+
+[connection signal="pressed" from="contiue" to="." method="_on_contiue_pressed"]
+[connection signal="timeout" from="can_un_pause_timer" to="." method="_on_can_un_pause_timeout"]

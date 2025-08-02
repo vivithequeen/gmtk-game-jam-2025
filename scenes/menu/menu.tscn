@@ -1,0 +1,598 @@
+[gd_scene load_steps=26 format=3 uid="uid://di2dijgny2w4g"]
+
+[ext_resource type="Script" uid="uid://bak7fkta7kmw8" path="res://scenes/menu/menu.gd" id="1_a0fu0"]
+[ext_resource type="Texture2D" uid="uid://iebxnw1mbrlk" path="res://textures/title.png" id="1_pafgo"]
+[ext_resource type="Theme" uid="uid://b8qwb4sosxgg7" path="res://player/menu_theme.tres" id="2_uryge"]
+[ext_resource type="Texture2D" uid="uid://ypjolwgjfslc" path="res://player/ui_icons/tile_0047.png" id="3_b18gb"]
+[ext_resource type="Texture2D" uid="uid://836x6cltudpb" path="res://player/ui_icons/tile_0049.png" id="4_50dkp"]
+[ext_resource type="Texture2D" uid="uid://cdpkmcx0tj0ol" path="res://player/ui_icons/tile_0493.png" id="5_qp2xe"]
+[ext_resource type="Texture2D" uid="uid://ceb3ggil3j3e5" path="res://player/ui_icons/tile_0322.png" id="7_t7gsn"]
+[ext_resource type="Texture2D" uid="uid://pns7ibbqj8d4" path="res://player/ui_icons/tile_0069.png" id="8_4xbh2"]
+[ext_resource type="Texture2D" uid="uid://8s4me7hf1uyb" path="res://player/ui_icons/tile_0070.png" id="9_gxxro"]
+[ext_resource type="Texture2D" uid="uid://d0svcqf5jmxlg" path="res://player/ui_icons/tile_0072.png" id="10_2rjk0"]
+[ext_resource type="Texture2D" uid="uid://tpdtvtu7148o" path="res://player/ui_icons/tile_0071.png" id="11_fqr1d"]
+[ext_resource type="Texture2D" uid="uid://dp6acxft1ov3p" path="res://player/ui_icons/tile_0323.png" id="12_fstgh"]
+[ext_resource type="Texture2D" uid="uid://b6noecanywenu" path="res://player/ui_icons/tile_0324.png" id="13_wshxo"]
+[ext_resource type="Texture2D" uid="uid://4m4aqa43tyuu" path="res://player/ui_icons/tile_0325.png" id="14_ojs8s"]
+[ext_resource type="Texture2D" uid="uid://b46asxcaafxxf" path="res://player/ui_icons/tile_0326.png" id="15_l53yv"]
+[ext_resource type="Texture2D" uid="uid://c6vgsepxtpixo" path="res://player/ui_icons/tile_0527.png" id="16_wy1p8"]
+[ext_resource type="Texture2D" uid="uid://e105uk1u1bf7" path="res://player/ui_icons/tile_0111.png" id="18_rhal1"]
+[ext_resource type="Texture2D" uid="uid://dk7sw513ge0y2" path="res://player/ui_icons/tile_0586.png" id="19_pjaa3"]
+[ext_resource type="Texture2D" uid="uid://dx6ie6iax01gi" path="res://player/ui_icons/tile_0050.png" id="20_n7cc5"]
+[ext_resource type="Texture2D" uid="uid://blmsmfocc4e3c" path="res://player/ui_icons/tile_0360.png" id="21_7e7pp"]
+[ext_resource type="Texture2D" uid="uid://cgonoi3k0krrq" path="res://player/ui_icons/tile_0048.png" id="22_vu0bd"]
+[ext_resource type="Texture2D" uid="uid://vr4tpyvh4k01" path="res://player/ui_icons/tile_0396.png" id="23_2j2ur"]
+[ext_resource type="Texture2D" uid="uid://bocr4y1mhlrf5" path="res://player/ui_icons/tile_0289.png" id="24_tatpe"]
+[ext_resource type="Texture2D" uid="uid://bohwwupp5gwes" path="res://player/ui_icons/tile_0650.png" id="25_dsh75"]
+[ext_resource type="Texture2D" uid="uid://rrg8fquaive6" path="res://player/ui_icons/tile_0425.png" id="26_874ao"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a0fu0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 128.0
+offset_top = 16.0
+offset_right = 512.0
+offset_bottom = 144.0
+texture = ExtResource("1_pafgo")
+
+[node name="settings" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.137
+anchor_bottom = 0.15
+offset_left = 208.0
+offset_top = 232.0
+offset_right = 344.32
+offset_bottom = 208.0
+focus_neighbor_bottom = NodePath("../controls2")
+theme = ExtResource("2_uryge")
+text = "settings"
+
+[node name="controls2" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.137
+anchor_bottom = 0.15
+offset_left = 208.0
+offset_top = 296.0
+offset_right = 344.32
+offset_bottom = 272.0
+theme = ExtResource("2_uryge")
+text = "controls"
+
+[node name="quit" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.137
+anchor_bottom = 0.15
+offset_left = 208.0
+offset_top = 360.0
+offset_right = 344.32
+offset_bottom = 336.0
+theme = ExtResource("2_uryge")
+text = "quit"
+
+[node name="controls" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_top = -8.0
+offset_right = 40.0
+offset_bottom = 32.0
+
+[node name="ColorRect" type="ColorRect" parent="controls"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 152.0
+offset_right = 472.0
+offset_bottom = 440.0
+color = Color(0.12549, 0.235294, 0.337255, 0.482353)
+
+[node name="ColorRect2" type="ColorRect" parent="controls"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 440.0
+offset_right = 465.0
+offset_bottom = 448.0
+color = Color(0.12549, 0.235294, 0.337255, 0.482353)
+
+[node name="ColorRect3" type="ColorRect" parent="controls"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 144.0
+offset_right = 465.0
+offset_bottom = 152.0
+color = Color(0.12549, 0.235294, 0.337255, 0.482353)
+
+[node name="VScrollBar" type="ScrollContainer" parent="controls"]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 160.0
+offset_right = 322.0
+offset_bottom = 272.0
+scale = Vector2(2, 2)
+theme = ExtResource("2_uryge")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="controls/VScrollBar"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="controls/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("24_tatpe")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("25_dsh75")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="controls/VScrollBar/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        pause"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="controls/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("26_874ao")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("3_b18gb")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="controls/VScrollBar/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        jump"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="controls/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("5_qp2xe")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("7_t7gsn")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="controls/VScrollBar/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "     crouch"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="controls/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("16_wy1p8")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("4_50dkp")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="controls/VScrollBar/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "    dash"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="controls/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("18_rhal1")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("19_pjaa3")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="controls/VScrollBar/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        shoot"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="controls/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+texture = ExtResource("21_7e7pp")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+texture = ExtResource("22_vu0bd")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="controls/VScrollBar/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        reload"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="controls/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+texture = ExtResource("23_2j2ur")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+texture = ExtResource("20_n7cc5")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="controls/VScrollBar/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        grenade"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="controls/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+texture = ExtResource("12_fstgh")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+texture = ExtResource("8_4xbh2")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="controls/VScrollBar/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        pistol"
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="controls/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+texture = ExtResource("13_wshxo")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+texture = ExtResource("10_2rjk0")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="controls/VScrollBar/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        shotgun"
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="controls/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+texture = ExtResource("14_ojs8s")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+texture = ExtResource("11_fqr1d")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="controls/VScrollBar/VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        smg"
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="controls/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+texture = ExtResource("15_l53yv")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="controls/VScrollBar/VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+texture = ExtResource("9_gxxro")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="controls/VScrollBar/VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        rifle"
+
+[node name="back" type="Button" parent="controls"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.137
+anchor_bottom = 0.15
+offset_left = 184.0
+offset_top = 400.0
+offset_right = 459.52
+offset_bottom = 430.0
+theme = ExtResource("2_uryge")
+text = "back"
+
+[node name="settings2" type="Control" parent="."]
+anchors_preset = 0
+offset_top = -8.0
+offset_right = 40.0
+offset_bottom = 32.0
+
+[node name="ColorRect" type="ColorRect" parent="settings2"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 152.0
+offset_right = 472.0
+offset_bottom = 440.0
+color = Color(0.12549, 0.235294, 0.337255, 0.482353)
+
+[node name="ColorRect2" type="ColorRect" parent="settings2"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 440.0
+offset_right = 465.0
+offset_bottom = 448.0
+color = Color(0.12549, 0.235294, 0.337255, 0.482353)
+
+[node name="ColorRect3" type="ColorRect" parent="settings2"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 144.0
+offset_right = 465.0
+offset_bottom = 152.0
+color = Color(0.12549, 0.235294, 0.337255, 0.482353)
+
+[node name="VScrollBar" type="ScrollContainer" parent="settings2"]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 160.0
+offset_right = 322.0
+offset_bottom = 272.0
+scale = Vector2(2, 2)
+theme = ExtResource("2_uryge")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settings2/VScrollBar"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("24_tatpe")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("25_dsh75")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        pause"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("26_874ao")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("3_b18gb")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        jump"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("5_qp2xe")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("7_t7gsn")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "     crouch"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("16_wy1p8")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("4_50dkp")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "    dash"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("18_rhal1")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("19_pjaa3")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        shoot"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+texture = ExtResource("21_7e7pp")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+texture = ExtResource("22_vu0bd")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        reload"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+texture = ExtResource("23_2j2ur")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+texture = ExtResource("20_n7cc5")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        grenade"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+texture = ExtResource("12_fstgh")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+texture = ExtResource("8_4xbh2")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        pistol"
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+texture = ExtResource("13_wshxo")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+texture = ExtResource("10_2rjk0")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        shotgun"
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+texture = ExtResource("14_ojs8s")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+texture = ExtResource("11_fqr1d")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        smg"
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="settings2/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+texture = ExtResource("15_l53yv")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+texture = ExtResource("9_gxxro")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="settings2/VScrollBar/VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "        rifle"
+
+[node name="back" type="Button" parent="settings2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.137
+anchor_bottom = 0.15
+offset_left = 184.0
+offset_top = 400.0
+offset_right = 459.52
+offset_bottom = 430.0
+theme = ExtResource("2_uryge")
+text = "back"
+
+[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="controls2" to="." method="_on_controls_2_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="controls/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="settings2/back" to="." method="_on_back_pressed"]
