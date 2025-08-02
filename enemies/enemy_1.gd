@@ -64,8 +64,8 @@ func attack():
 		var b = bullet_type.instantiate();
 
 		b.spawn_rot = global_rotation;
-		b.spawn_pos = global_position;
-		b.direction = (player.global_position - global_position).normalized()
+		b.spawn_pos = $start.global_position;
+		b.direction = (player.global_position - $start.global_position).normalized()
 		get_node("../").add_child(b)
 		attack_amounts -= 1;
 		if (attack_amounts > 0):

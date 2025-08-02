@@ -36,7 +36,7 @@ func reset():
 	"weapon2" : false,
 	"weapon3" : false,
 	"weapon4" : false,
-	"double_jump" : false,
+	"double_jump" : true,
 	"dash" : false,
 	"current_gun" : "pistol",
 	"weapon1_bullets" : 0,
@@ -49,3 +49,5 @@ func reset():
 }
 
 var menu_music_time := 0.0;
+var game_background_music_time := 0.0;
+var game_battle_music_time := 0.0;

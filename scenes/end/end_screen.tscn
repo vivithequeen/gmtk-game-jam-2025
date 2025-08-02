@@ -30,6 +30,7 @@ offset_bottom = 336.0
 texture = ExtResource("1_ihaqn")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 232.0
 offset_top = 320.0
 offset_right = 334.0
@@ -49,6 +50,7 @@ offset_bottom = 384.0
 scale = Vector2(5, 5)
 
 [node name="minutes" type="Label" parent="timer"]
+layout_mode = 0
 offset_left = -7.0
 offset_right = 17.0
 offset_bottom = 23.0
@@ -87,6 +89,7 @@ theme_override_font_sizes/font_size = 16
 text = "."
 
 [node name="colen" type="Label" parent="timer"]
+layout_mode = 0
 offset_left = 17.0
 offset_right = 21.0
 offset_bottom = 23.0

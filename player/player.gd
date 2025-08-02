@@ -171,6 +171,7 @@ func gun_stuff():
 		get_node("Camera3D/SubViewportContainer/SubViewport/Camera3D/" + current_gun).reload()
 
 func ui_shit():
+	$Camera3D/ui/dash.visible = MapLoop.player_data["dash"]
 	$Camera3D/ui/timer/minutes.text = ("0" if int(MapLoop.timer / 60) < 10 else "") + str(int(MapLoop.timer / 60))
 	$Camera3D/ui/timer/seconds.text = ("0" if int(int(MapLoop.timer) % 60) < 10 else "") + str(int(int(MapLoop.timer) % 60))
 	$Camera3D/ui/timer/miliseconds.text = ("0" if (int(int(MapLoop.timer * 60) % 60)) < 10 else "") + str(int(int(MapLoop.timer * 60) % 60))

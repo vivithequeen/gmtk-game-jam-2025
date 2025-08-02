@@ -3,26 +3,26 @@
 [ext_resource type="Script" uid="uid://bak7fkta7kmw8" path="res://scenes/menu/menu.gd" id="1_a0fu0"]
 [ext_resource type="Texture2D" uid="uid://iebxnw1mbrlk" path="res://textures/title.png" id="1_pafgo"]
 [ext_resource type="Theme" uid="uid://b8qwb4sosxgg7" path="res://player/menu_theme.tres" id="2_uryge"]
-[ext_resource type="Texture2D" uid="uid://ypjolwgjfslc" path="res://player/ui_icons/tile_0047.png" id="3_b18gb"]
-[ext_resource type="Texture2D" uid="uid://836x6cltudpb" path="res://player/ui_icons/tile_0049.png" id="4_50dkp"]
-[ext_resource type="Texture2D" uid="uid://cdpkmcx0tj0ol" path="res://player/ui_icons/tile_0493.png" id="5_qp2xe"]
-[ext_resource type="Texture2D" uid="uid://ceb3ggil3j3e5" path="res://player/ui_icons/tile_0322.png" id="7_t7gsn"]
-[ext_resource type="Texture2D" uid="uid://pns7ibbqj8d4" path="res://player/ui_icons/tile_0069.png" id="8_4xbh2"]
-[ext_resource type="Texture2D" uid="uid://8s4me7hf1uyb" path="res://player/ui_icons/tile_0070.png" id="9_gxxro"]
-[ext_resource type="Texture2D" uid="uid://d0svcqf5jmxlg" path="res://player/ui_icons/tile_0072.png" id="10_2rjk0"]
-[ext_resource type="Texture2D" uid="uid://tpdtvtu7148o" path="res://player/ui_icons/tile_0071.png" id="11_fqr1d"]
-[ext_resource type="Texture2D" uid="uid://dp6acxft1ov3p" path="res://player/ui_icons/tile_0323.png" id="12_fstgh"]
-[ext_resource type="Texture2D" uid="uid://b6noecanywenu" path="res://player/ui_icons/tile_0324.png" id="13_wshxo"]
-[ext_resource type="Texture2D" uid="uid://4m4aqa43tyuu" path="res://player/ui_icons/tile_0325.png" id="14_ojs8s"]
-[ext_resource type="Texture2D" uid="uid://b46asxcaafxxf" path="res://player/ui_icons/tile_0326.png" id="15_l53yv"]
-[ext_resource type="Texture2D" uid="uid://c6vgsepxtpixo" path="res://player/ui_icons/tile_0527.png" id="16_wy1p8"]
-[ext_resource type="Texture2D" uid="uid://e105uk1u1bf7" path="res://player/ui_icons/tile_0111.png" id="18_rhal1"]
+[ext_resource type="Texture2D" uid="uid://ypjolwgjfslc" path="res://player/ui_icons/a.png" id="3_b18gb"]
+[ext_resource type="Texture2D" uid="uid://836x6cltudpb" path="res://player/ui_icons/x.png" id="4_50dkp"]
+[ext_resource type="Texture2D" uid="uid://cdpkmcx0tj0ol" path="res://player/ui_icons/ctrl.png" id="5_qp2xe"]
+[ext_resource type="Texture2D" uid="uid://ceb3ggil3j3e5" path="res://player/ui_icons/controller_dow.png" id="7_t7gsn"]
+[ext_resource type="Texture2D" uid="uid://pns7ibbqj8d4" path="res://player/ui_icons/d_1.png" id="8_4xbh2"]
+[ext_resource type="Texture2D" uid="uid://8s4me7hf1uyb" path="res://player/ui_icons/d_4.png" id="9_gxxro"]
+[ext_resource type="Texture2D" uid="uid://d0svcqf5jmxlg" path="res://player/ui_icons/d_2.png" id="10_2rjk0"]
+[ext_resource type="Texture2D" uid="uid://tpdtvtu7148o" path="res://player/ui_icons/d_3.png" id="11_fqr1d"]
+[ext_resource type="Texture2D" uid="uid://dp6acxft1ov3p" path="res://player/ui_icons/num_1.png" id="12_fstgh"]
+[ext_resource type="Texture2D" uid="uid://b6noecanywenu" path="res://player/ui_icons/num_2.png" id="13_wshxo"]
+[ext_resource type="Texture2D" uid="uid://4m4aqa43tyuu" path="res://player/ui_icons/num_3.png" id="14_ojs8s"]
+[ext_resource type="Texture2D" uid="uid://b46asxcaafxxf" path="res://player/ui_icons/num_4.png" id="15_l53yv"]
+[ext_resource type="Texture2D" uid="uid://c6vgsepxtpixo" path="res://player/ui_icons/shift.png" id="16_wy1p8"]
+[ext_resource type="Texture2D" uid="uid://e105uk1u1bf7" path="res://player/ui_icons/lmb.png" id="18_rhal1"]
 [ext_resource type="Texture2D" uid="uid://dk7sw513ge0y2" path="res://player/ui_icons/tile_0586.png" id="19_pjaa3"]
-[ext_resource type="Texture2D" uid="uid://dx6ie6iax01gi" path="res://player/ui_icons/tile_0050.png" id="20_n7cc5"]
+[ext_resource type="Texture2D" uid="uid://dx6ie6iax01gi" path="res://player/ui_icons/y.png" id="20_n7cc5"]
 [ext_resource type="Texture2D" uid="uid://blmsmfocc4e3c" path="res://player/ui_icons/tile_0360.png" id="21_7e7pp"]
-[ext_resource type="Texture2D" uid="uid://cgonoi3k0krrq" path="res://player/ui_icons/tile_0048.png" id="22_vu0bd"]
-[ext_resource type="Texture2D" uid="uid://vr4tpyvh4k01" path="res://player/ui_icons/tile_0396.png" id="23_2j2ur"]
-[ext_resource type="Texture2D" uid="uid://bocr4y1mhlrf5" path="res://player/ui_icons/tile_0289.png" id="24_tatpe"]
+[ext_resource type="Texture2D" uid="uid://cgonoi3k0krrq" path="res://player/ui_icons/b.png" id="22_vu0bd"]
+[ext_resource type="Texture2D" uid="uid://vr4tpyvh4k01" path="res://player/ui_icons/g.png" id="23_2j2ur"]
+[ext_resource type="Texture2D" uid="uid://bocr4y1mhlrf5" path="res://player/ui_icons/esc.png" id="24_tatpe"]
 [ext_resource type="Texture2D" uid="uid://bohwwupp5gwes" path="res://player/ui_icons/tile_0650.png" id="25_dsh75"]
 [ext_resource type="Texture2D" uid="uid://rrg8fquaive6" path="res://player/ui_icons/tile_0425.png" id="26_874ao"]
 [ext_resource type="AudioStream" uid="uid://dbpud8a4tivxf" path="res://audio/select.wav" id="26_pafgo"]
@@ -39,6 +39,7 @@ grow_vertical = 2
 script = ExtResource("1_a0fu0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 128.0
 offset_top = 16.0
 offset_right = 512.0
@@ -46,6 +47,7 @@ offset_bottom = 144.0
 texture = ExtResource("1_pafgo")
 
 [node name="settings" type="Button" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.137
@@ -59,6 +61,7 @@ theme = ExtResource("2_uryge")
 text = "settings"
 
 [node name="credits" type="Button" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.137
@@ -72,6 +75,7 @@ theme = ExtResource("2_uryge")
 text = "credits"
 
 [node name="controls2" type="Button" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.137
@@ -84,6 +88,7 @@ theme = ExtResource("2_uryge")
 text = "controls"
 
 [node name="quit" type="Button" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.137
@@ -96,7 +101,6 @@ theme = ExtResource("2_uryge")
 text = "quit"
 
 [node name="controls" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_top = -8.0
 offset_right = 40.0
@@ -106,7 +110,7 @@ offset_bottom = 32.0
 layout_mode = 0
 offset_left = 176.0
 offset_top = 152.0
-offset_right = 472.0
+offset_right = 465.0
 offset_bottom = 440.0
 color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 
@@ -114,7 +118,7 @@ color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 layout_mode = 0
 offset_left = 184.0
 offset_top = 440.0
-offset_right = 465.0
+offset_right = 456.0
 offset_bottom = 448.0
 color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 
@@ -122,7 +126,7 @@ color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 layout_mode = 0
 offset_left = 184.0
 offset_top = 144.0
-offset_right = 465.0
+offset_right = 456.0
 offset_bottom = 152.0
 color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 
@@ -345,7 +349,7 @@ anchor_right = 0.137
 anchor_bottom = 0.15
 offset_left = 184.0
 offset_top = 400.0
-offset_right = 459.52
+offset_right = 450.52
 offset_bottom = 430.0
 theme = ExtResource("2_uryge")
 text = "back"
@@ -361,7 +365,7 @@ offset_bottom = 32.0
 layout_mode = 0
 offset_left = 176.0
 offset_top = 152.0
-offset_right = 472.0
+offset_right = 465.0
 offset_bottom = 440.0
 color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 
@@ -369,7 +373,7 @@ color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 layout_mode = 0
 offset_left = 184.0
 offset_top = 440.0
-offset_right = 465.0
+offset_right = 456.0
 offset_bottom = 448.0
 color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 
@@ -377,7 +381,7 @@ color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 layout_mode = 0
 offset_left = 184.0
 offset_top = 144.0
-offset_right = 465.0
+offset_right = 456.0
 offset_bottom = 152.0
 color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 
@@ -405,6 +409,14 @@ layout_mode = 2
 theme = ExtResource("2_uryge")
 text = "speedrun timer    "
 
+[node name="HBoxContainer5" type="HBoxContainer" parent="settings2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="settings2/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme = ExtResource("2_uryge")
+text = "tutorial popups"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="settings2/VBoxContainer"]
 layout_mode = 2
 
@@ -428,7 +440,7 @@ anchor_right = 0.137
 anchor_bottom = 0.15
 offset_left = 184.0
 offset_top = 400.0
-offset_right = 459.52
+offset_right = 450.52
 offset_bottom = 430.0
 theme = ExtResource("2_uryge")
 text = "back"
@@ -436,18 +448,18 @@ text = "back"
 [node name="volumn_slider" type="HSlider" parent="settings2"]
 layout_mode = 2
 offset_left = 320.0
-offset_top = 252.0
+offset_top = 298.0
 offset_right = 370.0
-offset_bottom = 268.0
+offset_bottom = 314.0
 scale = Vector2(2, 2)
 value = 50.0
 
 [node name="look_sense_slider" type="HSlider" parent="settings2"]
 layout_mode = 2
 offset_left = 320.0
-offset_top = 294.0
+offset_top = 340.0
 offset_right = 370.0
-offset_bottom = 310.0
+offset_bottom = 356.0
 scale = Vector2(2, 2)
 
 [node name="fullscreen" type="CheckBox" parent="settings2"]
@@ -457,6 +469,7 @@ offset_top = 160.0
 offset_right = 451.0
 offset_bottom = 184.0
 scale = Vector2(2, 2)
+button_pressed = true
 
 [node name="timer" type="CheckBox" parent="settings2"]
 layout_mode = 2
@@ -465,30 +478,43 @@ offset_top = 204.0
 offset_right = 451.0
 offset_bottom = 228.0
 scale = Vector2(2, 2)
+button_pressed = true
 
-[node name="Label" type="Label" parent="settings2"]
+[node name="popups" type="CheckBox" parent="settings2"]
+layout_mode = 2
+offset_left = 427.0
+offset_top = 248.0
+offset_right = 451.0
+offset_bottom = 272.0
+scale = Vector2(2, 2)
+button_pressed = true
+
+[node name="vol" type="Label" parent="settings2"]
 layout_mode = 0
-offset_left = 424.0
-offset_top = 252.0
-offset_right = 464.0
-offset_bottom = 301.0
+offset_left = 387.0
+offset_top = 298.0
+offset_right = 427.0
+offset_bottom = 347.0
 scale = Vector2(2, 2)
 theme = ExtResource("2_uryge")
-text = "100
+text = "50
 "
+horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="settings2"]
+[node name="sense" type="Label" parent="settings2"]
 layout_mode = 0
-offset_left = 424.0
-offset_top = 290.0
-offset_right = 464.0
-offset_bottom = 339.0
+offset_left = 387.0
+offset_top = 336.0
+offset_right = 427.0
+offset_bottom = 385.0
 scale = Vector2(2, 2)
 theme = ExtResource("2_uryge")
-text = "100
+text = "50
 "
+horizontal_alignment = 2
 
 [node name="credits2" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_top = -8.0
 offset_right = 40.0
@@ -498,7 +524,7 @@ offset_bottom = 32.0
 layout_mode = 0
 offset_left = 176.0
 offset_top = 152.0
-offset_right = 472.0
+offset_right = 465.0
 offset_bottom = 440.0
 color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 
@@ -506,7 +532,7 @@ color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 layout_mode = 0
 offset_left = 184.0
 offset_top = 440.0
-offset_right = 465.0
+offset_right = 456.0
 offset_bottom = 448.0
 color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 
@@ -514,7 +540,7 @@ color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 layout_mode = 0
 offset_left = 184.0
 offset_top = 144.0
-offset_right = 465.0
+offset_right = 456.0
 offset_bottom = 152.0
 color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 
@@ -525,7 +551,7 @@ anchor_right = 0.137
 anchor_bottom = 0.15
 offset_left = 184.0
 offset_top = 400.0
-offset_right = 459.52
+offset_right = 450.52
 offset_bottom = 430.0
 theme = ExtResource("2_uryge")
 text = "back"
@@ -589,7 +615,10 @@ script = ExtResource("27_b18gb")
 [connection signal="pressed" from="controls/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="settings2/back" to="." method="_on_back_pressed"]
 [connection signal="drag_ended" from="settings2/volumn_slider" to="." method="_on_volumn_slider_drag_ended"]
-[connection signal="drag_ended" from="settings2/look_sense_slider" to="." method="_on_look_sense_slider_drag_ended"]
+[connection signal="value_changed" from="settings2/volumn_slider" to="." method="_on_volumn_slider_value_changed"]
+[connection signal="value_changed" from="settings2/look_sense_slider" to="." method="_on_look_sense_slider_value_changed"]
 [connection signal="pressed" from="settings2/fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="settings2/timer" to="." method="_on_timer_pressed"]
+[connection signal="pressed" from="settings2/popups" to="." method="_on_popups_pressed"]
 [connection signal="pressed" from="credits2/back" to="." method="_on_back_pressed"]
+[connection signal="finished" from="music" to="." method="_on_music_finished"]

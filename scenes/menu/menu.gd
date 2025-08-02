@@ -9,7 +9,9 @@ enum {
 	CREDITS
 }
 func _ready() -> void:
-	$settings2/volumn_slider.value = (Settings.volumn_db+50/4.0) * 4.0
+	$settings2/timer.button_pressed = Settings.timer_active 
+	$settings2/fullscreen.button_pressed = Settings.fullscreen   
+	$settings2/volumn_slider.value = (Settings.volumn_db+24/4.0) * 4.0
 	get_tree().call_group("audio", "update")
 
 	update()
@@ -64,16 +66,29 @@ func _on_timer_pressed() -> void:
 	Settings.timer_active = $settings2/timer.button_pressed
 
 
-func _on_look_sense_slider_drag_ended(_value_changed: bool) -> void:
-	pass # Replace with function body.
 
 
-func _on_volumn_slider_drag_ended(_value_changed: bool) -> void:
-	Settings.volumn_db =($settings2/volumn_slider.value/4) - 24
-	get_tree().call_group("audio", "update")
 
 
 func _on_credits_pressed() -> void:
 	state = CREDITS
 	$select.play()
 	update()
+
+
+func _on_music_finished() -> void:
+	$music.play(0)
+
+
+func _on_volumn_slider_value_changed(value: float) -> void:
+	$settings2/vol.text = str(int($settings2/volumn_slider.value))
+	Settings.volumn_db =($settings2/volumn_slider.value/4) - 24
+	get_tree().call_group("audio", "update")
+
+
+func _on_look_sense_slider_value_changed(value: float) -> void:
+	pass # Replace with function body.
+
+
+func _on_popups_pressed() -> void:
+	Settings.popups = $settings2/popups.pressed

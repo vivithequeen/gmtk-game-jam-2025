@@ -46,9 +46,16 @@ func die():
 func attack():
 	for i in range(1):
 		$attack.play()
+		var a = bullet_type.instantiate();
+
+		a.spawn_rot = global_rotation;
+		a.spawn_pos = $start1.global_position;
+		a.direction = (player.global_position - $start1.global_position).normalized()
+		get_node("../").add_child(a)
+		$attack.play()
 		var b = bullet_type.instantiate();
 
 		b.spawn_rot = global_rotation;
-		b.spawn_pos = global_position;
-		b.direction = (player.global_position - global_position).normalized()
+		b.spawn_pos = $start2.global_position;
+		b.direction = (player.global_position - $start2.global_position).normalized()
 		get_node("../").add_child(b)

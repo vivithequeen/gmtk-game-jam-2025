@@ -270,6 +270,9 @@ script = ExtResource("4_qf2f5")
 transform = Transform3D(-1.87959e-08, 0, 0.43, 0, 0.43, 0, -0.43, 0, -1.87959e-08, -0.680367, 0.0475134, 0.0782641)
 mesh = SubResource("ArrayMesh_jphb8")
 
+[node name="start" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.12259, -1.73931)
+
 [connection signal="timeout" from="get_player_pos" to="." method="_on_get_player_pos_timeout"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

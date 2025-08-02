@@ -242,6 +242,34 @@ tracks/1/keys = {
 "values": [Vector3(-60, -5, 18), Vector3(-60, 3, 18)]
 }
 
+[sub_resource type="Animation" id="Animation_62atk"]
+resource_name = "dash_start"
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door_battle_12:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-21, -10, -17), Vector3(-21, 1, -17)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door_battle_11:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-48, -10, 0), Vector3(-48, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_ou6is"]
 resource_name = "double_jump_start"
 tracks/0/type = "value"
@@ -323,7 +351,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_6llfj"]
 resource_name = "end_battle_2"
-length = 3.0
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -331,7 +359,7 @@ tracks/0/path = NodePath("door_battle_21:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-57, 3, 32), Vector3(-57, -5, 32)]
@@ -343,11 +371,81 @@ tracks/1/path = NodePath("door_battle_22:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-60, 3, 18), Vector3(-60, -5, 18)]
 }
+
+[sub_resource type="Animation" id="Animation_pg34l"]
+resource_name = "end_battle_3"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGBakedMeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-46, 0.75, -60.5), Vector3(-46, -0.75, -60.5)]
+}
+
+[sub_resource type="Animation" id="Animation_m4h2d"]
+resource_name = "end_battle_4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tunneldoor12:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-57, 5, -8), Vector3(-61, 5, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tunneldoor11:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-58, 6, -5), Vector3(-54, 6, -5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tunneldoor22:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-57, 5, -37), Vector3(-61, 5, -37)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("tunneldoor21:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-58, 6, -34), Vector3(-54, 6, -34)]
+}
+
+[sub_resource type="Animation" id="Animation_gkmcc"]
+resource_name = "end_battle_5"
 
 [sub_resource type="Animation" id="Animation_hxu8e"]
 resource_name = "open_init_door"
@@ -461,73 +559,6 @@ tracks/0/keys = {
 "values": [Vector3(-46, -0.75, -60.5), Vector3(-46, 0.75, -60.5)]
 }
 
-[sub_resource type="Animation" id="Animation_pg34l"]
-resource_name = "end_battle_3"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CSGBakedMeshInstance3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-46, 0.75, -60.5), Vector3(-46, -0.75, -60.5)]
-}
-
-[sub_resource type="Animation" id="Animation_m4h2d"]
-resource_name = "end_battle_4"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("tunneldoor12:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-57, 5, -8), Vector3(-61, 5, -8)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("tunneldoor11:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-58, 6, -5), Vector3(-54, 6, -5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("tunneldoor22:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-57, 5, -37), Vector3(-61, 5, -37)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("tunneldoor21:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-58, 6, -34), Vector3(-54, 6, -34)]
-}
-
 [sub_resource type="Animation" id="Animation_0bhws"]
 resource_name = "start_battle_4"
 length = 0.5
@@ -581,39 +612,8 @@ tracks/3/keys = {
 "values": [Vector3(-54, 6, -34), Vector3(-58, 6, -34)]
 }
 
-[sub_resource type="Animation" id="Animation_62atk"]
-resource_name = "dash_start"
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("door_battle_12:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-21, -10, -17), Vector3(-21, 1, -17)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("door_battle_11:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-48, -10, 0), Vector3(-48, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_i7in8"]
 resource_name = "start_battle_5"
-
-[sub_resource type="Animation" id="Animation_gkmcc"]
-resource_name = "end_battle_5"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6llfj"]
 _data = {
@@ -1342,16 +1342,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5.5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.25, 6.25, -22.75)
 
 [node name="enemy1" type="Node3D" parent="battle4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.25, 10.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -2.75, 10.25)
 
 [node name="enemy2" type="Node3D" parent="battle4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.5, -7.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -2.5, -7.75)
 
 [node name="enemy3" type="Node3D" parent="battle4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -1.25, 7.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, -2.5, 7.75)
 
 [node name="enemy4" type="Node3D" parent="battle4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.75, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -2.5, -5)
 
 [node name="battle5" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.25, -74.75, 0)
@@ -1730,3 +1730,5 @@ script = ExtResource("14_m4h2d")
 [connection signal="body_entered" from="bomb_pickup" to="." method="_on_bomb_pickup_body_entered"]
 [connection signal="body_entered" from="end_final" to="." method="_on_end_final_body_entered"]
 [connection signal="body_entered" from="end_check" to="." method="_on_end_check_body_entered"]
+[connection signal="finished" from="background_music" to="." method="_on_background_music_finished"]
+[connection signal="finished" from="battle_music" to="." method="_on_battle_music_finished"]

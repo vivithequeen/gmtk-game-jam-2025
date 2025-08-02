@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgonoi3k0krrq"
-path="res://.godot/imported/tile_0048.png-f248c464b618f2c321f917198b2d343c.ctex"
+uid="uid://c6vgsepxtpixo"
+path="res://.godot/imported/shift.png-4a3560437eb39429b094c2e7ba06d14e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/ui_icons/tile_0048.png"
-dest_files=["res://.godot/imported/tile_0048.png-f248c464b618f2c321f917198b2d343c.ctex"]
+source_file="res://player/ui_icons/shift.png"
+dest_files=["res://.godot/imported/shift.png-4a3560437eb39429b094c2e7ba06d14e.ctex"]
 
 [params]
 

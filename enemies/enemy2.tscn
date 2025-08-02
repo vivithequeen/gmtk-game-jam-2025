@@ -136,7 +136,6 @@ script = ExtResource("1_eg05s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_6fke2")
-disabled = true
 
 [node name="change_position" type="Timer" parent="."]
 wait_time = 3.0
@@ -161,6 +160,12 @@ script = ExtResource("3_mc56p")
 [node name="RobotFlyingLowpoly2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.96701e-08, 0, 0.45, 0, 0.45, 0, -0.45, 0, -1.96701e-08, -0.25, -1.25, 0)
 mesh = SubResource("ArrayMesh_55a34")
+
+[node name="start1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103735, 1, -1.40777)
+
+[node name="start2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.565268, 1, -1.40777)
 
 [connection signal="timeout" from="change_position" to="." method="_on_change_position_timeout"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
