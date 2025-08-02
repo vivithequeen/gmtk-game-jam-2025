@@ -12,6 +12,7 @@ var attack_amounts = 0;
 var attack_timer = 0;
 var start_pos;
 
+var is_enemy = true;
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	global_position = start_pos

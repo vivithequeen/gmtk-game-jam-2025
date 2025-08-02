@@ -17,6 +17,7 @@ var player_data = {
 	"weapon4_bullets" : 0,
 	"health" : 0,
 	"dash_amount" : 0,
+	"grenade" :true,
 }
 var init_run = true;
 

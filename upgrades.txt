@@ -32,8 +32,10 @@ FINISH MAP + PROGRESSION
    dash map
    2 more fights
 UI
-    input stuff
+	input stuff
 SOUND?
-    Sound when battle starts?
-    sound when enemys spawn? 
-    music?
+	Sound when battle starts?
+	sound when enemys spawn? 
+	music?
+
+item pickups

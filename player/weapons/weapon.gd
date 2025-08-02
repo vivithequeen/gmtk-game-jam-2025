@@ -9,12 +9,14 @@ extends Node3D
 
 @export var max_ammo : int = 24;
 @export var amount_of_bullets : int = 1;
+
+@export var grenade : PackedScene = preload("res://player/projectiles/grenade.tscn")
 var ammo : int = max_ammo
 #@export var mag_type
 var is_reloading := false
 var bullet;
 var fire_timer = 0;
-
+var grenade_timer = 0;
 
 var is_current_weapon;
 func _ready() -> void:
@@ -24,6 +26,8 @@ func _physics_process(delta: float) -> void:
 	if(is_current_weapon):
 		if(fire_timer>=0):
 			fire_timer-=delta
+		if(grenade_timer >=0):
+			grenade_timer -=delta
 		if(ammo>0 and !is_reloading):
 			if(Input.is_action_pressed("fire") and fire_timer <= 0):
 				$ani.play("fire")
@@ -41,6 +45,16 @@ func _physics_process(delta: float) -> void:
 		else:
 			if(!is_reloading):
 				reload()
+		if(MapLoop.player_data["grenade"]): #grenade amount
+			if(Input.is_action_just_pressed("grenade") and grenade_timer <=0):
+				grenade_timer = 4;
+				var b := grenade.instantiate();
+
+				b.spawn_rot = get_node("../../../../").global_rotation;
+				b.spawn_pos = get_node("../../../../bullet_spawn").global_position;
+				get_node("../../../../../../").add_child(b)
+		
+
 
 func reload():
 	$reload2.play()

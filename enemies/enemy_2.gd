@@ -9,7 +9,7 @@ var rot_num = 0;
 
 var bullet_type := preload("res://enemies/projectiles/enemy_bullet.tscn");
 var attack_timer = 0;
-
+var is_enemy = true
 var start_pos;
 func _ready():
 	global_position = start_pos

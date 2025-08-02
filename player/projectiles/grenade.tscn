@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://shfo1l8h4anw"]
+
+[ext_resource type="Script" uid="uid://ccs8nwqvyehx3" path="res://player/projectiles/grenade.gd" id="1_c2jns"]
+[ext_resource type="Texture2D" uid="uid://dxhagge64j3xe" path="res://player/projectiles/bomb.png" id="1_e3tk1"]
+[ext_resource type="AudioStream" uid="uid://6n7ruvpkcen8" path="res://audio/bomb.wav" id="3_cjo0t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ifgea"]
+size = Vector3(4, 3.25, 4.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cjo0t"]
+
+[node name="Grenade" type="Area3D"]
+script = ExtResource("1_c2jns")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+billboard = 2
+texture_filter = 2
+texture = ExtResource("1_e3tk1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, -0.125)
+shape = SubResource("BoxShape3D_ifgea")
+
+[node name="hit" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hit"]
+shape = SubResource("BoxShape3D_cjo0t")
+
+[node name="direction" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_cjo0t")
+volume_db = -12.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="hit" to="." method="_on_hit_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

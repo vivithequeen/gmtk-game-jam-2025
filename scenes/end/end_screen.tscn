@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://rn032sn0wjhb"]
+
+[ext_resource type="Texture2D" uid="uid://iebxnw1mbrlk" path="res://textures/title.png" id="1_ihaqn"]
+
+[node name="end_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 672.0
+offset_bottom = 504.0
+color = Color(0.0507973, 0.168536, 0.270634, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 640.0
+offset_bottom = 352.0
+texture = ExtResource("1_ihaqn")

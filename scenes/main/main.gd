@@ -5,8 +5,8 @@ var e2 = preload("res://enemies/enemy2.tscn")
 @export var room_1_enemy_count: int = 3;
 @export var room_2_enemy_count: int = 3;
 @export var room_3_enemy_count: int = 3;
-@export var room_4_enemy_count: int = 3;
-@export var room_5_enemy_count: int = 3;
+@export var room_4_enemy_count: int = 4;
+@export var room_5_enemy_count: int = 8;
 func _ready() -> void:
 	randomize()
 	$double_jump_upgrade/Sprite3D.visible = !MapLoop.player_data["dash"]
@@ -90,24 +90,119 @@ func start_battle_3():
 	var enemy1 = e1.instantiate();
 	enemy1.start_pos = $battle3/enemy1.global_position
 	enemy1.player = $Player
-	enemy1.battle = 2;
+	enemy1.battle = 3;
 	add_child(enemy1)
 	
 
 	var enemy2 = e1.instantiate();
 	enemy2.start_pos = $battle3/enemy2.global_position
 	enemy2.player = $Player
-	enemy2.battle = 2;
+	enemy2.battle = 3;
 	add_child(enemy2)
 
 	var enemy3 = e1.instantiate();
 	enemy3.start_pos = $battle3/enemy3.global_position
 	enemy3.player = $Player
-	enemy3.battle =2;
+	enemy3.battle =3;
 	add_child(enemy3)
 
-	$battles.play("start_battle_2")
+	$battles.play("start_battle_3")
 
+func check_room_4():
+	if (room_4_enemy_count > 0):
+		return ;
+	$battles.play("end_battle_4")
+
+func room_4_enemy_died():
+	room_4_enemy_count -= 1;
+
+func start_battle_4():
+	var enemy1 = e2.instantiate();
+	enemy1.start_pos = $battle4/enemy1.global_position
+	enemy1.player = $Player
+	enemy1.battle = 4;
+	add_child(enemy1)
+	
+
+	var enemy2 = e2.instantiate();
+	enemy2.start_pos = $battle4/enemy2.global_position
+	enemy2.player = $Player
+	enemy2.battle = 4;
+	add_child(enemy2)
+
+	var enemy3 = e1.instantiate();
+	enemy3.start_pos = $battle4/enemy3.global_position
+	enemy3.player = $Player
+	enemy3.battle =4;
+	add_child(enemy3)
+
+	var enemy4 = e1.instantiate();
+	enemy4.start_pos = $battle4/enemy4.global_position
+	enemy4.player = $Player
+	enemy4.battle = 4;
+	add_child(enemy4)
+	$battles.play("start_battle_4")
+
+func check_room_5():
+	if (room_5_enemy_count > 0):
+		return ;
+	$battles.play("end_battle_5")
+
+func room_5_enemy_died():
+	room_5_enemy_count -= 1;
+
+func start_battle_5():
+	var enemy1 = e2.instantiate();
+	enemy1.start_pos = $battle5/enemy1.global_position
+	enemy1.player = $Player
+	enemy1.battle = 5;
+	add_child(enemy1)
+	
+
+	var enemy2 = e2.instantiate();
+	enemy2.start_pos = $battle5/enemy2.global_position
+	enemy2.player = $Player
+	enemy2.battle = 5;
+	add_child(enemy2)
+
+	var enemy3 = e1.instantiate();
+	enemy3.start_pos = $battle5/enemy3.global_position
+	enemy3.player = $Player
+	enemy3.battle =5;
+	add_child(enemy3)
+
+	var enemy4 = e1.instantiate();
+	enemy4.start_pos = $battle5/enemy4.global_position
+	enemy4.player = $Player
+	enemy4.battle = 5;
+	add_child(enemy4)
+	
+	var enemy5 = e2.instantiate();
+	enemy5.start_pos = $battle5/enemy5.global_position
+	enemy5.player = $Player
+	enemy5.battle = 5;
+	add_child(enemy5)
+	
+
+	var enemy6 = e2.instantiate();
+	enemy6.start_pos = $battle5/enemy6.global_position
+	enemy6.player = $Player
+	enemy6.battle = 5;
+	add_child(enemy6)
+
+	var enemy7 = e1.instantiate();
+	enemy7.start_pos = $battle5/enemy7.global_position
+	enemy7.player = $Player
+	enemy7.battle =5;
+	add_child(enemy7)
+
+	var enemy8 = e1.instantiate();
+	enemy8.start_pos = $battle5/enemy8.global_position
+	enemy8.player = $Player
+	enemy8.battle = 5;
+	add_child(enemy8)
+	$battles.play("start_battle_5")
+	
 var area_switch_1_activated = false;
 var area_switch_2_activated = false;
 
@@ -149,7 +244,7 @@ func _on_open_init_door_body_entered(body: Node3D) -> void:
 var double_jump_door_activated = false;
 func _on_double_jump_upgrade_body_entered(body: Node3D) -> void:
 	if !double_jump_door_activated and body.get("id"):
-		if body.get("id") == "player":
+		if body.get("id") == "player" and !MapLoop.player_data["double_jump"]:
 			double_jump_door_activated = true
 			$battles.play("boot_pick_up")
 			MapLoop.player_data["double_jump"] = true;
@@ -167,10 +262,19 @@ func _on_start_double_jump_path_body_entered(body: Node3D) -> void:
 var get_dash_activated = false;
 func _on_get_dash_body_entered(body: Node3D) -> void:
 	if !get_dash_activated and body.get("id"):
-		if body.get("id") == "player":
+		if body.get("id") == "player" and !MapLoop.player_data["dash"]:
+
 			get_dash_activated = true;
 			$battles.play("dash_pick_up")
 			$get_dash/AudioStreamPlayer3D.play()
 			MapLoop.player_data["dash"] = true
-
 			$get_dash/Sprite3D.visible = !MapLoop.player_data["dash"]
+
+var dash_area_activated = false;
+
+func _on_start_dash_path_body_entered(body:Node3D) -> void:
+	if !dash_area_activated and body.get("id"):
+		if body.get("id") == "player":
+			dash_area_activated = true;
+
+			$battles.play("dash_start")
