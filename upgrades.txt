@@ -26,3 +26,14 @@ goals for tmr!!
 all weapons work! DONE!!!
 SOUND!!!
 SOUND VERY IMPORTANT!!
+
+goals for tmr(saturday)
+FINISH MAP + PROGRESSION
+   dash map
+   2 more fights
+UI
+    input stuff
+SOUND?
+    Sound when battle starts?
+    sound when enemys spawn? 
+    music?

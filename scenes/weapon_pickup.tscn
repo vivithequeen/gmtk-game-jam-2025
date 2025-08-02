@@ -1,11 +1,40 @@
-[gd_scene load_steps=8 format=3 uid="uid://l8opfa757n51"]
+[gd_scene load_steps=10 format=3 uid="uid://l8opfa757n51"]
 
-[ext_resource type="Script" uid="uid://cir6kmo2v0ym3" path="res://weapon_pickup.gd" id="1_0reak"]
+[ext_resource type="Script" uid="uid://dri7tg8raw6sr" path="res://scenes/weapon_pickup.gd" id="1_aoepw"]
 [ext_resource type="PackedScene" uid="uid://dhfj33tk1nogs" path="res://player/models/Shotgun_3.fbx" id="2_8i8db"]
+[ext_resource type="AudioStream" uid="uid://bjksqmdhybd" path="res://audio/weapon.wav" id="2_aoepw"]
 [ext_resource type="PackedScene" uid="uid://cggipif3oekuj" path="res://player/models/AssaultRifle2_1.fbx" id="3_qjt78"]
+[ext_resource type="PackedScene" uid="uid://bygkatubd1yta" path="res://player/models/SubmachineGun_2.fbx" id="4_bt436"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8i8db"]
 size = Vector3(7, 7, 7)
+
+[sub_resource type="Animation" id="Animation_qjt78"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 6.28319, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.785, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_8i8db"]
 resource_name = "spin"
@@ -37,33 +66,6 @@ tracks/1/keys = {
 "values": [Vector3(0, 1.285, 0), Vector3(0, 0.785, 0), Vector3(0, 1.34056, 0), Vector3(0, 1.785, 0), Vector3(0, 1.285, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_qjt78"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 6.28319, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.785, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aoepw"]
 _data = {
 &"RESET": SubResource("Animation_qjt78"),
@@ -71,16 +73,20 @@ _data = {
 }
 
 [node name="weapon_pickup" type="Area3D"]
-script = ExtResource("1_0reak")
+script = ExtResource("1_aoepw")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000424147, 2.26927, -0.0121517)
+stream = ExtResource("2_aoepw")
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0.785, 0)
+transform = Transform3D(1, 0, 4.46638e-06, 0, 1, 0, -4.46638e-06, 0, 1, 0, 0.785, 0)
 
 [node name="2" parent="Node3D" instance=ExtResource("2_8i8db")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.75, 0, 0)
 
-[node name="3" parent="Node3D" instance=ExtResource("2_8i8db")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.75, 0, 0)
+[node name="3" parent="Node3D" instance=ExtResource("4_bt436")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.25, -0.25, -4.37115e-08)
 
 [node name="4" parent="Node3D" instance=ExtResource("3_qjt78")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.25, -0.25, 0)
@@ -95,3 +101,4 @@ libraries = {
 }
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

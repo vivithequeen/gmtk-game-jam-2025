@@ -40,12 +40,14 @@ func _ready() -> void:
 	
 	
 	if(!MapLoop.init_run):
+		velocity = MapLoop.player_velocity
 		current_gun = MapLoop.player_data["current_gun"]
 		$Camera3D/SubViewportContainer/SubViewport/Camera3D/pistol.ammo = MapLoop.player_data["weapon1_bullets"]
 		$Camera3D/SubViewportContainer/SubViewport/Camera3D/shotgun.ammo = MapLoop.player_data["weapon2_bullets"]
 		$Camera3D/SubViewportContainer/SubViewport/Camera3D/smg.ammo = MapLoop.player_data["weapon3_bullets"]
 		$Camera3D/SubViewportContainer/SubViewport/Camera3D/rifle.ammo = MapLoop.player_data["weapon4_bullets"]
-		
+		health = MapLoop.player_data["heatlh"] 
+		dash_amount = MapLoop.player_data["dash_amount"] 
 		global_position = MapLoop.local_switch_pos 
 		rotation.y = MapLoop.local_switch_rotation.y 
 		rotation.z = MapLoop.local_switch_rotation.z

@@ -4,11 +4,15 @@ var e1 = preload("res://enemies/enemy1.tscn")
 var e2 = preload("res://enemies/enemy2.tscn")
 @export var room_1_enemy_count: int = 3;
 @export var room_2_enemy_count: int = 3;
+@export var room_3_enemy_count: int = 3;
+@export var room_4_enemy_count: int = 3;
+@export var room_5_enemy_count: int = 3;
 func _ready() -> void:
 	randomize()
+	$double_jump_upgrade/Sprite3D.visible = !MapLoop.player_data["dash"]
 	$double_jump_upgrade/Sprite3D.visible = !MapLoop.player_data["double_jump"]
 	$WorldEnvironment.environment.sky_rotation.z = deg_to_rad(randf_range(0, 360))
-	
+
 func _process(delta):
 	$WorldEnvironment.environment.sky_rotation.z += delta / 80.0
 
@@ -74,16 +78,46 @@ func start_battle_2():
 
 	$battles.play("start_battle_2")
 
+func check_room_3():
+	if (room_3_enemy_count > 0):
+		return ;
+	$battles.play("end_battle_3")
+
+func room_3_enemy_died():
+	room_3_enemy_count -= 1;
+
+func start_battle_3():
+	var enemy1 = e1.instantiate();
+	enemy1.start_pos = $battle3/enemy1.global_position
+	enemy1.player = $Player
+	enemy1.battle = 2;
+	add_child(enemy1)
+	
+
+	var enemy2 = e1.instantiate();
+	enemy2.start_pos = $battle3/enemy2.global_position
+	enemy2.player = $Player
+	enemy2.battle = 2;
+	add_child(enemy2)
+
+	var enemy3 = e1.instantiate();
+	enemy3.start_pos = $battle3/enemy3.global_position
+	enemy3.player = $Player
+	enemy3.battle =2;
+	add_child(enemy3)
+
+	$battles.play("start_battle_2")
+
 var area_switch_1_activated = false;
 var area_switch_2_activated = false;
-
 
 func _on_area_switch_2_body_entered(body: Node3D) -> void:
 	if !area_switch_1_activated and body.get("id"):
 		if body.get("id") == "player":
 			area_switch_1_activated = true;
-
-
+			MapLoop.player_data["heatlh"] = $Player.health
+			MapLoop.player_data["dash_amount"] = $Player.dash_amount
+			MapLoop.player_velocity = $Player.velocity
 			MapLoop.player_data["current_gun"] = $Player.current_gun
 			MapLoop.player_data["weapon1_bullets"] = $Player/Camera3D/SubViewportContainer/SubViewport/Camera3D/pistol.ammo
 			MapLoop.player_data["weapon2_bullets"] = $Player/Camera3D/SubViewportContainer/SubViewport/Camera3D/shotgun.ammo
@@ -119,6 +153,7 @@ func _on_double_jump_upgrade_body_entered(body: Node3D) -> void:
 			double_jump_door_activated = true
 			$battles.play("boot_pick_up")
 			MapLoop.player_data["double_jump"] = true;
+			$double_jump_upgrade/AudioStreamPlayer3D.play()
 			$double_jump_upgrade/Sprite3D.visible = !MapLoop.player_data["double_jump"]
 
 var double_jump_start_activated = false;
@@ -135,4 +170,7 @@ func _on_get_dash_body_entered(body: Node3D) -> void:
 		if body.get("id") == "player":
 			get_dash_activated = true;
 			$battles.play("dash_pick_up")
+			$get_dash/AudioStreamPlayer3D.play()
 			MapLoop.player_data["dash"] = true
+
+			$get_dash/Sprite3D.visible = !MapLoop.player_data["dash"]
