@@ -6,8 +6,9 @@ credit stuff
 Submachine Gun by Quaternius (https://poly.pizza/m/7ehatxr7FY)//all the weapons are this guys stuff so do that too
 
 https://deep-fold.itch.io/space-background-generator
-ambiant sg
+
 https://kenney.nl/assets/input-prompts-pixel-16
+Music in the background by https://www.youtube.com/c/Tadon
 
 to do:
 double jump DONE    
@@ -44,4 +45,6 @@ speedrun timer
 MENUS
 death screen DONE
 sound effect when hit ground
-PAINT ENEMY <-- PRIORITY
+PAINT ENEMY <-- PRIORITY DONE
+
+credits

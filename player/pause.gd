@@ -12,6 +12,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("esc") and can_un_pause):
 		unpause()
+func opened():
+	$menu/music.play(MapLoop.menu_music_time)
 
 
 func _on_contiue_pressed() -> void:
@@ -19,6 +21,8 @@ func _on_contiue_pressed() -> void:
 	$select.play()
 
 func unpause():
+	MapLoop.menu_music_time = $menu/music.get_playback_position()
+	$menu/music.stop()
 	player.paused = false;
 	player.get_node("can_pause").start()
 	player.update_mouse_mode()

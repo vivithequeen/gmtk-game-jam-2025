@@ -8,6 +8,7 @@ var e2 = preload("res://enemies/enemy2.tscn")
 @export var room_4_enemy_count: int = 4;
 @export var room_5_enemy_count: int = 8;
 func _ready() -> void:
+	$background_music.play()
 	randomize()
 	$double_jump_upgrade/Sprite3D.visible = !MapLoop.player_data["double_jump"]
 	$get_dash/Sprite3D.visible = !MapLoop.player_data["dash"]
@@ -22,6 +23,7 @@ func check_room_1():
 		return ;
 	$battles.play("end_battle_1")
 	MapLoop.battle_active = false
+	battle_end()
 
 func room_1_enemy_died():
 	room_1_enemy_count -= 1;
@@ -46,7 +48,7 @@ func start_battle_1():
 	enemy3.battle = 1;
 	add_child(enemy3)
 	MapLoop.battle_active = true
-
+	battle_start()
 	$battles.play("start_battle_1")
 
 
@@ -55,6 +57,7 @@ func check_room_2():
 		return ;
 	$battles.play("end_battle_2")
 	MapLoop.battle_active = false
+	battle_end()
 
 func room_2_enemy_died():
 	room_2_enemy_count -= 1;
@@ -79,7 +82,7 @@ func start_battle_2():
 	enemy3.battle =2;
 	add_child(enemy3)
 	MapLoop.battle_active = true
-
+	battle_start()
 	$battles.play("start_battle_2")
 
 func check_room_3():
@@ -87,6 +90,7 @@ func check_room_3():
 		return ;
 	$battles.play("end_battle_3")
 	MapLoop.battle_active = false
+	battle_end()
 
 func room_3_enemy_died():
 	room_3_enemy_count -= 1;
@@ -110,7 +114,7 @@ func start_battle_3():
 	enemy3.player = $Player
 	enemy3.battle =3;
 	add_child(enemy3)
-
+	battle_start()
 	$battles.play("start_battle_3")
 	MapLoop.battle_active = true
 
@@ -119,6 +123,7 @@ func check_room_4():
 		return ;
 	$battles.play("end_battle_4")
 	MapLoop.battle_active = false
+	battle_end()
 
 func room_4_enemy_died():
 	room_4_enemy_count -= 1;
@@ -149,7 +154,7 @@ func start_battle_4():
 	enemy4.battle = 4;
 	add_child(enemy4)
 	$battles.play("start_battle_4")
-	
+	battle_start()
 	MapLoop.battle_active = true
 
 func check_room_5():
@@ -157,6 +162,7 @@ func check_room_5():
 		return ;
 	$battles.play("end_battle_5")
 	MapLoop.battle_active = false
+	battle_end()
 
 func room_5_enemy_died():
 	room_5_enemy_count -= 1;
@@ -212,6 +218,7 @@ func start_battle_5():
 	enemy8.battle = 5;
 	add_child(enemy8)
 	$battles.play("start_battle_5")
+	battle_start()
 	MapLoop.battle_active = true
 	
 var area_switch_1_activated = false;
@@ -314,3 +321,12 @@ func _on_bomb_pickup_body_entered(body:Node3D) -> void:
 			MapLoop.player_data["grenade"] = true;
 			$bomb_pickup/Sprite3D.visible = !MapLoop.player_data["grenade"]
 
+
+func battle_start():
+	$battle_music.play()
+	$background_music.stop()
+
+
+func battle_end():
+	$battle_music.stop()
+	$background_music.play()

@@ -65,6 +65,8 @@ func _physics_process(delta: float) -> void:
 		$Camera3D/dead.visible = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true;
+
+
 	MapLoop.timer += delta
 	ui_shit();
 	
@@ -119,7 +121,7 @@ func _physics_process(delta: float) -> void:
 
 func jump():
 	velocity.y = JUMP_VELOCITY
-	$jump.play()
+	#$jump.play()
 func change_weapons():
 	if (Input.is_action_just_pressed("weapon1") and MapLoop.player_data["weapon1"]):
 		current_gun = "pistol"
@@ -195,7 +197,7 @@ func _input(event: InputEvent) -> void:
 		paused = true
 		update_mouse_mode()
 		can_pause = false;
-
+		$Camera3D/pause.opened()
 
 	if event is InputEventMouseMotion:
 		rotation.y += (-event.relative.x * LOOK_SENSE);

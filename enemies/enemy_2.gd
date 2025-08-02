@@ -17,6 +17,7 @@ func _ready():
 
 
 func _physics_process(delta: float) -> void:
+	look_at(player.global_position)
 	if (health <= 0):
 		die()
 	velocity = ((player.global_position + Vector3(0, 0, 4).rotated(Vector3(0, 1, 0), rot_num)) - global_position) * SPEED

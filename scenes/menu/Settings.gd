@@ -2,6 +2,7 @@ extends Node
 
 var fullscreen : bool = true;
 var timer_active: bool = true;
+var volumn_db : float = 0;
 
 func toggle_fullscreen():
 	if fullscreen:

@@ -47,3 +47,5 @@ func reset():
 	"dash_amount" : 0,
 	"grenade" :false,
 }
+
+var menu_music_time := 0.0;

@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://y65bmsmhruwj" path="res://player/weapons/shotgun.tscn" id="3_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://bgm8s1gu0qxpc" path="res://player/weapons/pistol.tscn" id="4_boad6"]
 [ext_resource type="PackedScene" uid="uid://cap5vd8phiupw" path="res://player/weapons/rifle.tscn" id="5_rgyib"]
-[ext_resource type="AudioStream" uid="uid://dtanrm601gw1" path="res://audio/jump.wav" id="7_boad6"]
 [ext_resource type="PackedScene" uid="uid://wv48gaq3vw2x" path="res://player/pause.tscn" id="7_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://dvucw0ww607me" path="res://scenes/menu/dead.tscn" id="8_8t03j"]
 [ext_resource type="AudioStream" uid="uid://b4uaarosw53li" path="res://audio/dash.wav" id="8_rgyib"]
+[ext_resource type="Script" uid="uid://gx2v0n37wpm6" path="res://audio/audio.gd" id="10_2ieo8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rkbax"]
 
@@ -61,13 +61,10 @@ visible = false
 [node name="crouchcast" type="RayCast3D" parent="."]
 target_position = Vector3(0, 1, 0)
 
-[node name="jump" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_boad6")
-volume_db = -80.0
-
 [node name="dash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_rgyib")
 volume_db = -16.0
+script = ExtResource("10_2ieo8")
 
 [node name="can_pause" type="Timer" parent="."]
 wait_time = 0.169

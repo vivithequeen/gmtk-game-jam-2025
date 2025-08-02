@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=4 uid="uid://qs28ooi0d2lm"]
+[gd_scene load_steps=82 format=4 uid="uid://qs28ooi0d2lm"]
 
 [ext_resource type="Script" uid="uid://cscg68g6fi5tb" path="res://scenes/main/main.gd" id="1_hujxm"]
 [ext_resource type="PackedScene" uid="uid://dolony2nssuwa" path="res://player/player.tscn" id="1_hyk8p"]
@@ -11,6 +11,8 @@
 [ext_resource type="Material" uid="uid://b12mspbmguamd" path="res://textures/tile.tres" id="8_raeie"]
 [ext_resource type="Material" uid="uid://dhgewug8wjqdb" path="res://textures/yellow.tres" id="9_th5th"]
 [ext_resource type="Material" uid="uid://dcrc6op0gtcyf" path="res://textures/glass.tres" id="10_ouso4"]
+[ext_resource type="Script" uid="uid://gx2v0n37wpm6" path="res://audio/audio.gd" id="14_m4h2d"]
+[ext_resource type="Script" uid="uid://b8ylxe3usveuk" path="res://audio/audio3d.gd" id="14_p8abn"]
 [ext_resource type="AudioStream" uid="uid://bjksqmdhybd" path="res://audio/weapon.wav" id="15_ou6is"]
 [ext_resource type="PackedScene" uid="uid://bj128vaigou2j" path="res://scenes/double_jump_upgrade.tscn" id="15_raeie"]
 [ext_resource type="PackedScene" uid="uid://l8opfa757n51" path="res://scenes/weapon_pickup.tscn" id="16_hxu8e"]
@@ -19,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://sm8b3keqra1t" path="res://textures/black_metal_broken.jpg" id="17_nvumn"]
 [ext_resource type="Texture2D" uid="uid://dxhagge64j3xe" path="res://player/projectiles/bomb.png" id="18_necax"]
 [ext_resource type="Material" uid="uid://2utfsjlem4re" path="res://textures/glass_broken.tres" id="18_ou6is"]
+[ext_resource type="AudioStream" uid="uid://d2joqgxxgbp7f" path="res://audio/Space_half 8-bit.mp3" id="20_pg34l"]
+[ext_resource type="AudioStream" uid="uid://bessvrw5lstx0" path="res://audio/Dimensional_half 8-bit.mp3" id="21_m4h2d"]
 
 [sub_resource type="Animation" id="Animation_37hlw"]
 length = 0.001
@@ -1530,6 +1534,7 @@ shape = SubResource("BoxShape3D_7smn1")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="get_dash"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000424147, 2.26927, -0.0121517)
 stream = ExtResource("15_ou6is")
+script = ExtResource("14_p8abn")
 
 [node name="Sprite3D" type="Sprite3D" parent="get_dash"]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 5.75, 0)
@@ -1704,6 +1709,16 @@ weapon = 4
 [node name="battle_start5" parent="." instance=ExtResource("16_nvumn")]
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -29.25, -58.75, 0)
 battle = 5
+
+[node name="background_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_pg34l")
+volume_db = -8.0
+script = ExtResource("14_m4h2d")
+
+[node name="battle_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_m4h2d")
+volume_db = -8.0
+script = ExtResource("14_m4h2d")
 
 [connection signal="body_entered" from="area_switch2" to="." method="_on_area_switch_2_body_entered"]
 [connection signal="body_entered" from="area_switch1" to="." method="_on_area_switch_1_body_entered"]

@@ -5,12 +5,17 @@ extends Control
 enum {
 	MAIN,
 	SETTINGS,
-	CONTROLS
+	CONTROLS,
+	CREDITS
 }
 func _ready() -> void:
-	update()
-var state = MAIN
+	$settings2/volumn_slider.value = (Settings.volumn_db+50/4.0) * 4.0
+	get_tree().call_group("audio", "update")
 
+	update()
+	
+
+var state = MAIN
 
 
 
@@ -20,7 +25,9 @@ func update():
 	$settings2.visible = state == SETTINGS
 	$settings.visible = state == MAIN
 	$quit.visible = state == MAIN
+	$credits.visible = state == MAIN
 	other_button.visible = state == MAIN
+	$credits2.visible = state == CREDITS
 
 func _on_back_pressed() -> void:
 	$select.play()
@@ -57,9 +64,16 @@ func _on_timer_pressed() -> void:
 	Settings.timer_active = $settings2/timer.button_pressed
 
 
-func _on_look_sense_slider_drag_ended(value_changed: bool) -> void:
+func _on_look_sense_slider_drag_ended(_value_changed: bool) -> void:
 	pass # Replace with function body.
 
 
-func _on_volumn_slider_drag_ended(value_changed: bool) -> void:
-	pass # Replace with function body.
+func _on_volumn_slider_drag_ended(_value_changed: bool) -> void:
+	Settings.volumn_db =($settings2/volumn_slider.value/4) - 24
+	get_tree().call_group("audio", "update")
+
+
+func _on_credits_pressed() -> void:
+	state = CREDITS
+	$select.play()
+	update()

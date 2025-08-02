@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d2joqgxxgbp7f"
+path="res://.godot/imported/Space_half 8-bit.mp3-1b03fb5f69375180f6714c3cee7e3a01.mp3str"
+
+[deps]
+
+source_file="res://audio/Space_half 8-bit.mp3"
+dest_files=["res://.godot/imported/Space_half 8-bit.mp3-1b03fb5f69375180f6714c3cee7e3a01.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
