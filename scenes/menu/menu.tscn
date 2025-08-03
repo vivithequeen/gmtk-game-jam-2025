@@ -606,7 +606,6 @@ text = "backgrounds by deep-fold on itch.io"
 
 [node name="select" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("26_pafgo")
-volume_db = -80.0
 script = ExtResource("27_b18gb")
 
 [node name="music" type="AudioStreamPlayer" parent="."]
