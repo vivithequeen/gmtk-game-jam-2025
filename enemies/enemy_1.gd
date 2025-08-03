@@ -1,4 +1,4 @@
-extends Node3D
+extends CharacterBody3D
 
 @export var movement_speed: float = 12.0
 @export var battle: int = 1;
@@ -43,13 +43,14 @@ func _physics_process(delta):
 		if navigation_agent.avoidance_enabled:
 			_on_velocity_computed(new_velocity)
 		else:
-			_on_velocity_computed(new_velocity)
+			velocity = (new_velocity)
 	else:
 		attack_timer += delta;
 		if (attack_timer >= 1):
 			attack_amounts = 3;
 			attack()
 			attack_timer = 0;
+	move_and_slide()
 
 func _on_velocity_computed(safe_velocity: Vector3) -> void:
 	global_position = global_position.move_toward(global_position + safe_velocity, physics_delta * movement_speed)

@@ -136,6 +136,7 @@ script = ExtResource("1_eg05s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_6fke2")
+disabled = true
 
 [node name="change_position" type="Timer" parent="."]
 wait_time = 3.0

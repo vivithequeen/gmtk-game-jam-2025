@@ -36,7 +36,7 @@ func reset():
 	"weapon2" : false,
 	"weapon3" : false,
 	"weapon4" : false,
-	"double_jump" : true,
+	"double_jump" : false,
 	"dash" : false,
 	"current_gun" : "pistol",
 	"weapon1_bullets" : 0,

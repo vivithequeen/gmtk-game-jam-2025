@@ -9,9 +9,11 @@ enum {
 	CREDITS
 }
 func _ready() -> void:
+	$settings2/popups.button_pressed = Settings.popups 
 	$settings2/timer.button_pressed = Settings.timer_active 
 	$settings2/fullscreen.button_pressed = Settings.fullscreen   
-	$settings2/volumn_slider.value = (Settings.volumn_db+24/4.0) * 4.0
+	$settings2/volumn_slider.value = ((Settings.volumn_db+24)/4.0) * 4.0
+	$settings2/look_sense_slider.value = Settings.look_sense
 	get_tree().call_group("audio", "update")
 
 	update()
@@ -84,11 +86,15 @@ func _on_volumn_slider_value_changed(value: float) -> void:
 	$settings2/vol.text = str(int($settings2/volumn_slider.value))
 	Settings.volumn_db =($settings2/volumn_slider.value/4) - 24
 	get_tree().call_group("audio", "update")
+	$tick.play()
 
 
 func _on_look_sense_slider_value_changed(value: float) -> void:
-	pass # Replace with function body.
+	$settings2/sense.text = str(int($settings2/look_sense_slider.value))
+	Settings.look_sense =$settings2/look_sense_slider.value
+
+	$tick.play()
 
 
 func _on_popups_pressed() -> void:
-	Settings.popups = $settings2/popups.pressed
+	Settings.popups = $settings2/popups.button_pressed

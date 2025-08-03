@@ -7,6 +7,8 @@ var e2 = preload("res://enemies/enemy2.tscn")
 @export var room_3_enemy_count: int = 3;
 @export var room_4_enemy_count: int = 4;
 @export var room_5_enemy_count: int = 8;
+
+@onready var popup = preload("res://player/popup.tscn")
 func _ready() -> void:
 	$background_music.play(MapLoop.game_background_music_time)
 	randomize()
@@ -268,8 +270,16 @@ func _on_double_jump_upgrade_body_entered(body: Node3D) -> void:
 			double_jump_door_activated = true
 			$battles.play("boot_pick_up")
 			MapLoop.player_data["double_jump"] = true;
-			$double_jump_upgrade/AudioStreamPlayer3D.play()
+			
 			$double_jump_upgrade/Sprite3D.visible = !MapLoop.player_data["double_jump"]
+			if(Settings.popups):
+				
+				var p = popup.instantiate()
+				p.title = "double jump!!";
+				p.main = "press [img]res://player/ui_icons/space.png[/img] or [img]res://player/ui_icons/a.png[/img] after jumping to double jump!!\nreach new heights with this ability!"
+				body.get_node("Camera3D").add_child(p)
+			else:
+				$double_jump_upgrade/AudioStreamPlayer3D.play()
 
 var double_jump_start_activated = false;
 func _on_start_double_jump_path_body_entered(body: Node3D) -> void:
@@ -287,7 +297,16 @@ func _on_get_dash_body_entered(body: Node3D) -> void:
 
 			get_dash_activated = true;
 			if(!MapLoop.player_data["dash"]):
-				$get_dash/AudioStreamPlayer3D.play()
+				if(Settings.popups):
+
+					var p = popup.instantiate()
+					p.title = "dash!!";
+					p.main = "press [img]res://player/ui_icons/shift.png[/img] or [img]res://player/ui_icons/x.png[/img] to dash!!\nmake sure to watch your stamina!"
+					body.get_node("Camera3D").add_child(p)
+				else:
+
+					$get_dash/AudioStreamPlayer3D.play()
+
 			MapLoop.player_data["dash"] = true
 			$get_dash/Sprite3D.visible = !MapLoop.player_data["dash"]
 
@@ -318,8 +337,16 @@ func _on_end_final_body_entered(body:Node3D) -> void:
 
 func _on_bomb_pickup_body_entered(body:Node3D) -> void:
 	if body.get("id"):
-		if body.get("id") == "player":
-			
+		if body.get("id") == "player" and !MapLoop.player_data["grenade"]:
+			if(Settings.popups):
+
+				var p = popup.instantiate()
+				p.title = "bomb!!";
+				p.main = "press [img]res://player/ui_icons/g.png[/img] or [img]res://player/ui_icons/y.png[/img] to throw a bomb!!\nlook for cracked surfaces!!"
+				body.get_node("Camera3D").add_child(p)
+			else:
+
+				$bomb_pickup/AudioStreamPlayer3D.play()
 			MapLoop.player_data["grenade"] = true;
 			$bomb_pickup/Sprite3D.visible = !MapLoop.player_data["grenade"]
 

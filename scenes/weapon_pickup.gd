@@ -27,7 +27,7 @@ func _on_body_entered(body:Node3D) -> void:
 			if(Settings.popups):
 				
 				var p = popup.instantiate()
-				p.title = "you got a " + weapons[weapon - 2];
+				p.title = "" + weapons[weapon - 2] + "!!!";
 				p.main = "press [img]res://player/ui_icons/num_"+str(weapon)+".png[/img] or [img]res://player/ui_icons/d_"+str(weapon)+".png[/img] to equip!!
 "
 				body.get_node("Camera3D").add_child(p)

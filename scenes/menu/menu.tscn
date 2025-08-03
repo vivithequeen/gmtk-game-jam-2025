@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://di2dijgny2w4g"]
+[gd_scene load_steps=30 format=3 uid="uid://di2dijgny2w4g"]
 
 [ext_resource type="Script" uid="uid://bak7fkta7kmw8" path="res://scenes/menu/menu.gd" id="1_a0fu0"]
 [ext_resource type="Texture2D" uid="uid://iebxnw1mbrlk" path="res://textures/title.png" id="1_pafgo"]
@@ -19,15 +19,16 @@
 [ext_resource type="Texture2D" uid="uid://e105uk1u1bf7" path="res://player/ui_icons/lmb.png" id="18_rhal1"]
 [ext_resource type="Texture2D" uid="uid://dk7sw513ge0y2" path="res://player/ui_icons/tile_0586.png" id="19_pjaa3"]
 [ext_resource type="Texture2D" uid="uid://dx6ie6iax01gi" path="res://player/ui_icons/y.png" id="20_n7cc5"]
-[ext_resource type="Texture2D" uid="uid://blmsmfocc4e3c" path="res://player/ui_icons/tile_0360.png" id="21_7e7pp"]
+[ext_resource type="Texture2D" uid="uid://blmsmfocc4e3c" path="res://player/ui_icons/r.png" id="21_7e7pp"]
 [ext_resource type="Texture2D" uid="uid://cgonoi3k0krrq" path="res://player/ui_icons/b.png" id="22_vu0bd"]
 [ext_resource type="Texture2D" uid="uid://vr4tpyvh4k01" path="res://player/ui_icons/g.png" id="23_2j2ur"]
 [ext_resource type="Texture2D" uid="uid://bocr4y1mhlrf5" path="res://player/ui_icons/esc.png" id="24_tatpe"]
 [ext_resource type="Texture2D" uid="uid://bohwwupp5gwes" path="res://player/ui_icons/tile_0650.png" id="25_dsh75"]
-[ext_resource type="Texture2D" uid="uid://rrg8fquaive6" path="res://player/ui_icons/tile_0425.png" id="26_874ao"]
+[ext_resource type="Texture2D" uid="uid://rrg8fquaive6" path="res://player/ui_icons/space.png" id="26_874ao"]
 [ext_resource type="AudioStream" uid="uid://dbpud8a4tivxf" path="res://audio/select.wav" id="26_pafgo"]
 [ext_resource type="Script" uid="uid://gx2v0n37wpm6" path="res://audio/audio.gd" id="27_b18gb"]
 [ext_resource type="AudioStream" uid="uid://b13fxs3ck58le" path="res://audio/suicidal_moon.wav" id="27_uryge"]
+[ext_resource type="AudioStream" uid="uid://doga0dge7srnf" path="res://audio/tick.wav" id="29_50dkp"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -66,10 +67,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.137
 anchor_bottom = 0.15
-offset_left = 8.0
-offset_top = 432.0
-offset_right = 32.32
-offset_bottom = 396.0
+offset_left = 16.0
+offset_top = 428.0
+offset_right = 40.32
+offset_bottom = 392.0
 focus_neighbor_bottom = NodePath("../controls2")
 theme = ExtResource("2_uryge")
 text = "credits"
@@ -101,6 +102,7 @@ theme = ExtResource("2_uryge")
 text = "quit"
 
 [node name="controls" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_top = -8.0
 offset_right = 40.0
@@ -355,7 +357,6 @@ theme = ExtResource("2_uryge")
 text = "back"
 
 [node name="settings2" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_top = -8.0
 offset_right = 40.0
@@ -452,6 +453,7 @@ offset_top = 298.0
 offset_right = 370.0
 offset_bottom = 314.0
 scale = Vector2(2, 2)
+theme = ExtResource("2_uryge")
 value = 50.0
 
 [node name="look_sense_slider" type="HSlider" parent="settings2"]
@@ -461,39 +463,43 @@ offset_top = 340.0
 offset_right = 370.0
 offset_bottom = 356.0
 scale = Vector2(2, 2)
+theme = ExtResource("2_uryge")
 
 [node name="fullscreen" type="CheckBox" parent="settings2"]
 layout_mode = 2
 offset_left = 427.0
 offset_top = 160.0
-offset_right = 451.0
+offset_right = 443.0
 offset_bottom = 184.0
 scale = Vector2(2, 2)
+theme = ExtResource("2_uryge")
 button_pressed = true
 
 [node name="timer" type="CheckBox" parent="settings2"]
 layout_mode = 2
 offset_left = 427.0
 offset_top = 204.0
-offset_right = 451.0
+offset_right = 443.0
 offset_bottom = 228.0
 scale = Vector2(2, 2)
+theme = ExtResource("2_uryge")
 button_pressed = true
 
 [node name="popups" type="CheckBox" parent="settings2"]
 layout_mode = 2
 offset_left = 427.0
 offset_top = 248.0
-offset_right = 451.0
+offset_right = 443.0
 offset_bottom = 272.0
 scale = Vector2(2, 2)
+theme = ExtResource("2_uryge")
 button_pressed = true
 
 [node name="vol" type="Label" parent="settings2"]
 layout_mode = 0
-offset_left = 387.0
+offset_left = 380.0
 offset_top = 298.0
-offset_right = 427.0
+offset_right = 420.0
 offset_bottom = 347.0
 scale = Vector2(2, 2)
 theme = ExtResource("2_uryge")
@@ -503,9 +509,9 @@ horizontal_alignment = 2
 
 [node name="sense" type="Label" parent="settings2"]
 layout_mode = 0
-offset_left = 387.0
+offset_left = 380.0
 offset_top = 336.0
-offset_right = 427.0
+offset_right = 420.0
 offset_bottom = 385.0
 scale = Vector2(2, 2)
 theme = ExtResource("2_uryge")
@@ -600,12 +606,16 @@ text = "backgrounds by deep-fold on itch.io"
 
 [node name="select" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("26_pafgo")
-volume_db = -12.0
+volume_db = -80.0
 script = ExtResource("27_b18gb")
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("27_uryge")
 volume_db = -12.0
+script = ExtResource("27_b18gb")
+
+[node name="tick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_50dkp")
 script = ExtResource("27_b18gb")
 
 [connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]

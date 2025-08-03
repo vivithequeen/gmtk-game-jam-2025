@@ -42,14 +42,15 @@ offset_bottom = 144.0
 theme = ExtResource("2_hj162")
 text = "play"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 216.0
 offset_top = 448.0
-offset_right = 318.0
+offset_right = 320.0
 offset_bottom = 471.0
 scale = Vector2(2, 2)
 theme = ExtResource("2_hj162")
-text = "VIVITHEQUEEN"
+bbcode_enabled = true
+text = "[color=#d08159]|[/color] VIVITHEQUEEN [color=#d08159]|[/color]"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]

@@ -15,11 +15,13 @@ grow_vertical = 2
 script = ExtResource("1_mjvn6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 480.0
 color = Color(0, 0, 0, 0.572549)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 176.0
 offset_top = 80.0
 offset_right = 465.0
@@ -27,6 +29,7 @@ offset_bottom = 368.0
 color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 
 [node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 184.0
 offset_top = 368.0
 offset_right = 456.0
@@ -34,6 +37,7 @@ offset_bottom = 376.0
 color = Color(0.12549, 0.235294, 0.337255, 0.482353)
 
 [node name="ColorRect4" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 184.0
 offset_top = 72.0
 offset_right = 456.0

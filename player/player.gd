@@ -32,7 +32,7 @@ var is_dashing := false;
 var is_crouching = false
 var dashs = 3;
 
-@onready var pause_timer : Timer = $can_pause
+@onready var pause_timer: Timer = $can_pause
 
 var can_pause = true
 var current_gun = "pistol"
@@ -60,8 +60,7 @@ func _ready() -> void:
 
 	update_weapons();
 func _physics_process(delta: float) -> void:
-
-	if(health <=0):
+	if (health <= 0):
 		$Camera3D/dead.visible = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true;
@@ -80,8 +79,8 @@ func _physics_process(delta: float) -> void:
 	var look_dir = Input.get_vector("look_left", "look_right", "look_up", "look_down")
 
 	if (look_dir):
-		rotation.y -= look_dir.x * controller_look_sense
-		camera.rotation.x -= look_dir.y * controller_look_sense
+		rotation.y -= look_dir.x * controller_look_sense * ((Settings.look_sense + 50) / 100.0)
+		camera.rotation.x -= look_dir.y * controller_look_sense * ((Settings.look_sense + 50) / 100.0)
 		camera.rotation.x = clamp(camera.rotation.x, -PI / 2, PI / 2);
 
 	change_weapons()
@@ -201,8 +200,8 @@ func _input(event: InputEvent) -> void:
 		$Camera3D/pause.opened()
 
 	if event is InputEventMouseMotion:
-		rotation.y += (-event.relative.x * LOOK_SENSE);
-		camera.rotation.x += (-event.relative.y * LOOK_SENSE)
+		rotation.y += (-event.relative.x * LOOK_SENSE * ((Settings.look_sense + 50) / 100.0));
+		camera.rotation.x += (-event.relative.y * LOOK_SENSE * ((Settings.look_sense + 50) / 100.0))
 		camera.rotation.x = clamp(camera.rotation.x, -PI / 2, PI / 2);
 		
 

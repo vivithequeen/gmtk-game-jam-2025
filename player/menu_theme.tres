@@ -1,6 +1,10 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://b8qwb4sosxgg7"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://b8qwb4sosxgg7"]
 
 [ext_resource type="FontFile" uid="uid://clh7ajxgofo1y" path="res://Tiny5-Regular.ttf" id="1_ag1jg"]
+[ext_resource type="Texture2D" uid="uid://bddo2tp64h80c" path="res://textures/circle.png" id="2_5i6jn"]
+[ext_resource type="Texture2D" uid="uid://cbn8aaev2jkht" path="res://textures/check.png" id="2_go0x2"]
+[ext_resource type="Texture2D" uid="uid://dmtv0dxd4qjg0" path="res://textures/circle2.png" id="3_elhvv"]
+[ext_resource type="Texture2D" uid="uid://3a65oyg3j1h8" path="res://textures/check_2.png" id="3_h816b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ag1jg"]
 bg_color = Color(0.552941, 0.411765, 0.478431, 1)
@@ -23,6 +27,16 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3smw"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vttb1"]
+bg_color = Color(1, 0.92549, 0.839216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0r4u"]
+bg_color = Color(0.552941, 0.411765, 0.478431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u25am"]
+content_margin_top = 4.0
+bg_color = Color(1, 0.666667, 0.368627, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gfgd7"]
 bg_color = Color(0.0509804, 0.168627, 0.270588, 1)
@@ -53,11 +67,18 @@ Button/styles/focus = SubResource("StyleBoxFlat_ag1jg")
 Button/styles/hover = SubResource("StyleBoxFlat_5i6jn")
 Button/styles/normal = SubResource("StyleBoxFlat_elhvv")
 Button/styles/pressed = SubResource("StyleBoxFlat_5i6jn")
+CheckBox/icons/checked = ExtResource("2_go0x2")
+CheckBox/icons/unchecked = ExtResource("3_h816b")
 CheckBox/styles/focus = SubResource("StyleBoxFlat_h816b")
 CheckBox/styles/normal = SubResource("StyleBoxFlat_674fu")
 CheckBox/styles/pressed = SubResource("StyleBoxFlat_674fu")
 CheckButton/styles/normal = SubResource("StyleBoxFlat_m3smw")
 CheckButton/styles/pressed = SubResource("StyleBoxFlat_m3smw")
+HSlider/icons/grabber = ExtResource("2_5i6jn")
+HSlider/icons/grabber_highlight = ExtResource("3_elhvv")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_vttb1")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_n0r4u")
+HSlider/styles/slider = SubResource("StyleBoxFlat_u25am")
 Label/colors/font_color = Color(1, 0.92549, 0.839216, 1)
 Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("1_ag1jg")
