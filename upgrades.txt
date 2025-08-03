@@ -21,7 +21,7 @@ map!!
 sounds YAY MOSTLY DONE
 polish!!
 
-
+<p></p>
 goals for tmr!!
 
 all weapons work! DONE!!!
@@ -48,3 +48,5 @@ sound effect when hit ground
 PAINT ENEMY <-- PRIORITY DONE
 
 credits
+
+ICON

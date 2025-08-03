@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://di2dijgny2w4g"]
+[gd_scene load_steps=36 format=3 uid="uid://di2dijgny2w4g"]
 
 [ext_resource type="Script" uid="uid://bak7fkta7kmw8" path="res://scenes/menu/menu.gd" id="1_a0fu0"]
 [ext_resource type="Texture2D" uid="uid://iebxnw1mbrlk" path="res://textures/title.png" id="1_pafgo"]
@@ -29,6 +29,27 @@
 [ext_resource type="Script" uid="uid://gx2v0n37wpm6" path="res://audio/audio.gd" id="27_b18gb"]
 [ext_resource type="AudioStream" uid="uid://b13fxs3ck58le" path="res://audio/suicidal_moon.wav" id="27_uryge"]
 [ext_resource type="AudioStream" uid="uid://doga0dge7srnf" path="res://audio/tick.wav" id="29_50dkp"]
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_50dkp"]
+button_index = 1
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_qp2xe"]
+events = [SubResource("InputEventJoypadButton_50dkp")]
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_02wpe"]
+button_index = 1
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_t7gsn"]
+events = [SubResource("InputEventJoypadButton_02wpe")]
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_4xbh2"]
+button_index = 1
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_gxxro"]
+events = [SubResource("InputEventJoypadButton_4xbh2")]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -71,6 +92,7 @@ offset_left = 16.0
 offset_top = 428.0
 offset_right = 40.32
 offset_bottom = 392.0
+focus_neighbor_top = NodePath("../settings")
 focus_neighbor_bottom = NodePath("../controls2")
 theme = ExtResource("2_uryge")
 text = "credits"
@@ -98,11 +120,11 @@ offset_left = 208.0
 offset_top = 360.0
 offset_right = 344.32
 offset_bottom = 336.0
+focus_neighbor_top = NodePath("../controls2")
 theme = ExtResource("2_uryge")
 text = "quit"
 
 [node name="controls" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_top = -8.0
 offset_right = 40.0
@@ -139,6 +161,7 @@ offset_top = 160.0
 offset_right = 322.0
 offset_bottom = 272.0
 scale = Vector2(2, 2)
+focus_mode = 1
 theme = ExtResource("2_uryge")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="controls/VScrollBar"]
@@ -354,9 +377,12 @@ offset_top = 400.0
 offset_right = 450.52
 offset_bottom = 430.0
 theme = ExtResource("2_uryge")
+shortcut = SubResource("Shortcut_qp2xe")
+shortcut_in_tooltip = false
 text = "back"
 
 [node name="settings2" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_top = -8.0
 offset_right = 40.0
@@ -444,6 +470,8 @@ offset_top = 400.0
 offset_right = 450.52
 offset_bottom = 430.0
 theme = ExtResource("2_uryge")
+shortcut = SubResource("Shortcut_t7gsn")
+shortcut_in_tooltip = false
 text = "back"
 
 [node name="volumn_slider" type="HSlider" parent="settings2"]
@@ -560,6 +588,8 @@ offset_top = 400.0
 offset_right = 450.52
 offset_bottom = 430.0
 theme = ExtResource("2_uryge")
+shortcut = SubResource("Shortcut_gxxro")
+shortcut_in_tooltip = false
 text = "back"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="credits2"]

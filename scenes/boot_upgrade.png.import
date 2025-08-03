@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0jcgt0ir6u2m"
 path.s3tc="res://.godot/imported/boot_upgrade.png-03a1ded215ca14adc7f287b45f85e066.s3tc.ctex"
+path.etc2="res://.godot/imported/boot_upgrade.png-03a1ded215ca14adc7f287b45f85e066.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://scenes/boot_upgrade.png"
-dest_files=["res://.godot/imported/boot_upgrade.png-03a1ded215ca14adc7f287b45f85e066.s3tc.ctex"]
+dest_files=["res://.godot/imported/boot_upgrade.png-03a1ded215ca14adc7f287b45f85e066.s3tc.ctex", "res://.godot/imported/boot_upgrade.png-03a1ded215ca14adc7f287b45f85e066.etc2.ctex"]
 
 [params]
 

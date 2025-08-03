@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://x62nvs4w77qd"
 path.s3tc="res://.godot/imported/legs.png-d71af6748837893f8e04b7966d1cbdf1.s3tc.ctex"
+path.etc2="res://.godot/imported/legs.png-d71af6748837893f8e04b7966d1cbdf1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://enemies/legs.png"
-dest_files=["res://.godot/imported/legs.png-d71af6748837893f8e04b7966d1cbdf1.s3tc.ctex"]
+dest_files=["res://.godot/imported/legs.png-d71af6748837893f8e04b7966d1cbdf1.s3tc.ctex", "res://.godot/imported/legs.png-d71af6748837893f8e04b7966d1cbdf1.etc2.ctex"]
 
 [params]
 

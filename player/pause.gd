@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("esc") and can_un_pause):
 		unpause()
 func opened():
+	$contiue.grab_focus()
 	$menu/music.play(MapLoop.menu_music_time)
 
 

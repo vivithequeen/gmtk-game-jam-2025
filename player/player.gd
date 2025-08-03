@@ -64,6 +64,7 @@ func _physics_process(delta: float) -> void:
 		$Camera3D/dead.visible = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true;
+		$Camera3D/dead/again.grab_focus()
 
 
 	MapLoop.timer += delta

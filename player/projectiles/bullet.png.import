@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://l2ygleglbolx"
 path.s3tc="res://.godot/imported/bullet.png-3656109f7e8052a2d00eb8d197c3e86e.s3tc.ctex"
+path.etc2="res://.godot/imported/bullet.png-3656109f7e8052a2d00eb8d197c3e86e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://player/projectiles/bullet.png"
-dest_files=["res://.godot/imported/bullet.png-3656109f7e8052a2d00eb8d197c3e86e.s3tc.ctex"]
+dest_files=["res://.godot/imported/bullet.png-3656109f7e8052a2d00eb8d197c3e86e.s3tc.ctex", "res://.godot/imported/bullet.png-3656109f7e8052a2d00eb8d197c3e86e.etc2.ctex"]
 
 [params]
 

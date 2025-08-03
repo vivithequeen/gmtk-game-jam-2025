@@ -9,6 +9,7 @@ enum {
 	CREDITS
 }
 func _ready() -> void:
+	other_button.grab_focus()
 	$settings2/popups.button_pressed = Settings.popups 
 	$settings2/timer.button_pressed = Settings.timer_active 
 	$settings2/fullscreen.button_pressed = Settings.fullscreen   
@@ -20,6 +21,12 @@ func _ready() -> void:
 	
 
 var state = MAIN
+func _physics_process(_delta: float) -> void:
+	if(state == CONTROLS):
+		if(state == CONTROLS and Input.is_action_pressed("scroll_down")):
+			$controls/VScrollBar.scroll_vertical+=1;
+		if(Input.is_action_pressed("scroll_up")):
+			$controls/VScrollBar.scroll_vertical-=1;
 
 
 
@@ -36,11 +43,13 @@ func update():
 func _on_back_pressed() -> void:
 	$select.play()
 	state = MAIN
+	other_button.grab_focus()
 	update()
 
 
 
 func _on_settings_pressed() -> void:
+	$settings2/fullscreen.grab_focus()
 	state = SETTINGS
 	$select.play()
 	update()
@@ -48,6 +57,7 @@ func _on_settings_pressed() -> void:
 
 func _on_controls_2_pressed() -> void:
 	state = CONTROLS
+	$controls/back.grab_focus()
 	$select.play()
 	update()
 
@@ -74,6 +84,7 @@ func _on_timer_pressed() -> void:
 
 func _on_credits_pressed() -> void:
 	state = CREDITS
+	$credits2/back.grab_focus()
 	$select.play()
 	update()
 

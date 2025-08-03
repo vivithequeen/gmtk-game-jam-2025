@@ -217,6 +217,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_necax"]
 resource_name = "dash_pick_up"
+length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -224,7 +225,7 @@ tracks/0/path = NodePath("door_battle_23:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-60, 3, 7), Vector3(-60, -5, 7)]
@@ -236,7 +237,7 @@ tracks/1/path = NodePath("door_battle_22:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-60, -5, 18), Vector3(-60, 3, 18)]
@@ -1159,7 +1160,7 @@ shadow_enabled = true
 environment = SubResource("Environment_l3cfh")
 
 [node name="Player" parent="." instance=ExtResource("1_hyk8p")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.5, 2, -54.1343)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.5, 0)
 
 [node name="TBLoader" type="TBLoader" parent="."]
 map_resource = "res://levels/main_level.map"
@@ -1557,7 +1558,7 @@ texture_filter = 2
 texture = ExtResource("16_necax")
 
 [node name="double_jump_upgrade" parent="." instance=ExtResource("15_raeie")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60.25, -0.25, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -60.25, -0.25, 0)
 
 [node name="weapon_pickup" parent="." instance=ExtResource("16_hxu8e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.25, 4.5, 32.25)
