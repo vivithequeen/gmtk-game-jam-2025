@@ -46,7 +46,12 @@ func reset():
 	"health" : 0,
 	"dash_amount" : 0,
 	"grenade" :false,
-}
+	}
+	local_switch_pos = Vector3(0,1.5,0)
+	local_switch_rotation= Vector3(0,90,0); 
+	player_velocity = Vector3.ZERO
+	
+
 
 var menu_music_time := 0.0;
 var game_background_music_time := 0.0;

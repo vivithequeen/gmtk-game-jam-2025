@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://wv48gaq3vw2x"]
+[gd_scene load_steps=7 format=3 uid="uid://wv48gaq3vw2x"]
 
 [ext_resource type="Script" uid="uid://uugri0l5qcb4" path="res://player/pause.gd" id="1_183yv"]
 [ext_resource type="AudioStream" uid="uid://dbpud8a4tivxf" path="res://audio/select.wav" id="4_vrv3g"]
 [ext_resource type="PackedScene" uid="uid://di2dijgny2w4g" path="res://scenes/menu/menu.tscn" id="26_183yv"]
 [ext_resource type="Theme" uid="uid://b8qwb4sosxgg7" path="res://player/menu_theme.tres" id="26_ewoon"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_vrv3g"]
+device = -1
+keycode = 82
+unicode = 114
+
+[sub_resource type="Shortcut" id="Shortcut_ojxhw"]
+events = [SubResource("InputEventKey_vrv3g")]
 
 [node name="pause" type="Control"]
 process_mode = 3
@@ -45,5 +53,22 @@ one_shot = true
 stream = ExtResource("4_vrv3g")
 volume_db = -12.0
 
+[node name="restart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.137
+anchor_bottom = 0.15
+offset_left = 16.0
+offset_top = 384.0
+offset_right = 40.32
+offset_bottom = 348.0
+focus_neighbor_top = NodePath("../settings")
+focus_neighbor_bottom = NodePath("../controls2")
+theme = ExtResource("26_ewoon")
+shortcut = SubResource("Shortcut_ojxhw")
+shortcut_in_tooltip = false
+text = "restart"
+
 [connection signal="pressed" from="contiue" to="." method="_on_contiue_pressed"]
 [connection signal="timeout" from="can_un_pause_timer" to="." method="_on_can_un_pause_timeout"]
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]

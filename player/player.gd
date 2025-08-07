@@ -39,7 +39,9 @@ var current_gun = "pistol"
 
 func _ready() -> void:
 	update_mouse_mode()
-	
+	var tween = get_tree().create_tween()
+	tween.tween_property($Camera3D/black, "modulate:a",0, 1)
+
 	
 	if (!MapLoop.init_run):
 		velocity = MapLoop.player_velocity
@@ -60,6 +62,7 @@ func _ready() -> void:
 
 	update_weapons();
 func _physics_process(delta: float) -> void:
+	$Camera3D/ui/fps.text = "fps: " + str(Engine.get_frames_per_second())
 	if (health <= 0):
 		$Camera3D/dead.visible = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -74,14 +77,14 @@ func _physics_process(delta: float) -> void:
 	$Camera3D/SubViewportContainer/SubViewport/Camera3D.global_rotation = global_rotation
 	# Add the gravity.
 	#headbob(delta);
-	var current_fov = 90;
+	var current_fov = Settings.settings["fov"];
 
 	
 	var look_dir = Input.get_vector("look_left", "look_right", "look_up", "look_down")
 
 	if (look_dir):
-		rotation.y -= look_dir.x * controller_look_sense * ((Settings.look_sense + 50) / 100.0)
-		camera.rotation.x -= look_dir.y * controller_look_sense * ((Settings.look_sense + 50) / 100.0)
+		rotation.y -= look_dir.x * controller_look_sense * (Settings.settings["look_sense"] / 100.0)
+		camera.rotation.x -= look_dir.y * controller_look_sense * ((Settings.settings["look_sense"] + 50) / 100.0)
 		camera.rotation.x = clamp(camera.rotation.x, -PI / 2, PI / 2);
 
 	change_weapons()
@@ -175,7 +178,7 @@ func ui_shit():
 	$Camera3D/ui/timer/minutes.text = ("0" if int(MapLoop.timer / 60) < 10 else "") + str(int(MapLoop.timer / 60))
 	$Camera3D/ui/timer/seconds.text = ("0" if int(int(MapLoop.timer) % 60) < 10 else "") + str(int(int(MapLoop.timer) % 60))
 	$Camera3D/ui/timer/miliseconds.text = ("0" if (int(int(MapLoop.timer * 60) % 60)) < 10 else "") + str(int(int(MapLoop.timer * 60) % 60))
-	$Camera3D/ui/timer.visible = Settings.timer_active
+	$Camera3D/ui/timer.visible = Settings.settings["timer_active"]
 	var tween = get_tree().create_tween()
 	tween.tween_property($Camera3D/ui/health, "value", health, 0.1)
 	tween.set_parallel()
@@ -201,8 +204,8 @@ func _input(event: InputEvent) -> void:
 		$Camera3D/pause.opened()
 
 	if event is InputEventMouseMotion:
-		rotation.y += (-event.relative.x * LOOK_SENSE * ((Settings.look_sense + 50) / 100.0));
-		camera.rotation.x += (-event.relative.y * LOOK_SENSE * ((Settings.look_sense + 50) / 100.0))
+		rotation.y += (-event.relative.x * LOOK_SENSE * ((Settings.settings["look_sense"] + 50) / 100.0));
+		camera.rotation.x += (-event.relative.y * LOOK_SENSE * ((Settings.settings["look_sense"] + 50) / 100.0))
 		camera.rotation.x = clamp(camera.rotation.x, -PI / 2, PI / 2);
 		
 
@@ -218,6 +221,10 @@ func juice(delta, input_dir, current_fov):
 	tween.tween_property(camera, "rotation:z", ((deg_to_rad(-3) * input_dir.x) if input_dir else 0), 0.2)
 	tween.set_parallel()
 	tween.tween_property(camera, "fov", current_fov, 0.2)
+	tween.set_parallel()
+	tween.tween_property(get_node("Camera3D/SubViewportContainer/SubViewport/Camera3D"), "rotation:z", ((deg_to_rad(-3) * input_dir.x) if input_dir else 0), 0.2)
+	tween.set_parallel()
+	tween.tween_property(get_node("Camera3D/SubViewportContainer/SubViewport/Camera3D"), "fov", current_fov, 0.2)
 
 
 func vec3tovec2(vec3: Vector3) -> Vector2:

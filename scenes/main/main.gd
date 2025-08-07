@@ -354,11 +354,11 @@ func _on_bomb_pickup_body_entered(body:Node3D) -> void:
 func battle_start():
 	var tween = get_tree().create_tween()
 	$battle_music.play(MapLoop.game_battle_music_time)
-	$battle_music.volume_db = Settings.volumn_db - 40
-	tween.tween_property($background_music,"volume_db",Settings.volumn_db-40,1)
+	$battle_music.volume_db = Settings.settings["music_db"] - 40
+	tween.tween_property($background_music,"volume_db",Settings.settings["music_db"]-40,1)
 	tween.parallel()
 	
-	tween.tween_property($battle_music,"volume_db",Settings.volumn_db,1)
+	tween.tween_property($battle_music,"volume_db",Settings.settings["music_db"],1)
 	MapLoop.game_background_music_time = $background_music.get_playback_position()
 	
 	$background_music.stop()
@@ -368,11 +368,11 @@ func battle_start():
 func battle_end():
 	var tween = get_tree().create_tween()
 	$background_music.play(MapLoop.game_battle_music_time)
-	$background_music.volume_db = Settings.volumn_db - 40
-	tween.tween_property($battle_music,"volume_db",Settings.volumn_db-40,0.25)
+	$background_music.volume_db = Settings.settings["music_db"] - 40
+	tween.tween_property($battle_music,"volume_db",Settings.settings["music_db"]-40,0.25)
 	tween.parallel()
 	
-	tween.tween_property($background_music,"volume_db",Settings.volumn_db,0.25)
+	tween.tween_property($background_music,"volume_db",Settings.settings["music_db"],0.25)
 	MapLoop.game_battle_music_time = $battle_music.get_playback_position()
 	$battle_music.stop()
 	$background_music.play(MapLoop.game_background_music_time)

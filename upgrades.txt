@@ -50,3 +50,20 @@ PAINT ENEMY <-- PRIORITY DONE
 credits
 
 ICON
+
+
+UPDATE V1.1
+
+fov
+more audio sliders
+diffrent sections of settings
+diffaculty settings
+more game feel maybe
+bug fixes
+
+fade into/out of scene
+
+
+bake lights
+intro scene
+map changes? make it look better

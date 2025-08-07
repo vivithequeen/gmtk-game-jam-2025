@@ -10,9 +10,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$restart.visible = $menu.state == $menu.MAIN
 	if(Input.is_action_just_pressed("esc") and can_un_pause):
 		unpause()
 func opened():
+	$menu.state = $menu.MAIN
 	$contiue.grab_focus()
 	$menu/music.play(MapLoop.menu_music_time)
 
@@ -32,3 +34,9 @@ func unpause():
 
 func _on_can_un_pause_timeout() -> void:
 	can_un_pause = true
+
+
+
+func _on_restart_pressed():
+	MapLoop.reset()
+	get_tree().reload_current_scene()
