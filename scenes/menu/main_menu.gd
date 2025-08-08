@@ -4,15 +4,17 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$menu/music.play()
-	
+
 	var tween = get_tree().create_tween()
 	tween.tween_property($black, "modulate:a",0, 1)
-	
+	get_tree().call_group("audio", "update")
 	$SubViewportContainer/SubViewport/main_menu_background/WorldEnvironment.environment.sky_rotation.z = deg_to_rad(randf_range(0, 360))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	$SubViewportContainer/SubViewport/main_menu_background/Node3D/BadShip.rotation.y+=delta/25
+	#$SubViewportContainer/SubViewport/main_menu_background/Node3D.rotation.z+=delta/25
 	$SubViewportContainer/SubViewport/main_menu_background/WorldEnvironment.environment.sky_rotation.z += delta / 80.0
 
 

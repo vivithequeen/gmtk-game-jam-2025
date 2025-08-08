@@ -8,3 +8,6 @@ func _ready() -> void:
 
 func update():
 	volume_db = Settings.settings["master_db"]
+
+func get_db():
+	return Settings.settings["master_db"]

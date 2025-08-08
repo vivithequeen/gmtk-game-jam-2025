@@ -10,9 +10,12 @@ var e2 = preload("res://enemies/enemy2.tscn")
 
 @onready var popup = preload("res://player/popup.tscn")
 func _ready() -> void:
+	
 	$background_music.play(MapLoop.game_background_music_time)
-	randomize()
 	get_tree().call_group("audio", "update")
+
+	randomize()
+	
 	$double_jump_upgrade/Sprite3D.visible = !MapLoop.player_data["double_jump"]
 	$get_dash/Sprite3D.visible = !MapLoop.player_data["dash"]
 	$WorldEnvironment.environment.sky_rotation.z = deg_to_rad(randf_range(0, 360))
@@ -171,6 +174,7 @@ func room_5_enemy_died():
 	room_5_enemy_count -= 1;
 
 func start_battle_5():
+	$BadShip.visible = true
 	var enemy1 = e2.instantiate();
 	enemy1.start_pos = $battle5/enemy1.global_position
 	enemy1.player = $Player
@@ -272,7 +276,7 @@ func _on_double_jump_upgrade_body_entered(body: Node3D) -> void:
 			MapLoop.player_data["double_jump"] = true;
 			
 			$double_jump_upgrade/Sprite3D.visible = !MapLoop.player_data["double_jump"]
-			if(Settings.popups):
+			if(Settings.settings["popups"]):
 				
 				var p = popup.instantiate()
 				p.title = "double jump!!";
@@ -297,7 +301,7 @@ func _on_get_dash_body_entered(body: Node3D) -> void:
 
 			get_dash_activated = true;
 			if(!MapLoop.player_data["dash"]):
-				if(Settings.popups):
+				if(Settings.settings["popups"]):
 
 					var p = popup.instantiate()
 					p.title = "dash!!";
@@ -324,6 +328,9 @@ func _on_end_check_body_entered(body:Node3D) -> void:
 	if body.get("id"):
 		if body.get("id") == "player" and MapLoop.end:
 			MapLoop.end_pull = $end.global_position
+			$"TBLoader/Default Layer/entity_0_geometry".visible = false;
+			$"TBLoader/tunnel/entity_1_geometry".visible = false;
+			$"TBLoader/realtunnel/entity_2_geometry".visible = false;
 
 
 
@@ -338,7 +345,7 @@ func _on_end_final_body_entered(body:Node3D) -> void:
 func _on_bomb_pickup_body_entered(body:Node3D) -> void:
 	if body.get("id"):
 		if body.get("id") == "player" and !MapLoop.player_data["grenade"]:
-			if(Settings.popups):
+			if(Settings.settings["popups"]):
 
 				var p = popup.instantiate()
 				p.title = "bomb!!";
@@ -352,27 +359,27 @@ func _on_bomb_pickup_body_entered(body:Node3D) -> void:
 
 
 func battle_start():
-	var tween = get_tree().create_tween()
+	#var tween = get_tree().create_tween()
+	
 	$battle_music.play(MapLoop.game_battle_music_time)
-	$battle_music.volume_db = Settings.settings["music_db"] - 40
-	tween.tween_property($background_music,"volume_db",Settings.settings["music_db"]-40,1)
-	tween.parallel()
+	#$battle_music.volume_db = Settings.settings["music_db"] - 40
+	#tween.tween_property($background_music,"volume_db",Settings.settings["music_db"]-40,1)
+	#tween.parallel()
 	
-	tween.tween_property($battle_music,"volume_db",Settings.settings["music_db"],1)
+	#tween.tween_property($battle_music,"volume_db",Settings.settings["music_db"],1)
+	
 	MapLoop.game_background_music_time = $background_music.get_playback_position()
-	
 	$background_music.stop()
 	
 
 
 func battle_end():
-	var tween = get_tree().create_tween()
-	$background_music.play(MapLoop.game_battle_music_time)
-	$background_music.volume_db = Settings.settings["music_db"] - 40
-	tween.tween_property($battle_music,"volume_db",Settings.settings["music_db"]-40,0.25)
-	tween.parallel()
-	
-	tween.tween_property($background_music,"volume_db",Settings.settings["music_db"],0.25)
+	#var tween = get_tree().create_tween()
+	#$background_music.volume_db = Settings.settings["music_db"] - 40
+	#tween.tween_property($battle_music,"volume_db",Settings.settings["music_db"]-40,0.25)
+	#tween.parallel()
+	#
+	#tween.tween_property($background_music,"volume_db",Settings.settings["music_db"],0.25)
 	MapLoop.game_battle_music_time = $battle_music.get_playback_position()
 	$battle_music.stop()
 	$background_music.play(MapLoop.game_background_music_time)

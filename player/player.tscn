@@ -41,16 +41,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 cull_mask = 1047554
 fov = 120.0
 
-[node name="smg" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D" instance=ExtResource("2_g1dw6")]
+[node name="guns" type="Node3D" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.395058, -0.291096, 0)
 
-[node name="shotgun" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D" instance=ExtResource("3_g6k8r")]
+[node name="smg" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D/guns" instance=ExtResource("2_g1dw6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.395058, 0.291096, 0)
 
-[node name="pistol" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D" instance=ExtResource("4_boad6")]
+[node name="shotgun" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D/guns" instance=ExtResource("3_g6k8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.345058, 0.291096, 0)
 
-[node name="rifle" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D" instance=ExtResource("5_rgyib")]
+[node name="pistol" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D/guns" instance=ExtResource("4_boad6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.395058, 0.291096, 0)
+
+[node name="rifle" parent="Camera3D/SubViewportContainer/SubViewport/Camera3D/guns" instance=ExtResource("5_rgyib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.395058, 0.291096, 0)
 
 [node name="bullet_spawn" type="Node3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45141, -0.318885, -1.66735)
+
+[node name="black" type="ColorRect" parent="Camera3D"]
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0.0509804, 0.168627, 0.270588, 1)
 
 [node name="ui" parent="Camera3D" instance=ExtResource("3_g1dw6")]
 
@@ -59,11 +71,6 @@ player = NodePath("../..")
 
 [node name="dead" parent="Camera3D" instance=ExtResource("8_8t03j")]
 visible = false
-
-[node name="black" type="ColorRect" parent="Camera3D"]
-offset_right = 640.0
-offset_bottom = 480.0
-color = Color(0.0509804, 0.168627, 0.270588, 1)
 
 [node name="crouchcast" type="RayCast3D" parent="."]
 target_position = Vector3(0, 1, 0)

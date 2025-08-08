@@ -1,6 +1,6 @@
 extends Node3D
 
-const SPEED := 0.1;
+const SPEED := 0.01;
 var start
 var direction : Vector3
 

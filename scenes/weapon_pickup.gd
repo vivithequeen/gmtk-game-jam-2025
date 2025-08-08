@@ -24,7 +24,7 @@ func _on_body_entered(body:Node3D) -> void:
 			get_node("Node3D/3").visible = false
 			get_node("Node3D/4").visible = false
 			MapLoop.player_data["weapon" + str(weapon)] = true;
-			if(Settings.popups):
+			if(Settings.settings["popups"]):
 				
 				var p = popup.instantiate()
 				p.title = "" + weapons[weapon - 2] + "!!!";

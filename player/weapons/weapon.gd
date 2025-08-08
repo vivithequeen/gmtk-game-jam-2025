@@ -39,9 +39,9 @@ func _physics_process(delta: float) -> void:
 					var b := bullet_type.instantiate();
 					b.accuracy = accuracy;
 					b.damage = damage;
-					b.spawn_rot = get_node("../../../../").global_rotation;
-					b.spawn_pos = get_node("../../../../bullet_spawn").global_position;
-					get_node("../../../../../../").add_child(b)
+					b.spawn_rot = get_node("../../../../../").global_rotation;
+					b.spawn_pos = get_node("../../../../../bullet_spawn").global_position;
+					get_node("../../../../../../../").add_child(b)
 		else:
 			if(!is_reloading):
 				reload()

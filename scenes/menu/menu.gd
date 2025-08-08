@@ -14,7 +14,7 @@ func _ready() -> void:
 	Settings.load_game()
 	other_button.grab_focus()
 	update_ui()
-	get_tree().call_group("audio", "update")
+	
 
 	update()
 
