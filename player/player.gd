@@ -10,7 +10,7 @@ var controller_look_sense = 0.07;
 @onready var camera = $Camera3D
 
 var health = 100;
-var id = "player"
+var is_player :=true
 #WEAPONS
 
 
