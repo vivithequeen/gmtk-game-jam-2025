@@ -1,11 +1,15 @@
 extends CharacterBody3D
 
+
+
 @export var movement_speed: float = 12.0
-@export var battle: int = 1;
 @export var player: CharacterBody3D
 @onready var navigation_agent: NavigationAgent3D = get_node("NavigationAgent3D")
-var bullet_type := preload("res://enemies/projectiles/enemy_bullet.tscn");
 @export var health := 80;
+
+var battle_starter ; 
+var bullet_type := preload("res://enemies/projectiles/enemy_bullet.tscn");
+
 var physics_delta: float
 
 var attack_amounts = 0;
@@ -77,13 +81,11 @@ func _on_attack_offset_timeout() -> void:
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	print(area.get("is_bullet"));
 	if area.get("is_bullet"):
 		health -= area.damage;
-		print(health)
 		$hit.play();
 
 func die():
-	get_parent().call("room_"+str(battle)+"_enemy_died");
-	get_parent().call("check_room_"+str(battle));
+	battle_starter.enemies_left -=1;
+	battle_starter.check_battle()
 	queue_free()

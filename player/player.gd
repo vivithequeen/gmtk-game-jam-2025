@@ -45,10 +45,10 @@ func _ready() -> void:
 		$Camera3D/black.visible = false
 		velocity = MapLoop.player_velocity
 		current_gun = MapLoop.player_data["current_gun"]
-		$Camera3D/SubViewportContainer/SubViewport/Camera3D/pistol.ammo = MapLoop.player_data["weapon1_bullets"]
-		$Camera3D/SubViewportContainer/SubViewport/Camera3D/shotgun.ammo = MapLoop.player_data["weapon2_bullets"]
-		$Camera3D/SubViewportContainer/SubViewport/Camera3D/smg.ammo = MapLoop.player_data["weapon3_bullets"]
-		$Camera3D/SubViewportContainer/SubViewport/Camera3D/rifle.ammo = MapLoop.player_data["weapon4_bullets"]
+		$Camera3D/SubViewportContainer/SubViewport/Camera3D/guns/pistol.ammo = MapLoop.player_data["weapon1_bullets"]
+		$Camera3D/SubViewportContainer/SubViewport/Camera3D/guns/shotgun.ammo = MapLoop.player_data["weapon2_bullets"]
+		$Camera3D/SubViewportContainer/SubViewport/Camera3D/guns/smg.ammo = MapLoop.player_data["weapon3_bullets"]
+		$Camera3D/SubViewportContainer/SubViewport/Camera3D/guns/rifle.ammo = MapLoop.player_data["weapon4_bullets"]
 		health = MapLoop.player_data["heatlh"]
 		dash_amount = MapLoop.player_data["dash_amount"]
 		global_position = MapLoop.local_switch_pos
@@ -224,7 +224,7 @@ func juice(delta, input_dir, current_fov):
 	var tween = get_tree().create_tween()
 	tween.tween_property(camera, "rotation:z", ((deg_to_rad(-4.5) * input_dir.x) if input_dir else 0), 0.2)
 	tween.set_parallel()
-	tween.tween_property(get_node("Camera3D/SubViewportContainer/SubViewport/Camera3D/guns"), "rotation:z", ((deg_to_rad(-4.5) * input_dir.x) if input_dir else 0), 0.2)
+	tween.tween_property(get_node("Camera3D/SubViewportContainer/SubViewport/Camera3D/guns"), "rotation:z", ((deg_to_rad(-9) * input_dir.x) if input_dir else 0), 0.2)
 	tween.set_parallel()
 	tween.tween_property(camera, "fov", current_fov, 0.2)
 	tween.set_parallel()

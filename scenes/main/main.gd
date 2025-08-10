@@ -2,13 +2,10 @@ extends Node3D
 
 var e1 = preload("res://enemies/enemy1.tscn")
 var e2 = preload("res://enemies/enemy2.tscn")
-@export var room_1_enemy_count: int = 3;
-@export var room_2_enemy_count: int = 3;
-@export var room_3_enemy_count: int = 3;
-@export var room_4_enemy_count: int = 4;
-@export var room_5_enemy_count: int = 8;
+var popup = preload("res://player/popup.tscn")
 
-@onready var popup = preload("res://player/popup.tscn")
+@export var player : CharacterBody3D
+
 func _ready() -> void:
 	
 	$background_music.play(MapLoop.game_background_music_time)
@@ -23,230 +20,60 @@ func _ready() -> void:
 func _process(delta):
 	$WorldEnvironment.environment.sky_rotation.z += delta / 80.0
 
+#
+#func check_room_1():
+#	if (room_1_enemy_count > 0):
+#		return ;
+#	$battles.play("end_battle_1")
+#	MapLoop.battle_active = false
+#	battle_end()
 
-func check_room_1():
-	if (room_1_enemy_count > 0):
-		return ;
-	$battles.play("end_battle_1")
-	MapLoop.battle_active = false
-	battle_end()
-
-func room_1_enemy_died():
-	room_1_enemy_count -= 1;
-
-func start_battle_1():
-	var enemy1 = e2.instantiate();
-	enemy1.start_pos = $battle1/enemy1.global_position
-	enemy1.player = $Player
-	enemy1.battle = 1;
-	add_child(enemy1)
-	
-
-	var enemy2 = e1.instantiate();
-	enemy2.start_pos = $battle1/enemy2.global_position
-	enemy2.player = $Player
-	enemy2.battle = 1;
-	add_child(enemy2)
-
-	var enemy3 = e1.instantiate();
-	enemy3.start_pos = $battle1/enemy3.global_position
-	enemy3.player = $Player
-	enemy3.battle = 1;
-	add_child(enemy3)
-	MapLoop.battle_active = true
-	battle_start()
-	$battles.play("start_battle_1")
+#func room_1_enemy_died():
+#	room_1_enemy_count -= 1;
+#
+#func start_battle_1():
+#	var enemy1 = e2.instantiate();
+#	enemy1.start_pos = $battle1/enemy1.global_position
+#	enemy1.player = $Player
+#	enemy1.battle = 1;
+#	add_child(enemy1)
+#	
+#
+#	var enemy2 = e1.instantiate();
+#	enemy2.start_pos = $battle1/enemy2.global_position
+#	enemy2.player = $Player
+#	enemy2.battle = 1;
+#	add_child(enemy2)
+#
+#	var enemy3 = e1.instantiate();
+#	enemy3.start_pos = $battle1/enemy3.global_position
+#	enemy3.player = $Player
+#	enemy3.battle = 1;
+#	add_child(enemy3)
+#	MapLoop.battle_active = true
+#	battle_start()
+#	$battles.play("start_battle_1")
 
 
-func check_room_2():
-	if (room_2_enemy_count > 0):
-		return ;
-	$battles.play("end_battle_2")
-	MapLoop.battle_active = false
-	battle_end()
 
-func room_2_enemy_died():
-	room_2_enemy_count -= 1;
-
-func start_battle_2():
-	var enemy1 = e2.instantiate();
-	enemy1.start_pos = $battle1/enemy1.global_position
-	enemy1.player = $Player
-	enemy1.battle = 2;
-	add_child(enemy1)
-	
-
-	var enemy2 = e2.instantiate();
-	enemy2.start_pos = $battle2/enemy2.global_position
-	enemy2.player = $Player
-	enemy2.battle = 2;
-	add_child(enemy2)
-
-	var enemy3 = e2.instantiate();
-	enemy3.start_pos = $battle2/enemy3.global_position
-	enemy3.player = $Player
-	enemy3.battle =2;
-	add_child(enemy3)
-	MapLoop.battle_active = true
-	battle_start()
-	$battles.play("start_battle_2")
-
-func check_room_3():
-	if (room_3_enemy_count > 0):
-		return ;
-	$battles.play("end_battle_3")
-	MapLoop.battle_active = false
-	battle_end()
-
-func room_3_enemy_died():
-	room_3_enemy_count -= 1;
-
-func start_battle_3():
-	var enemy1 = e1.instantiate();
-	enemy1.start_pos = $battle3/enemy1.global_position
-	enemy1.player = $Player
-	enemy1.battle = 3;
-	add_child(enemy1)
-	
-
-	var enemy2 = e1.instantiate();
-	enemy2.start_pos = $battle3/enemy2.global_position
-	enemy2.player = $Player
-	enemy2.battle = 3;
-	add_child(enemy2)
-
-	var enemy3 = e1.instantiate();
-	enemy3.start_pos = $battle3/enemy3.global_position
-	enemy3.player = $Player
-	enemy3.battle =3;
-	add_child(enemy3)
-	battle_start()
-	$battles.play("start_battle_3")
-	MapLoop.battle_active = true
-
-func check_room_4():
-	if (room_4_enemy_count > 0):
-		return ;
-	$battles.play("end_battle_4")
-	MapLoop.battle_active = false
-	battle_end()
-
-func room_4_enemy_died():
-	room_4_enemy_count -= 1;
-
-func start_battle_4():
-	var enemy1 = e2.instantiate();
-	enemy1.start_pos = $battle4/enemy1.global_position
-	enemy1.player = $Player
-	enemy1.battle = 4;
-	add_child(enemy1)
-	
-
-	var enemy2 = e2.instantiate();
-	enemy2.start_pos = $battle4/enemy2.global_position
-	enemy2.player = $Player
-	enemy2.battle = 4;
-	add_child(enemy2)
-
-	var enemy3 = e1.instantiate();
-	enemy3.start_pos = $battle4/enemy3.global_position
-	enemy3.player = $Player
-	enemy3.battle =4;
-	add_child(enemy3)
-
-	var enemy4 = e1.instantiate();
-	enemy4.start_pos = $battle4/enemy4.global_position
-	enemy4.player = $Player
-	enemy4.battle = 4;
-	add_child(enemy4)
-	$battles.play("start_battle_4")
-	battle_start()
-	MapLoop.battle_active = true
-
-func check_room_5():
-	if (room_5_enemy_count > 0):
-		return ;
-	$battles.play("end_battle_5")
-	MapLoop.battle_active = false
-	battle_end()
-
-func room_5_enemy_died():
-	room_5_enemy_count -= 1;
-
-func start_battle_5():
-	$BadShip.visible = true
-	var enemy1 = e2.instantiate();
-	enemy1.start_pos = $battle5/enemy1.global_position
-	enemy1.player = $Player
-	enemy1.battle = 5;
-	add_child(enemy1)
-	
-
-	var enemy2 = e2.instantiate();
-	enemy2.start_pos = $battle5/enemy2.global_position
-	enemy2.player = $Player
-	enemy2.battle = 5;
-	add_child(enemy2)
-
-	var enemy3 = e1.instantiate();
-	enemy3.start_pos = $battle5/enemy3.global_position
-	enemy3.player = $Player
-	enemy3.battle =5;
-	add_child(enemy3)
-
-	var enemy4 = e1.instantiate();
-	enemy4.start_pos = $battle5/enemy4.global_position
-	enemy4.player = $Player
-	enemy4.battle = 5;
-	add_child(enemy4)
-	
-	var enemy5 = e2.instantiate();
-	enemy5.start_pos = $battle5/enemy5.global_position
-	enemy5.player = $Player
-	enemy5.battle = 5;
-	add_child(enemy5)
-	
-
-	var enemy6 = e2.instantiate();
-	enemy6.start_pos = $battle5/enemy6.global_position
-	enemy6.player = $Player
-	enemy6.battle = 5;
-	add_child(enemy6)
-
-	var enemy7 = e1.instantiate();
-	enemy7.start_pos = $battle5/enemy7.global_position
-	enemy7.player = $Player
-	enemy7.battle =5;
-	add_child(enemy7)
-
-	var enemy8 = e1.instantiate();
-	enemy8.start_pos = $battle5/enemy8.global_position
-	enemy8.player = $Player
-	enemy8.battle = 5;
-	add_child(enemy8)
-	$battles.play("start_battle_5")
-	battle_start()
-	MapLoop.battle_active = true
-	
 var area_switch_1_activated = false;
 var area_switch_2_activated = false;
 
 func _on_area_switch_2_body_entered(body: Node3D) -> void:
-	if !area_switch_1_activated and body.get("id"):
-		if body.get("id") == "player":
-			area_switch_1_activated = true;
-			MapLoop.game_background_music_time = $background_music.get_playback_position()
-			MapLoop.player_data["heatlh"] = $Player.health
-			MapLoop.player_data["dash_amount"] = $Player.dash_amount
-			MapLoop.player_velocity = $Player.velocity
-			MapLoop.player_data["current_gun"] = $Player.current_gun
-			MapLoop.player_data["weapon1_bullets"] = $Player/Camera3D/SubViewportContainer/SubViewport/Camera3D/pistol.ammo
-			MapLoop.player_data["weapon2_bullets"] = $Player/Camera3D/SubViewportContainer/SubViewport/Camera3D/shotgun.ammo
-			MapLoop.player_data["weapon3_bullets"] = $Player/Camera3D/SubViewportContainer/SubViewport/Camera3D/smg.ammo
-			MapLoop.player_data["weapon4_bullets"] = $Player/Camera3D/SubViewportContainer/SubViewport/Camera3D/rifle.ammo
-			MapLoop.local_switch_pos = $Player.global_position - ($end_ancor.global_position - $start_ancor.global_position)
-			MapLoop.local_switch_rotation = $Player.rotation + $Player/Camera3D.rotation
-			get_tree().reload_current_scene()
+	if !area_switch_1_activated and body.get("is_player"):
+		area_switch_1_activated = true;
+		MapLoop.game_background_music_time = $background_music.get_playback_position()
+		MapLoop.player_data["heatlh"] = $Player.health
+		MapLoop.player_data["dash_amount"] = $Player.dash_amount
+		MapLoop.player_velocity = $Player.velocity
+		MapLoop.player_data["current_gun"] = $Player.current_gun
+		MapLoop.player_data["weapon1_bullets"] = $Player/Camera3D/SubViewportContainer/SubViewport/Camera3D/guns/pistol.ammo
+		MapLoop.player_data["weapon2_bullets"] = $Player/Camera3D/SubViewportContainer/SubViewport/Camera3D/guns/shotgun.ammo
+		MapLoop.player_data["weapon3_bullets"] = $Player/Camera3D/SubViewportContainer/SubViewport/Camera3D/guns/smg.ammo
+		MapLoop.player_data["weapon4_bullets"] = $Player/Camera3D/SubViewportContainer/SubViewport/Camera3D/guns/rifle.ammo
+		MapLoop.local_switch_pos = $Player.global_position - ($level/end_ancor.global_position - $level/start_ancor.global_position)
+		MapLoop.local_switch_rotation = $Player.rotation + $Player/Camera3D.rotation
+		get_tree().reload_current_scene()
 
 
 func _on_area_switch_1_body_entered(body: Node3D) -> void:

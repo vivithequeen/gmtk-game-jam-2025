@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://la2bltawa6f"]
+
+[ext_resource type="Script" uid="uid://b3e2sqe76dgjg" path="res://scenes/player_upgreades.gd" id="1_dk5io"]
+[ext_resource type="Texture2D" uid="uid://dxhagge64j3xe" path="res://player/projectiles/bomb.png" id="2_nlvq6"]
+[ext_resource type="Texture2D" uid="uid://b0jcgt0ir6u2m" path="res://scenes/boot_upgrade.png" id="3_ptmq6"]
+[ext_resource type="Texture2D" uid="uid://bfs0vras17fpf" path="res://scenes/dash.png" id="4_jj1li"]
+[ext_resource type="AudioStream" uid="uid://bjksqmdhybd" path="res://audio/weapon.wav" id="5_jrdqm"]
+[ext_resource type="Script" uid="uid://b8ylxe3usveuk" path="res://audio/audio3d.gd" id="6_smk2j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7x1s"]
+size = Vector3(7, 7, 7)
+
+[node name="PlayerUpgreades" type="Area3D"]
+script = ExtResource("1_dk5io")
+popup_message = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_f7x1s")
+
+[node name="bomb" type="Sprite3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+billboard = 2
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("2_nlvq6")
+
+[node name="boots" type="Sprite3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+billboard = 2
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("3_ptmq6")
+
+[node name="dash" type="Sprite3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+billboard = 2
+alpha_cut = 2
+texture_filter = 2
+texture = ExtResource("4_jj1li")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_jrdqm")
+script = ExtResource("6_smk2j")

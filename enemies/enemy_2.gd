@@ -1,11 +1,12 @@
 extends CharacterBody3D
 
-@export var battle: int = 1;
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 @export var player: CharacterBody3D
 var rot_num = 0;
 @export var health := 80;
+var battle_starter ; 
 
 var bullet_type := preload("res://enemies/projectiles/enemy_bullet.tscn");
 var attack_timer = 0;
@@ -39,8 +40,8 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		$hit.play();
 
 func die():
-	get_parent().call("room_"+str(battle)+"_enemy_died");
-	get_parent().call("check_room_"+str(battle));
+	battle_starter.enemies_left -=1;
+	battle_starter.check_battle()
 	queue_free()
 
 func attack():
