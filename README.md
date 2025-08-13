@@ -19,3 +19,5 @@ A MOVEMENT FPS WHERE YOU MUST ESCAPE A INFINITELY LOOPING SPACE SHUTTLE
 ## GMTK
 Made for the GMTK gam jam!!!!
 <br>https://www.youtube.com/watch?v=z_kAvHKPWYo
+<br>
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
